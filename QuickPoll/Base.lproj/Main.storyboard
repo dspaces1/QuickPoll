@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mm1-9K-ih6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--My Post-->
@@ -53,6 +54,17 @@
                     <view key="view" contentMode="scaleToFill" id="6W9-ib-OXc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8M-KL-eM4">
+                                <rect key="frame" x="71" y="140" width="96" height="30"/>
+                                <state key="normal" title="Segue to vote">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="JJc-IC-NZM" kind="show" id="zFP-KQ-KBv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Poll Feed" id="Eue-3K-0I6"/>
@@ -60,6 +72,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3I-oy-nRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1274" y="44"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="eNi-Dj-6Th">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="JJc-IC-NZM" customClass="VoteViewController" customModule="QuickPoll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WK7-Ae-SpK"/>
+                        <viewControllerLayoutGuide type="bottom" id="c4Z-00-Zan"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jeg-GG-tsU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-uu-p5o">
+                                <rect key="frame" x="16" y="110" width="568" height="91"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="d3D-X6-3XS"/>
+                                </constraints>
+                                <string key="text">Him replenish evening night man kind firmament subdue sea there greater he make. There over i, him in image, sixth beast fruitful firmament itself. Our sixth. Given a. Creepeth is.It creature abundantly herb over them. Meat, void man night lesser seasons fourth form, seasons gathering. </string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the title of the following poll " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVv-H4-A32">
+                                <rect key="frame" x="16" y="80" width="568" height="22.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
+                                <rect key="frame" x="0.0" y="221.5" width="600" height="238.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="52" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ydj-4M-vh1" id="Geu-G3-yfQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-zj-tLl">
+                                                    <rect key="frame" x="14" y="8" width="44" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="8wd-Wv-bs3"/>
+                                                        <constraint firstAttribute="height" constant="38" id="yDZ-qO-zzA"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="4" maxY="6"/>
+                                                    <state key="normal" image="Check Box.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="Check In Box.png"/>
+                                                    <connections>
+                                                        <action selector="selectOptionTapped:" destination="Ydj-4M-vh1" eventType="touchUpInside" id="86Q-Zz-dJ0"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
+                                                    <rect key="frame" x="61" y="0.0" width="539" height="51.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6NW-dK-c0W" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="top" id="0OL-2O-Gfb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="NlP-zj-tLl" secondAttribute="bottom" constant="-2.5" id="9ha-Vr-uUy"/>
+                                                <constraint firstItem="NlP-zj-tLl" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" constant="6" id="b3s-bv-WGH"/>
+                                                <constraint firstItem="NlP-zj-tLl" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="fMX-z3-hUb"/>
+                                                <constraint firstAttribute="trailing" secondItem="6NW-dK-c0W" secondAttribute="trailing" id="fje-gE-92P"/>
+                                                <constraint firstAttribute="bottom" secondItem="6NW-dK-c0W" secondAttribute="bottom" id="nWC-8l-wEC"/>
+                                                <constraint firstItem="6NW-dK-c0W" firstAttribute="leading" secondItem="NlP-zj-tLl" secondAttribute="trailing" constant="3" id="xOF-VR-aP2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JJc-IC-NZM" id="sVC-r8-6lm"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-7j-RHz">
+                                <rect key="frame" x="16" y="483" width="568" height="33"/>
+                                <color key="backgroundColor" red="0.32156862745098036" green="0.75686274509803919" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Vote">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="uqE-7j-RHz" secondAttribute="centerX" id="1T3-tm-ZGr"/>
+                            <constraint firstItem="zVv-H4-A32" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="1Yz-7g-Lp2"/>
+                            <constraint firstItem="VoT-uu-p5o" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="4Cz-AO-SFm"/>
+                            <constraint firstItem="zVv-H4-A32" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="Kag-nK-D8Z"/>
+                            <constraint firstItem="VoT-uu-p5o" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="LSK-vz-nW1"/>
+                            <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="THM-eA-znH"/>
+                            <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="TrP-WM-VU3"/>
+                            <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="23" id="XBO-YK-VKQ"/>
+                            <constraint firstItem="uqE-7j-RHz" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="cCN-BS-ENO"/>
+                            <constraint firstItem="Txr-zt-bM1" firstAttribute="top" secondItem="VoT-uu-p5o" secondAttribute="bottom" constant="20" id="en6-cH-ETa"/>
+                            <constraint firstItem="c4Z-00-Zan" firstAttribute="top" secondItem="uqE-7j-RHz" secondAttribute="bottom" constant="35" id="hBt-83-uDw"/>
+                            <constraint firstItem="Txr-zt-bM1" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leading" id="hU3-nK-V3p"/>
+                            <constraint firstItem="VoT-uu-p5o" firstAttribute="top" secondItem="zVv-H4-A32" secondAttribute="bottom" constant="8" id="mBx-aI-9Jh"/>
+                            <constraint firstItem="uqE-7j-RHz" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="qzB-dg-4gM"/>
+                            <constraint firstAttribute="trailing" secondItem="Txr-zt-bM1" secondAttribute="trailing" id="s0T-VG-0S2"/>
+                            <constraint firstItem="zVv-H4-A32" firstAttribute="top" secondItem="WK7-Ae-SpK" secondAttribute="bottom" constant="16" id="wTb-Qv-TDy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LSK-vz-nW1"/>
+                                <exclude reference="THM-eA-znH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8B-JF-vGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1970" y="44"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ydA-M5-nnR">
@@ -139,4 +272,8 @@
             <point key="canvasLocation" x="462" y="1602"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Check Box.png" width="24" height="24"/>
+        <image name="Check In Box.png" width="37" height="33"/>
+    </resources>
 </document>

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */; };
-		F13C14571B45BFE3008BF9A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14561B45BFE3008BF9A7 /* ViewController.swift */; };
 		F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C14581B45BFE3008BF9A7 /* Main.storyboard */; };
 		F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13C145B1B45BFE3008BF9A7 /* Images.xcassets */; };
 		F13C145F1B45BFE3008BF9A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C145D1B45BFE3008BF9A7 /* LaunchScreen.xib */; };
@@ -28,6 +27,14 @@
 		F13C148E1B45C259008BF9A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */; };
 		F13C14961B45C505008BF9A7 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14951B45C505008BF9A7 /* Poll.swift */; };
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
+		F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */; };
+		F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */; };
+		F1FD1A221B4B10DB008D9835 /* Check Box.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A1F1B4B10DB008D9835 /* Check Box.png */; };
+		F1FD1A231B4B10DB008D9835 /* Check Box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */; };
+		F1FD1A241B4B10DB008D9835 /* Check Box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */; };
+		F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A251B4B10E3008D9835 /* Check In Box.png */; };
+		F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */; };
+		F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +51,6 @@
 		F13C144F1B45BFE3008BF9A7 /* QuickPoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C14531B45BFE3008BF9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F13C14561B45BFE3008BF9A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		F13C14591B45BFE3008BF9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F13C145B1B45BFE3008BF9A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F13C145E1B45BFE3008BF9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -66,6 +72,14 @@
 		F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F13C14951B45C505008BF9A7 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteOptionTableViewCell.swift; sourceTree = "<group>"; };
+		F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		F1FD1A1F1B4B10DB008D9835 /* Check Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box.png"; sourceTree = "<group>"; };
+		F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box@2x.png"; sourceTree = "<group>"; };
+		F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box@3x.png"; sourceTree = "<group>"; };
+		F1FD1A251B4B10E3008D9835 /* Check In Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box.png"; sourceTree = "<group>"; };
+		F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@2x.png"; sourceTree = "<group>"; };
+		F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,7 @@
 		F13C14511B45BFE3008BF9A7 /* QuickPoll */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD1A1E1B4AF9AD008D9835 /* images */,
 				F13C14971B45CAE5008BF9A7 /* Helper */,
 				F13C14901B45C3AA008BF9A7 /* ViewControllers */,
 				F13C148F1B45C3A1008BF9A7 /* Model */,
@@ -189,7 +204,8 @@
 		F13C14901B45C3AA008BF9A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F13C14561B45BFE3008BF9A7 /* ViewController.swift */,
+				F1FD1A071B4AC907008D9835 /* Cells */,
+				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +216,27 @@
 				F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F1FD1A071B4AC907008D9835 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F1FD1A1E1B4AF9AD008D9835 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD1A251B4B10E3008D9835 /* Check In Box.png */,
+				F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */,
+				F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */,
+				F1FD1A1F1B4B10DB008D9835 /* Check Box.png */,
+				F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */,
+				F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,8 +320,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */,
+				F1FD1A241B4B10DB008D9835 /* Check Box@3x.png in Resources */,
+				F1FD1A231B4B10DB008D9835 /* Check Box@2x.png in Resources */,
 				F13C145F1B45BFE3008BF9A7 /* LaunchScreen.xib in Resources */,
 				F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */,
+				F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */,
+				F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */,
+				F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */,
+				F1FD1A221B4B10DB008D9835 /* Check Box.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,9 +345,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13C14571B45BFE3008BF9A7 /* ViewController.swift in Sources */,
 				F13C14961B45C505008BF9A7 /* Poll.swift in Sources */,
 				F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */,
+				F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */,
+				F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
