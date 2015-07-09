@@ -19,7 +19,7 @@ class VoteOptionTableViewCell: UITableViewCell {
   
   
   
-  //Mark:Functions
+  //Mark: Functions
   //
   
   // Animate Selected cell checkbox and deSelect the other checkboxes

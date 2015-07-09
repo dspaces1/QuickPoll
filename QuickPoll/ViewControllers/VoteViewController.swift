@@ -12,6 +12,11 @@ class VoteViewController: UIViewController {
 
   @IBOutlet weak var tableViewWithOptions: UITableView!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(true)
+    
+    }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       

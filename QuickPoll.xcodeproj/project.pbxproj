@@ -35,6 +35,16 @@
 		F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A251B4B10E3008D9835 /* Check In Box.png */; };
 		F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */; };
 		F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */; };
+		F1FD1A2F1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */; };
+		F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */; };
+		F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */; };
+		F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */; };
+		F1FD1A391B4F0440008D9835 /* Female Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A361B4F0440008D9835 /* Female Icon.png */; };
+		F1FD1A3A1B4F0440008D9835 /* Female Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */; };
+		F1FD1A3B1B4F0440008D9835 /* Female Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */; };
+		F1FD1A3F1B4F04CD008D9835 /* Male Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */; };
+		F1FD1A401B4F04CD008D9835 /* Male Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */; };
+		F1FD1A411B4F04CD008D9835 /* Male Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +90,16 @@
 		F1FD1A251B4B10E3008D9835 /* Check In Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box.png"; sourceTree = "<group>"; };
 		F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@2x.png"; sourceTree = "<group>"; };
 		F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@3x.png"; sourceTree = "<group>"; };
+		F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
+		F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollFeedViewController.swift; sourceTree = "<group>"; };
+		F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F1FD1A361B4F0440008D9835 /* Female Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon.png"; sourceTree = "<group>"; };
+		F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon@2x.png"; sourceTree = "<group>"; };
+		F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon@3x.png"; sourceTree = "<group>"; };
+		F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon.png"; sourceTree = "<group>"; };
+		F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon@2x.png"; sourceTree = "<group>"; };
+		F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				F13C14951B45C505008BF9A7 /* Poll.swift */,
+				F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +227,9 @@
 			children = (
 				F1FD1A071B4AC907008D9835 /* Cells */,
 				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
+				F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */,
+				F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */,
+				F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +253,12 @@
 		F1FD1A1E1B4AF9AD008D9835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */,
+				F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */,
+				F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */,
+				F1FD1A361B4F0440008D9835 /* Female Icon.png */,
+				F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */,
+				F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */,
 				F1FD1A251B4B10E3008D9835 /* Check In Box.png */,
 				F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */,
 				F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */,
@@ -320,14 +350,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */,
+				F1FD1A411B4F04CD008D9835 /* Male Icon@3x.png in Resources */,
 				F1FD1A241B4B10DB008D9835 /* Check Box@3x.png in Resources */,
 				F1FD1A231B4B10DB008D9835 /* Check Box@2x.png in Resources */,
+				F1FD1A3F1B4F04CD008D9835 /* Male Icon.png in Resources */,
 				F13C145F1B45BFE3008BF9A7 /* LaunchScreen.xib in Resources */,
+				F1FD1A401B4F04CD008D9835 /* Male Icon@2x.png in Resources */,
+				F1FD1A3A1B4F0440008D9835 /* Female Icon@2x.png in Resources */,
 				F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */,
 				F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */,
+				F1FD1A3B1B4F0440008D9835 /* Female Icon@3x.png in Resources */,
 				F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */,
 				F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */,
 				F1FD1A221B4B10DB008D9835 /* Check Box.png in Resources */,
+				F1FD1A391B4F0440008D9835 /* Female Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,10 +382,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13C14961B45C505008BF9A7 /* Poll.swift in Sources */,
+				F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */,
 				F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */,
+				F1FD1A2F1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift in Sources */,
 				F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */,
+				F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */,
 				F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
+				F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

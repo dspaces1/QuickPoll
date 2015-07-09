@@ -18,6 +18,8 @@ class Poll: PFObject, PFSubclassing {
   
   
   //MARK: PFSublassing Protocol
+  //
+  
   static func parseClassName() -> String{
     return "Poll"
   }
