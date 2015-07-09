@@ -10,27 +10,55 @@ import UIKit
 
 class VoteOptionTableViewCell: UITableViewCell {
 
+  //Mark: Outlets
+  //
   
   @IBOutlet weak var selectOption: UIButton!
   
+  //
   
   
-  @IBAction func selectOptionTapped(sender: AnyObject) {
-    if selectOption.selected {
-      selectOption.selected = false
-    }else {
-      selectOption.selected = true
+  
+  //Mark:Functions
+  //
+  
+  // Animate Selected cell checkbox and deSelect the other checkboxes
+  static func selectNewOption (#tableView:UITableView , indexPath:NSIndexPath){
+    
+    for cell in tableView.visibleCells() {
+      
+      let cellIndex:NSIndexPath = tableView.indexPathForCell(cell as! UITableViewCell)!
+      
+      tableView.deselectRowAtIndexPath(cellIndex, animated: true)
+      
+      let currentCell = tableView.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
+      
+      if cellIndex.row != indexPath.row {
+        currentCell.selectOption.selected = false
+      }else {
+        currentCell.selectOption.selected = true
+      }
+      
     }
+    
   }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  
+  //
+  
+  
+  
+  //MARK: Setup
+  //
+  
+  override func awakeFromNib() {
+      super.awakeFromNib()
+      // Initialization code
+  }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+  override func setSelected(selected: Bool, animated: Bool) {
+      super.setSelected(selected, animated: animated)
+    
+      // Configure the view for the selected state
+  }
 
 }

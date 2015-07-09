@@ -10,8 +10,11 @@ import UIKit
 
 class VoteViewController: UIViewController {
 
+  @IBOutlet weak var tableViewWithOptions: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+      
 
     }
 
@@ -24,6 +27,8 @@ class VoteViewController: UIViewController {
 
 extension VoteViewController:UITableViewDataSource {
   
+
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
     
     var returnCount:Int = 4
@@ -35,11 +40,25 @@ extension VoteViewController:UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     
     let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
-    //cell.optionLabel.text = "hello"
     return cell
     
   }
 
 }
+
+
+extension VoteViewController:UITableViewDelegate {
+
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+
+    VoteOptionTableViewCell.selectNewOption(tableView: tableViewWithOptions, indexPath: indexPath)
+  
+  }
+    
+    
+}
+  
+
 
 
