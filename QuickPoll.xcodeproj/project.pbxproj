@@ -29,22 +29,10 @@
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
 		F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */; };
 		F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */; };
-		F1FD1A221B4B10DB008D9835 /* Check Box.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A1F1B4B10DB008D9835 /* Check Box.png */; };
-		F1FD1A231B4B10DB008D9835 /* Check Box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */; };
-		F1FD1A241B4B10DB008D9835 /* Check Box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */; };
-		F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A251B4B10E3008D9835 /* Check In Box.png */; };
-		F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */; };
-		F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */; };
 		F1FD1A2F1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */; };
 		F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */; };
 		F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */; };
 		F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */; };
-		F1FD1A391B4F0440008D9835 /* Female Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A361B4F0440008D9835 /* Female Icon.png */; };
-		F1FD1A3A1B4F0440008D9835 /* Female Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */; };
-		F1FD1A3B1B4F0440008D9835 /* Female Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */; };
-		F1FD1A3F1B4F04CD008D9835 /* Male Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */; };
-		F1FD1A401B4F04CD008D9835 /* Male Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */; };
-		F1FD1A411B4F04CD008D9835 /* Male Icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,22 +72,10 @@
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteOptionTableViewCell.swift; sourceTree = "<group>"; };
 		F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
-		F1FD1A1F1B4B10DB008D9835 /* Check Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box.png"; sourceTree = "<group>"; };
-		F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box@2x.png"; sourceTree = "<group>"; };
-		F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check Box@3x.png"; sourceTree = "<group>"; };
-		F1FD1A251B4B10E3008D9835 /* Check In Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box.png"; sourceTree = "<group>"; };
-		F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@2x.png"; sourceTree = "<group>"; };
-		F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check In Box@3x.png"; sourceTree = "<group>"; };
-		F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
+		F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstTimeSignUpViewController.swift; path = ../FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
 		F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollFeedViewController.swift; sourceTree = "<group>"; };
 		F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		F1FD1A361B4F0440008D9835 /* Female Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon.png"; sourceTree = "<group>"; };
-		F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon@2x.png"; sourceTree = "<group>"; };
-		F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female Icon@3x.png"; sourceTree = "<group>"; };
-		F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon.png"; sourceTree = "<group>"; };
-		F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon@2x.png"; sourceTree = "<group>"; };
-		F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Male Icon@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +131,6 @@
 		F13C14511B45BFE3008BF9A7 /* QuickPoll */ = {
 			isa = PBXGroup;
 			children = (
-				F1FD1A1E1B4AF9AD008D9835 /* images */,
 				F13C14971B45CAE5008BF9A7 /* Helper */,
 				F13C14901B45C3AA008BF9A7 /* ViewControllers */,
 				F13C148F1B45C3A1008BF9A7 /* Model */,
@@ -225,9 +200,9 @@
 		F13C14901B45C3AA008BF9A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F19089841B50389D0028FB9C /* SignUp */,
 				F1FD1A071B4AC907008D9835 /* Cells */,
 				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
-				F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */,
 				F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */,
 				F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */,
 			);
@@ -242,31 +217,20 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F19089841B50389D0028FB9C /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		F1FD1A071B4AC907008D9835 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		F1FD1A1E1B4AF9AD008D9835 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				F1FD1A3C1B4F04CD008D9835 /* Male Icon.png */,
-				F1FD1A3D1B4F04CD008D9835 /* Male Icon@2x.png */,
-				F1FD1A3E1B4F04CD008D9835 /* Male Icon@3x.png */,
-				F1FD1A361B4F0440008D9835 /* Female Icon.png */,
-				F1FD1A371B4F0440008D9835 /* Female Icon@2x.png */,
-				F1FD1A381B4F0440008D9835 /* Female Icon@3x.png */,
-				F1FD1A251B4B10E3008D9835 /* Check In Box.png */,
-				F1FD1A261B4B10E3008D9835 /* Check In Box@2x.png */,
-				F1FD1A271B4B10E3008D9835 /* Check In Box@3x.png */,
-				F1FD1A1F1B4B10DB008D9835 /* Check Box.png */,
-				F1FD1A201B4B10DB008D9835 /* Check Box@2x.png */,
-				F1FD1A211B4B10DB008D9835 /* Check Box@3x.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,20 +314,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */,
-				F1FD1A411B4F04CD008D9835 /* Male Icon@3x.png in Resources */,
-				F1FD1A241B4B10DB008D9835 /* Check Box@3x.png in Resources */,
-				F1FD1A231B4B10DB008D9835 /* Check Box@2x.png in Resources */,
-				F1FD1A3F1B4F04CD008D9835 /* Male Icon.png in Resources */,
 				F13C145F1B45BFE3008BF9A7 /* LaunchScreen.xib in Resources */,
-				F1FD1A401B4F04CD008D9835 /* Male Icon@2x.png in Resources */,
-				F1FD1A3A1B4F0440008D9835 /* Female Icon@2x.png in Resources */,
 				F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */,
-				F1FD1A281B4B10E3008D9835 /* Check In Box.png in Resources */,
-				F1FD1A3B1B4F0440008D9835 /* Female Icon@3x.png in Resources */,
-				F1FD1A2A1B4B10E3008D9835 /* Check In Box@3x.png in Resources */,
-				F1FD1A291B4B10E3008D9835 /* Check In Box@2x.png in Resources */,
-				F1FD1A221B4B10DB008D9835 /* Check Box.png in Resources */,
-				F1FD1A391B4F0440008D9835 /* Female Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +475,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = QuickPoll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -537,6 +490,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = QuickPoll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
