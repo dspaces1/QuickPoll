@@ -27,9 +27,9 @@
 		F13C148E1B45C259008BF9A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */; };
 		F13C14961B45C505008BF9A7 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14951B45C505008BF9A7 /* Poll.swift */; };
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
+		F17C9ED01B54861600B045B2 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */; };
 		F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */; };
 		F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */; };
-		F1FD1A2F1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */; };
 		F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */; };
 		F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */; };
 		F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */; };
@@ -70,9 +70,9 @@
 		F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F13C14951B45C505008BF9A7 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
 		F1FD1A081B4AC995008D9835 /* VoteOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteOptionTableViewCell.swift; sourceTree = "<group>"; };
 		F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
-		F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstTimeSignUpViewController.swift; path = ../FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
 		F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollFeedViewController.swift; sourceTree = "<group>"; };
 		F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		F13C14901B45C3AA008BF9A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F19089841B50389D0028FB9C /* SignUp */,
+				F17C9ECE1B54860800B045B2 /* SignUp */,
 				F1FD1A071B4AC907008D9835 /* Cells */,
 				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
 				F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */,
@@ -217,10 +217,10 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		F19089841B50389D0028FB9C /* SignUp */ = {
+		F17C9ECE1B54860800B045B2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				F1FD1A2E1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift */,
+				F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -336,12 +336,12 @@
 				F13C14961B45C505008BF9A7 /* Poll.swift in Sources */,
 				F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */,
 				F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */,
-				F1FD1A2F1B4EDB99008D9835 /* FirstTimeSignUpViewController.swift in Sources */,
 				F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */,
 				F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */,
 				F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
 				F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */,
+				F17C9ED01B54861600B045B2 /* FirstTimeSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

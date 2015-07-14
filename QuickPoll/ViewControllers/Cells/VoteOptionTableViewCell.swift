@@ -10,7 +10,7 @@ import UIKit
 
 class VoteOptionTableViewCell: UITableViewCell {
 
-  //Mark: Outlets
+  //MARK: Outlets
   //
   
   @IBOutlet weak var selectOption: UIButton!
@@ -19,19 +19,18 @@ class VoteOptionTableViewCell: UITableViewCell {
   
   
   
-  //Mark: Functions
+  //MARK: Functions
   //
   
   // Animate Selected cell checkbox and deSelect the other checkboxes
-  static func selectNewOption (#tableView:UITableView , indexPath:NSIndexPath){
+  static func selectNewOptionAnimation (#tableView:UITableView , indexPath:NSIndexPath){
     
     for cell in tableView.visibleCells() {
       
       let cellIndex:NSIndexPath = tableView.indexPathForCell(cell as! UITableViewCell)!
+      let currentCell = tableView.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
       
       tableView.deselectRowAtIndexPath(cellIndex, animated: true)
-      
-      let currentCell = tableView.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
       
       if cellIndex.row != indexPath.row {
         currentCell.selectOption.selected = false
@@ -52,13 +51,12 @@ class VoteOptionTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
       super.awakeFromNib()
-      // Initialization code
   }
 
   override func setSelected(selected: Bool, animated: Bool) {
       super.setSelected(selected, animated: animated)
-    
-      // Configure the view for the selected state
   }
+  
+  //
 
 }

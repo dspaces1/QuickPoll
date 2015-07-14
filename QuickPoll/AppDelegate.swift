@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func seenLogin(){
 
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "SignedIn")
+    
     
     var initialViewController: UIViewController
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

@@ -10,29 +10,31 @@ import UIKit
 
 class VoteViewController: UIViewController {
 
+  //MARK: Outlets
+  //
   @IBOutlet weak var tableViewWithOptions: UITableView!
+  //
   
+  //MARK: Setup
+  //
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(true)
-    
-    }
+  }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
+  override func viewDidLoad() {
+      super.viewDidLoad()
+  }
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-      
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+  }
+  //
 }
 
 
+//MARK: TableView Data
+//
 extension VoteViewController:UITableViewDataSource {
-  
-
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
     
@@ -40,30 +42,27 @@ extension VoteViewController:UITableViewDataSource {
     return returnCount
   }
   
-
-  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
     
     let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
     return cell
-    
   }
-
+  
 }
+//
 
 
+//MARK: TableView Delegate
+//
 extension VoteViewController:UITableViewDelegate {
 
-  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
 
-    VoteOptionTableViewCell.selectNewOption(tableView: tableViewWithOptions, indexPath: indexPath)
-  
+    VoteOptionTableViewCell.selectNewOptionAnimation (tableView: tableViewWithOptions, indexPath: indexPath)
   }
-    
-    
-}
   
+}
+//
 
 
 
