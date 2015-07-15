@@ -9,6 +9,8 @@
 import UIKit
 
 class VoteViewController: UIViewController {
+  
+  
 
   //MARK: Outlets
   //
@@ -29,6 +31,7 @@ class VoteViewController: UIViewController {
       super.didReceiveMemoryWarning()
   }
   //
+  
 }
 
 
@@ -58,7 +61,19 @@ extension VoteViewController:UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
 
-    VoteOptionTableViewCell.selectNewOptionAnimation (tableView: tableViewWithOptions, indexPath: indexPath)
+    for cell in tableView.visibleCells() {
+      
+      let cellIndex:NSIndexPath = tableView.indexPathForCell(cell as! UITableViewCell)!
+      let currentCell = tableView.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
+      
+      tableView.deselectRowAtIndexPath(cellIndex, animated: true)
+      
+      if cellIndex.row != indexPath.row {
+        currentCell.selectOption.selected = false
+      }else {
+        currentCell.selectOption.selected = true
+      }
+    }
   }
   
 }
