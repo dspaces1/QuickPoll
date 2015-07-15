@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-  //Mark: IB actions
+  //MARK: IB actions
   //
   
   @IBAction func resetSignUp(sender: AnyObject) {
@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
   
   
   
-  //Mark: Setup
+  //MARK: Setup
   //
     override func viewDidLoad() {
         super.viewDidLoad()

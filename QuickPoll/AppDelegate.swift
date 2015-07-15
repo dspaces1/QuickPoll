@@ -12,6 +12,7 @@ import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  
   //MARK: var
   //
   var window: UIWindow?
@@ -25,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func seenLogin(){
 
-    
-    
     var initialViewController: UIViewController
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
