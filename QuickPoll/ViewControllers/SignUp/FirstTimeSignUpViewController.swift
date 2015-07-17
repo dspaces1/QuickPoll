@@ -20,11 +20,11 @@ class FirstTimeSignUpViewController: UIViewController {
   // MARK: functions
   //
   
-  func DismissKeyboard(){
-    //Causes the view (or one of its embedded text fields) to resign the first responder status.
-    view.endEditing(true)
-  }
+  //
   
+  //Mark: var
+  //
+    var keboardHandler:KeboardHandling!
   //
   
   
@@ -34,10 +34,7 @@ class FirstTimeSignUpViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameField.delegate = self
-    
-      
-    let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
-    view.addGestureRecognizer(tap)
+    keboardHandler = KeboardHandling(view: view!)
   }
 
   
@@ -53,8 +50,15 @@ class FirstTimeSignUpViewController: UIViewController {
   //
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
     if segue.identifier == "SignedUp" {
+      
       NSUserDefaults.standardUserDefaults().setBool(true, forKey: "SignedIn")
+      let newUser:UserSettings = UserSettings()
+     
+      if !newUser.signUp(){
+        println("failed to sign up")
+      }
     }
   }
   
@@ -67,6 +71,7 @@ class FirstTimeSignUpViewController: UIViewController {
 extension FirstTimeSignUpViewController: UITextFieldDelegate {
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
     textField.resignFirstResponder()
     return true
   }

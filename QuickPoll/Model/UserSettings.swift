@@ -20,7 +20,7 @@ class UserSettings: PFObject, PFSubclassing {
   var password:String = ""
   var gender:String?
   var age:Int?
-  
+  //
   
   
   //Mark: functions
@@ -29,7 +29,6 @@ class UserSettings: PFObject, PFSubclassing {
   func signUp () -> Bool {
     
     var successfulSignUp:Bool = true
-    
     
     var user = PFUser()
     user.username = "email@example.com"
@@ -44,17 +43,15 @@ class UserSettings: PFObject, PFSubclassing {
       (succeeded: Bool, error: NSError?) -> Void in
       if let error = error {
         let errorString = error.userInfo?["error"] as? NSString
-        // Show the errorString somewhere and let the user try again.
+        println(errorString)
       } else {
-        
+        println("Sign in successful")
       }
     }
     
-    
-    
     return successfulSignUp
   }
-  
+  //
 
   //MARK: PFSublassing Protocol
   //
@@ -75,5 +72,6 @@ class UserSettings: PFObject, PFSubclassing {
       self.registerSubclass()
     }
   }
+  //
   
 }
