@@ -303,7 +303,7 @@
                                         <segments>
                                             <segment title="" image="Entertainment"/>
                                             <segment title="" image="News"/>
-                                            <segment title="" image="Edu"/>
+                                            <segment title="" image="edu"/>
                                             <segment title="" image="Funny"/>
                                             <segment title="" image="Health"/>
                                         </segments>
@@ -448,7 +448,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ydA-M5-nnR">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarView" id="mm1-9K-ih6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="mm1-9K-ih6" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="41X-PW-HUk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -477,11 +477,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundSignUp" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-ju-URs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ei-1R-e15">
-                                <rect key="frame" x="150" y="80" width="300" height="219"/>
+                                <rect key="frame" x="150" y="80" width="300" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNH-dn-Wao">
                                         <rect key="frame" x="9" y="15" width="283" height="30"/>
@@ -534,7 +531,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4aK-NW-at3" secondAttribute="bottom" constant="19" id="0sU-8j-K2y"/>
                                     <constraint firstItem="DNH-dn-Wao" firstAttribute="top" secondItem="9ei-1R-e15" secondAttribute="top" constant="15" id="6EG-XZ-Z0o"/>
-                                    <constraint firstAttribute="height" constant="219" id="JcP-e7-vXh"/>
+                                    <constraint firstAttribute="height" constant="250" id="JcP-e7-vXh"/>
                                     <constraint firstAttribute="centerX" secondItem="pSe-qy-re9" secondAttribute="centerX" constant="0.5" id="KXU-ll-hUR"/>
                                     <constraint firstAttribute="centerX" secondItem="4aK-NW-at3" secondAttribute="centerX" constant="-0.5" id="TZf-8a-hU3"/>
                                     <constraint firstAttribute="width" constant="300" id="bJ2-70-ZUA"/>
@@ -560,7 +557,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8s-PO-Z66">
-                                <rect key="frame" x="159" y="326" width="283" height="38"/>
+                                <rect key="frame" x="159" y="390" width="283" height="38"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.54117647059999996" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="283" id="FhG-4b-FJ7"/>
@@ -571,7 +568,13 @@
                                     <color key="titleColor" red="0.99102894850000001" green="1" blue="0.97864967520000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="facebookSignIn:" destination="wO6-BS-UWN" eventType="touchUpInside" id="8OC-Pw-U78"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundSignUp" translatesAutoresizingMaskIntoConstraints="NO" id="nyY-ju-URs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -584,7 +587,7 @@
                             <constraint firstAttribute="centerX" secondItem="kRJ-ej-kMt" secondAttribute="centerX" id="SVe-X7-vQa"/>
                             <constraint firstAttribute="centerX" secondItem="9ei-1R-e15" secondAttribute="centerX" id="WAy-00-amP"/>
                             <constraint firstItem="R8s-PO-Z66" firstAttribute="leading" secondItem="nyY-ju-URs" secondAttribute="trailing" constant="-441" id="XfK-hP-mrv"/>
-                            <constraint firstItem="R8s-PO-Z66" firstAttribute="top" secondItem="9ei-1R-e15" secondAttribute="bottom" constant="27" id="iB5-7G-90d"/>
+                            <constraint firstItem="R8s-PO-Z66" firstAttribute="top" secondItem="9ei-1R-e15" secondAttribute="bottom" constant="60" id="iB5-7G-90d"/>
                             <constraint firstItem="gip-Au-B2W" firstAttribute="top" secondItem="nyY-ju-URs" secondAttribute="bottom" id="iuY-TF-att"/>
                             <constraint firstAttribute="centerX" secondItem="R8s-PO-Z66" secondAttribute="centerX" id="qPC-wM-9pg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9ei-1R-e15" secondAttribute="trailing" constant="134" id="sPL-6a-tB6"/>
@@ -599,6 +602,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="pSe-qy-re9" id="A8L-5f-EwB"/>
                         <outlet property="usernameField" destination="DNH-dn-Wao" id="H2h-uK-dhC"/>
                     </connections>
                 </viewController>
@@ -668,11 +672,11 @@
         <image name="BackgroundSignUp" width="750" height="1334"/>
         <image name="Check Box" width="24" height="24"/>
         <image name="Checked Box" width="37" height="33"/>
-        <image name="Edu" width="33" height="19"/>
         <image name="Entertainment" width="19" height="18"/>
         <image name="Funny" width="23" height="23"/>
         <image name="Health" width="28" height="19"/>
         <image name="Male Icon" width="35" height="51"/>
         <image name="News" width="20" height="20"/>
+        <image name="edu" width="33" height="19"/>
     </resources>
 </document>

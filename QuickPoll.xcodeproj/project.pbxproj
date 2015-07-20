@@ -7,27 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F52AAE2D00143D09365EFB3 /* Pods_QuickPoll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63314F7C245FE81022BCE631 /* Pods_QuickPoll.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */; };
 		F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C14581B45BFE3008BF9A7 /* Main.storyboard */; };
 		F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13C145B1B45BFE3008BF9A7 /* Images.xcassets */; };
 		F13C145F1B45BFE3008BF9A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13C145D1B45BFE3008BF9A7 /* LaunchScreen.xib */; };
 		F13C146B1B45BFE3008BF9A7 /* QuickPollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C146A1B45BFE3008BF9A7 /* QuickPollTests.swift */; };
-		F13C14761B45C194008BF9A7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14751B45C194008BF9A7 /* Bolts.framework */; };
-		F13C14781B45C19E008BF9A7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14771B45C19E008BF9A7 /* Parse.framework */; };
-		F13C147A1B45C1EF008BF9A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14791B45C1EF008BF9A7 /* AudioToolbox.framework */; };
-		F13C147C1B45C1FD008BF9A7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C147B1B45C1FD008BF9A7 /* CFNetwork.framework */; };
-		F13C147E1B45C206008BF9A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C147D1B45C206008BF9A7 /* CoreGraphics.framework */; };
-		F13C14801B45C210008BF9A7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C147F1B45C210008BF9A7 /* CoreLocation.framework */; };
-		F13C14821B45C21C008BF9A7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14811B45C21C008BF9A7 /* MobileCoreServices.framework */; };
-		F13C14841B45C228008BF9A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14831B45C228008BF9A7 /* QuartzCore.framework */; };
-		F13C14861B45C231008BF9A7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14851B45C231008BF9A7 /* Security.framework */; };
-		F13C14881B45C239008BF9A7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14871B45C239008BF9A7 /* StoreKit.framework */; };
-		F13C148A1B45C242008BF9A7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C14891B45C242008BF9A7 /* SystemConfiguration.framework */; };
-		F13C148C1B45C24D008BF9A7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C148B1B45C24D008BF9A7 /* libz.dylib */; };
-		F13C148E1B45C259008BF9A7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */; };
 		F13C14961B45C505008BF9A7 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14951B45C505008BF9A7 /* Poll.swift */; };
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
 		F14D973F1B5985D000BFB15A /* MyPollsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */; };
+		F14D97451B5D8E1200BFB15A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */; };
 		F17C9ED01B54861600B045B2 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */; };
 		F1CA4B161B57F1DD00A89054 /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */; };
 		F1CA4B181B57F25E00A89054 /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B171B57F25E00A89054 /* CreatePollViewController.swift */; };
@@ -52,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63314F7C245FE81022BCE631 /* Pods_QuickPoll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickPoll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E782A7148EEB1DE24DA478D /* Pods-QuickPoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickPoll/Pods-QuickPoll.release.xcconfig"; sourceTree = "<group>"; };
 		F13C144F1B45BFE3008BF9A7 /* QuickPoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C14531B45BFE3008BF9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,22 +52,10 @@
 		F13C14641B45BFE3008BF9A7 /* QuickPollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickPollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C14691B45BFE3008BF9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13C146A1B45BFE3008BF9A7 /* QuickPollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPollTests.swift; sourceTree = "<group>"; };
-		F13C14751B45C194008BF9A7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		F13C14771B45C19E008BF9A7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		F13C14791B45C1EF008BF9A7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		F13C147B1B45C1FD008BF9A7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		F13C147D1B45C206008BF9A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F13C147F1B45C210008BF9A7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		F13C14811B45C21C008BF9A7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		F13C14831B45C228008BF9A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F13C14851B45C231008BF9A7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F13C14871B45C239008BF9A7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		F13C14891B45C242008BF9A7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F13C148B1B45C24D008BF9A7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F13C14951B45C505008BF9A7 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsTableViewCell.swift; sourceTree = "<group>"; };
+		F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseLoginHelper.swift; path = ../Model/ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
 		F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
 		F1CA4B171B57F25E00A89054 /* CreatePollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +67,7 @@
 		F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollFeedViewController.swift; sourceTree = "<group>"; };
 		F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FBCB702B8FFA2B690E80944E /* Pods-QuickPoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickPoll/Pods-QuickPoll.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,19 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13C148E1B45C259008BF9A7 /* libsqlite3.dylib in Frameworks */,
-				F13C148C1B45C24D008BF9A7 /* libz.dylib in Frameworks */,
-				F13C148A1B45C242008BF9A7 /* SystemConfiguration.framework in Frameworks */,
-				F13C14881B45C239008BF9A7 /* StoreKit.framework in Frameworks */,
-				F13C14861B45C231008BF9A7 /* Security.framework in Frameworks */,
-				F13C14841B45C228008BF9A7 /* QuartzCore.framework in Frameworks */,
-				F13C14821B45C21C008BF9A7 /* MobileCoreServices.framework in Frameworks */,
-				F13C14801B45C210008BF9A7 /* CoreLocation.framework in Frameworks */,
-				F13C147E1B45C206008BF9A7 /* CoreGraphics.framework in Frameworks */,
-				F13C147C1B45C1FD008BF9A7 /* CFNetwork.framework in Frameworks */,
-				F13C147A1B45C1EF008BF9A7 /* AudioToolbox.framework in Frameworks */,
-				F13C14781B45C19E008BF9A7 /* Parse.framework in Frameworks */,
-				F13C14761B45C194008BF9A7 /* Bolts.framework in Frameworks */,
+				6F52AAE2D00143D09365EFB3 /* Pods_QuickPoll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,13 +89,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F80F007E7866AB2C9914995 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBCB702B8FFA2B690E80944E /* Pods-QuickPoll.debug.xcconfig */,
+				6E782A7148EEB1DE24DA478D /* Pods-QuickPoll.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC1081E06FE8B86F97C94EA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63314F7C245FE81022BCE631 /* Pods_QuickPoll.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F13C14461B45BFE2008BF9A7 = {
 			isa = PBXGroup;
 			children = (
-				F13C14741B45C186008BF9A7 /* Frameworks */,
 				F13C14511B45BFE3008BF9A7 /* QuickPoll */,
 				F13C14671B45BFE3008BF9A7 /* QuickPollTests */,
 				F13C14501B45BFE3008BF9A7 /* Products */,
+				4F80F007E7866AB2C9914995 /* Pods */,
+				EC1081E06FE8B86F97C94EA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,26 +166,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F13C14741B45C186008BF9A7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F13C148D1B45C259008BF9A7 /* libsqlite3.dylib */,
-				F13C148B1B45C24D008BF9A7 /* libz.dylib */,
-				F13C14891B45C242008BF9A7 /* SystemConfiguration.framework */,
-				F13C14871B45C239008BF9A7 /* StoreKit.framework */,
-				F13C14851B45C231008BF9A7 /* Security.framework */,
-				F13C14831B45C228008BF9A7 /* QuartzCore.framework */,
-				F13C14811B45C21C008BF9A7 /* MobileCoreServices.framework */,
-				F13C147F1B45C210008BF9A7 /* CoreLocation.framework */,
-				F13C147D1B45C206008BF9A7 /* CoreGraphics.framework */,
-				F13C147B1B45C1FD008BF9A7 /* CFNetwork.framework */,
-				F13C14791B45C1EF008BF9A7 /* AudioToolbox.framework */,
-				F13C14771B45C19E008BF9A7 /* Parse.framework */,
-				F13C14751B45C194008BF9A7 /* Bolts.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		F13C148F1B45C3A1008BF9A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */,
+				F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -258,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F13C146E1B45BFE3008BF9A7 /* Build configuration list for PBXNativeTarget "QuickPoll" */;
 			buildPhases = (
+				71EF935E4AEF9C3ECC5C23A1 /* Check Pods Manifest.lock */,
 				F13C144B1B45BFE3008BF9A7 /* Sources */,
 				F13C144C1B45BFE3008BF9A7 /* Frameworks */,
 				F13C144D1B45BFE3008BF9A7 /* Resources */,
+				1A953293544044BA3AE47A15 /* Copy Pods Resources */,
+				8D273D1E33985DBEFA291EAB /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,6 +316,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A953293544044BA3AE47A15 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickPoll/Pods-QuickPoll-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71EF935E4AEF9C3ECC5C23A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8D273D1E33985DBEFA291EAB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickPoll/Pods-QuickPoll-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F13C144B1B45BFE3008BF9A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -356,6 +374,7 @@
 				F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */,
 				F1CA4B1B1B5804BF00A89054 /* KeyboardHandling.swift in Sources */,
 				F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */,
+				F14D97451B5D8E1200BFB15A /* ParseLoginHelper.swift in Sources */,
 				F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */,
 				F14D973F1B5985D000BFB15A /* MyPollsTableViewCell.swift in Sources */,
 				F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */,
@@ -492,14 +511,21 @@
 		};
 		F13C146F1B45BFE3008BF9A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBCB702B8FFA2B690E80944E /* Pods-QuickPoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = QuickPoll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -507,14 +533,21 @@
 		};
 		F13C14701B45BFE3008BF9A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E782A7148EEB1DE24DA478D /* Pods-QuickPoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = QuickPoll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

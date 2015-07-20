@@ -43,7 +43,7 @@ class Poll: PFObject, PFSubclassing {
     case 1:
       imageName = "News"
     case 2:
-      imageName = "Edu"
+      imageName = "edu"
     case 3:
       imageName = "Funny"
     case 4:

@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 class FirstTimeSignUpViewController: UIViewController {
 
   // MARK: Outlets
   //
   @IBOutlet weak var usernameField: UITextField!
-  @IBOutlet weak var ageField: UITextField!
+  @IBOutlet weak var emailField: UITextField!
+
   
   //
   
   // MARK: functions
   //
+
+  @IBAction func facebookSignIn(sender: AnyObject) {
+    
+    FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result, error) -> Void in
+      
+      if let error = error{
+        println("Facebook error: \(error)")
+      }
+      
+      if let facebookUserName = result?["Name"] as? String {
+        
+      }
+      
+    }
+  }
   
   //
   
