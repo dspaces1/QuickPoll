@@ -49,6 +49,15 @@ class UserSettings: PFObject, PFSubclassing {
       }
     }
     
+    PFUser.logInWithUsernameInBackground("email@example.com", password:"myPassword") {
+      (user: PFUser?, error: NSError?) -> Void in
+      if user != nil {
+        println("Login successful")
+      } else {
+        println(error)
+      }
+    }
+    
     return successfulSignUp
   }
   //

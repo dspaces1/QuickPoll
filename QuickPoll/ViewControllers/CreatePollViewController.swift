@@ -38,7 +38,7 @@ class CreatePollViewController: UIViewController {
     
     if let optionArr = createOptionArray(myPoll) {
 
-      myPoll.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: 0)  //Post to Parse
+      myPoll.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex)  //Post to Parse
     } else {
       println("nil values found in cells ")
     }
@@ -84,6 +84,7 @@ class CreatePollViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.automaticallyAdjustsScrollViewInsets = false
+    titleOfPoll.delegate = self
     keboardHandler = KeboardHandling(view: view!)
   }
 
@@ -99,7 +100,7 @@ class CreatePollViewController: UIViewController {
 
 extension CreatePollViewController:UITextFieldDelegate {
   
-  func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
     
     textField.resignFirstResponder()
     return true

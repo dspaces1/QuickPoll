@@ -34,6 +34,26 @@ class Poll: PFObject, PFSubclassing {
 
   //MARK: functions
   //
+  static func getCategoryImageString (categoryNumber:Int) ->String {
+    var imageName:String
+    
+    switch categoryNumber {
+    case 0:
+      imageName = "Entertainment"
+    case 1:
+      imageName = "News"
+    case 2:
+      imageName = "Edu"
+    case 3:
+      imageName = "Funny"
+    case 4:
+      imageName = "Health"
+    default:
+      imageName = "Health"
+    }
+    return imageName
+    
+  }
   
   func postPoll(#pollTitle:String, pollDescribtion:String, arrayWithOptions:[NSDictionary], categoryTypeIndex:Int) {
     
@@ -52,6 +72,16 @@ class Poll: PFObject, PFSubclassing {
       
     }
   }
+  
+  
+  func fetchTitle(){
+    
+  }
+  
+  func fetchCategory(){
+    
+  }
+  
   //
   
   
