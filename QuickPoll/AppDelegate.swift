@@ -12,10 +12,37 @@ import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  
+  //MARK: var
+  //
   var window: UIWindow?
+  
+  //
+  
+  
+  
+  //MARK: functions
+  //
+  
+  func seenLogin(){
 
+    var initialViewController: UIViewController
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      
+    initialViewController = mainStoryboard.instantiateViewControllerWithIdentifier("login") as! FirstTimeSignUpViewController
+      
+    self.window?.rootViewController = initialViewController
+    self.window?.makeKeyAndVisible()
 
+  }
+  
+  //
+  
+  
+  
+  //MARK: Setup
+  //
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
     //Navigation Bar color set up
@@ -39,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [Optional] Track statistics around application opens.
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     
+    //Jump to Sign Up/Login In screen if the user loads the app for the first time
+    var seen:Bool = NSUserDefaults.standardUserDefaults().boolForKey("SignedIn")
+    if !seen { seenLogin() }
+
     return true
   }
 
