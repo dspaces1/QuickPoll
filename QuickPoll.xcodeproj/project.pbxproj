@@ -17,7 +17,6 @@
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
 		F14D973F1B5985D000BFB15A /* MyPollsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */; };
 		F14D97451B5D8E1200BFB15A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */; };
-		F17C9ED01B54861600B045B2 /* FirstTimeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */; };
 		F1CA4B161B57F1DD00A89054 /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */; };
 		F1CA4B181B57F25E00A89054 /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B171B57F25E00A89054 /* CreatePollViewController.swift */; };
 		F1CA4B1B1B5804BF00A89054 /* KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B1A1B5804BF00A89054 /* KeyboardHandling.swift */; };
@@ -56,7 +55,6 @@
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsTableViewCell.swift; sourceTree = "<group>"; };
 		F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseLoginHelper.swift; path = ../Model/ParseLoginHelper.swift; sourceTree = "<group>"; };
-		F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSignUpViewController.swift; sourceTree = "<group>"; };
 		F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
 		F1CA4B171B57F25E00A89054 /* CreatePollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
 		F1CA4B1A1B5804BF00A89054 /* KeyboardHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandling.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		F13C14901B45C3AA008BF9A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F17C9ECE1B54860800B045B2 /* SignUp */,
 				F1FD1A071B4AC907008D9835 /* Cells */,
 				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
 				F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */,
@@ -198,14 +195,6 @@
 				F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		F17C9ECE1B54860800B045B2 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				F17C9ECF1B54861600B045B2 /* FirstTimeSignUpViewController.swift */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		F1FD1A071B4AC907008D9835 /* Cells */ = {
@@ -383,7 +372,6 @@
 				F1CA4B221B584C2C00A89054 /* ErrorHandling.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
 				F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */,
-				F17C9ED01B54861600B045B2 /* FirstTimeSignUpViewController.swift in Sources */,
 				F1CA4B161B57F1DD00A89054 /* MyPollsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,10 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -538,10 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

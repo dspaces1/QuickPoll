@@ -9,23 +9,27 @@
 import Foundation
 import UIKit
 
+///
 class KeboardHandling: NSObject {
-  
-  let view: UIView!
-  
-  init (view: UIView!){
-    self.view = view
-    super.init()
-    let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
-    view.addGestureRecognizer(tap)
     
-  }
-  
-  func DismissKeyboard(){
-    //Causes the view (or one of its embedded text fields) to resign the first responder status.
-    view.endEditing(true)
-  }
-  
-  
-  
+    // MARK: - Section: Class Properties
+    
+    let view: UIView!
+    
+    // MARK: - Section: Class Methods
+
+    init (view: UIView!){
+        self.view = view
+        super.init()
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    /// Finish editing and dismiss the keyboard
+    func DismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    
+    
 }

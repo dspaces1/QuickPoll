@@ -10,16 +10,14 @@ import UIKit
 
 class PollFeedViewController: UIViewController {
 
-  //MARK: Set Up
-  //
+    // MARK: - Section: Class Methods
   
-  override func viewDidLoad() {
-      super.viewDidLoad()
-  }
-
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-  }
-  //
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+  
 
 }

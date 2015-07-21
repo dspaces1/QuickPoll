@@ -10,30 +10,30 @@ import UIKit
 
 class CreatePollTableViewCell: UITableViewCell {
 
-  //MARK: variables
-  //
-  @IBOutlet weak var optionDescription: UITextField!
-  
-  override func awakeFromNib() {
-      super.awakeFromNib()
-    optionDescription.delegate = self
-  }
-
-  override func setSelected(selected: Bool, animated: Bool) {
-      super.setSelected(selected, animated: animated)
+    //MARK - Section: Class Properties
     
-  }
-  //
+    @IBOutlet weak var optionDescription: UITextField!
+  
+    //MARK - Section: Class Methods
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        optionDescription.delegate = self
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
   
 }
 
-//Mark: UITextField delegate
-//
+//MARK: - Protocols
+//MARK: UITextFieldDelegate
+
 extension CreatePollTableViewCell:UITextFieldDelegate{
-  
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
-    return true
-  }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
-//
+

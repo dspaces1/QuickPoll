@@ -10,32 +10,19 @@ import UIKit
 
 class VoteOptionTableViewCell: UITableViewCell {
 
-  //MARK: Outlets
-  //
+    //MARK: - Section: Class Properties
   
-  @IBOutlet weak var selectOption: UIButton!
-  
-  //
-  
-  //MARK: Functions
-  //
+    @IBOutlet weak var selectOption: UIButton!
 
   
-  //
   
+    //MARK: - Section: Class Methods
   
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
   
-  //MARK: Setup
-  //
-  
-  override func awakeFromNib() {
-      super.awakeFromNib()
-  }
-
-  override func setSelected(selected: Bool, animated: Bool) {
-      super.setSelected(selected, animated: animated)
-  }
-  
-  //
-
 }

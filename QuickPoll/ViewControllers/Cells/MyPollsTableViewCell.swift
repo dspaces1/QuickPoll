@@ -10,19 +10,19 @@ import UIKit
 
 class MyPollsTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var title: UILabel!
-  @IBOutlet weak var username: UILabel!
-  @IBOutlet weak var categoryImage: UIImageView!
+    //MARK: - Section: Class Properties
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var categoryImage: UIImageView!
   
+    //MARK: - Section: Class Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

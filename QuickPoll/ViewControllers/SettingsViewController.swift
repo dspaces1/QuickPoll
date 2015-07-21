@@ -10,30 +10,19 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-  //MARK: IB actions
-  //
-  
-  @IBAction func resetSignUp(sender: AnyObject) {
-    NSUserDefaults.standardUserDefaults().setBool(false, forKey: "SignedIn")
+    // MARK: - Section: Class Properties
     
-  }
-  
-  //
-  
-  
-  
-  //MARK: Setup
-  //
+    @IBAction func resetSignUp(sender: AnyObject) {
+        //implement log out
+    }
+
+    // MARK: - Section: Class Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-  //
 
 }
