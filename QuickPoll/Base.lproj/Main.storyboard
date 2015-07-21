@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--My Polls View Controller-->
         <scene sceneID="NfQ-5n-uYq">
             <objects>
                 <viewController id="h5o-Sr-H2g" customClass="MyPollsViewController" customModule="QuickPoll" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,92 +14,85 @@
                         <viewControllerLayoutGuide type="bottom" id="ri8-cd-9xa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tGU-gh-Vbo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-H2-963">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-H2-963">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPollCell" rowHeight="92" id="7tP-PB-4by" customClass="MyPollsTableViewCell" customModule="QuickPoll" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myPollCell" textLabel="hZp-Bv-bGJ" detailTextLabel="1qd-BW-mVu" imageView="AKd-p4-Ont" rowHeight="66" style="IBUITableViewCellStyleSubtitle" id="7tP-PB-4by" customClass="MyPollsTableViewCell" customModule="QuickPoll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7tP-PB-4by" id="2zW-R5-pEd">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Male Icon" translatesAutoresizingMaskIntoConstraints="NO" id="mrw-nf-T5b">
-                                                    <rect key="frame" x="8" y="31" width="30" height="30"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hZp-Bv-bGJ">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="By:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1qd-BW-mVu">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="edu" id="AKd-p4-Ont">
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-DA-02X">
-                                                    <rect key="frame" x="51" y="0.0" width="416" height="91.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the title of the poll you are seeing right now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-Ql-rrf">
-                                                            <rect key="frame" x="15" y="23" width="381" height="20"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is about the size I am going to want the describtions to be " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbP-rs-J0c">
-                                                            <rect key="frame" x="15" y="38" width="385" height="39"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iql-ep-JTm">
-                                                    <rect key="frame" x="466" y="70" width="134" height="21"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-Q7-ML8">
-                                                            <rect key="frame" x="30" y="0.0" width="136" height="21"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moI-NI-hIv">
-                                                            <rect key="frame" x="-4" y="0.0" width="26" height="21"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="categoryImage" destination="mrw-nf-T5b" id="PXF-tb-QWd"/>
-                                            <outlet property="title" destination="Jue-Ql-rrf" id="I1Y-pp-UIN"/>
-                                            <outlet property="username" destination="rPk-Q7-ML8" id="mr7-Sl-CtR"/>
+                                            <outlet property="categoryImage" destination="AKd-p4-Ont" id="pAN-8I-I6T"/>
+                                            <outlet property="title" destination="hZp-Bv-bGJ" id="GzF-4F-4e0"/>
+                                            <outlet property="username" destination="1qd-BW-mVu" id="JdI-uB-cmd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ess-BG-FIs">
+                                <rect key="frame" x="63" y="39" width="32" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Pbi-H2-963" secondAttribute="trailing" id="Bg7-aw-b0h"/>
-                            <constraint firstItem="Pbi-H2-963" firstAttribute="leading" secondItem="tGU-gh-Vbo" secondAttribute="leading" id="Rtb-R7-UYe"/>
-                            <constraint firstAttribute="bottom" secondItem="Pbi-H2-963" secondAttribute="bottom" id="Xgo-wF-ia1"/>
-                            <constraint firstItem="Pbi-H2-963" firstAttribute="top" secondItem="MVC-mC-4Bi" secondAttribute="bottom" id="r01-YU-Keo"/>
+                            <constraint firstAttribute="bottom" secondItem="Pbi-H2-963" secondAttribute="bottom" id="60g-OX-vI2"/>
+                            <constraint firstItem="Pbi-H2-963" firstAttribute="leading" secondItem="tGU-gh-Vbo" secondAttribute="leading" id="R5g-ea-I8w"/>
+                            <constraint firstItem="Pbi-H2-963" firstAttribute="top" secondItem="MVC-mC-4Bi" secondAttribute="bottom" id="ekX-uw-4QE"/>
+                            <constraint firstAttribute="trailing" secondItem="Pbi-H2-963" secondAttribute="trailing" id="pJm-F8-tdG"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Title" id="EX3-PN-tp6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aCq-ih-kOp">
+                    <navigationItem key="navigationItem" id="EX3-PN-tp6">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hjJ-WT-Amy">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="My Polls"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3X-oh-DYk">
                             <connections>
-                                <segue destination="r8I-9Y-aWl" kind="show" id="IKW-dY-xmO"/>
+                                <segue destination="r8I-9Y-aWl" kind="show" id="uBr-br-s9D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Pbi-H2-963" id="GqL-wa-BQW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE3-Jj-4UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="707"/>
+            <point key="canvasLocation" x="1226" y="768"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fPV-Ql-z8T">
@@ -129,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSI-TF-htp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="1406"/>
+            <point key="canvasLocation" x="-366" y="2204"/>
         </scene>
         <!--Poll Feed-->
         <scene sceneID="huW-jw-oj6">
@@ -190,7 +183,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
-                                <rect key="frame" x="0.0" y="221" width="600" height="238.5"/>
+                                <rect key="frame" x="0.0" y="221" width="600" height="244"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="52" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
@@ -232,6 +225,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="optionDescription" destination="6NW-dK-c0W" id="8rp-2m-7DD"/>
                                             <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
                                         </connections>
                                     </tableViewCell>
@@ -242,7 +236,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-7j-RHz">
-                                <rect key="frame" x="16" y="483" width="568" height="33"/>
+                                <rect key="frame" x="16" y="488" width="568" height="33"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.75686274509803919" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Vote">
@@ -279,7 +273,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb"/>
                     <connections>
+                        <outlet property="descriptionOfPoll" destination="VoT-uu-p5o" id="VnZ-OK-Y1V"/>
                         <outlet property="tableViewWithOptions" destination="Txr-zt-bM1" id="AJU-cp-sPx"/>
+                        <outlet property="titleOfPoll" destination="zVv-H4-A32" id="FJD-Fw-qKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8B-JF-vGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,7 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gN5-2B-JLq">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6IO-iP-JE2">
                                         <rect key="frame" x="16" y="96" width="568" height="29"/>
@@ -350,23 +346,6 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-kt-DaA">
-                                        <rect key="frame" x="16" y="455" width="568" height="30"/>
-                                        <color key="backgroundColor" red="0.32156862749999998" green="0.75686274509999996" blue="0.62352941179999999" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Jbo-O7-rLB"/>
-                                        </constraints>
-                                        <state key="normal" title="Create">
-                                            <color key="titleColor" red="1" green="0.99964406250822324" blue="0.9917625541444639" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="createPoll:" destination="r8I-9Y-aWl" eventType="touchUpInside" id="THl-26-JkL"/>
-                                        </connections>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-Tt-f8z">
                                         <rect key="frame" x="0.0" y="265" width="600" height="160"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -398,6 +377,24 @@
                                             <outlet property="delegate" destination="r8I-9Y-aWl" id="k8I-GK-p2J"/>
                                         </connections>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-kt-DaA">
+                                        <rect key="frame" x="16" y="455" width="568" height="30"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.75686274509999996" blue="0.62352941179999999" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Jbo-O7-rLB"/>
+                                        </constraints>
+                                        <state key="normal" title="Create">
+                                            <color key="titleColor" red="1" green="0.99964406250822324" blue="0.9917625541444639" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createPoll:" destination="r8I-9Y-aWl" eventType="touchUpInside" id="THl-26-JkL"/>
+                                            <segue destination="JJc-IC-NZM" kind="show" identifier="createdPoll" id="KCR-dM-8v1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="trailing" secondItem="wjU-qH-d8j" secondAttribute="trailing" id="Epi-ye-Wyw"/>
@@ -439,6 +436,7 @@
                             <constraint firstItem="gN5-2B-JLq" firstAttribute="leading" secondItem="SN6-M4-DlM" secondAttribute="leading" id="r2z-zW-Sep"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="categoryPicker" destination="6IO-iP-JE2" id="FoL-NH-pp3"/>
                         <outlet property="contentScrollView" destination="gN5-2B-JLq" id="wGa-Lt-99V"/>
@@ -449,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qga-ou-QeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="707"/>
+            <point key="canvasLocation" x="1970" y="768"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ydA-M5-nnR">
@@ -502,7 +500,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h5o-Sr-H2g" kind="relationship" relationship="rootViewController" id="Pb6-pL-hfi"/>
+                        <segue destination="h5o-Sr-H2g" kind="relationship" relationship="rootViewController" id="FNB-kr-REG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTj-U4-PbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -526,7 +524,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxS-wf-tLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="1406"/>
+            <point key="canvasLocation" x="-366" y="1402"/>
         </scene>
     </scenes>
     <resources>
@@ -535,8 +533,10 @@
         <image name="Entertainment" width="19" height="18"/>
         <image name="Funny" width="23" height="23"/>
         <image name="Health" width="28" height="19"/>
-        <image name="Male Icon" width="35" height="51"/>
         <image name="News" width="20" height="20"/>
         <image name="edu" width="33" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KCR-dM-8v1"/>
+    </inferredMetricsTieBreakers>
 </document>

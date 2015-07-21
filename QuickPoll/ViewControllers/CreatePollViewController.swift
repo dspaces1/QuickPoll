@@ -17,6 +17,7 @@ class CreatePollViewController: UIViewController {
     @IBOutlet weak var categoryPicker: UISegmentedControl!
     @IBOutlet weak var titleOfPoll: UITextField!
     @IBOutlet weak var descriptionOfPoll: UITextView!
+    var optionArr:[NSDictionary]? = [NSDictionary]()
     var keboardHandler:KeboardHandling!
     
     
@@ -41,7 +42,9 @@ class CreatePollViewController: UIViewController {
             myPoll.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex)  //Post to Parse
         } else {
             println("nil values found in cells ")
+            return
         }
+        
         
     }
     
@@ -52,8 +55,6 @@ class CreatePollViewController: UIViewController {
     :returns: all poll options with 0 votes each, nil if empyty cell describtions.
     */
     func createOptionArray (myPoll:Poll) -> [NSDictionary]?{
-        
-        var optionArr:[NSDictionary]? = [NSDictionary]()
         
         for cell in optionsTableView.visibleCells() {
             
@@ -74,6 +75,8 @@ class CreatePollViewController: UIViewController {
                 }
             }
         }
+        
+        
         return optionArr
     }
     
@@ -88,6 +91,15 @@ class CreatePollViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "createdPoll" {
+            let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
+            viewController.option = optionArr!
+            viewController.pollTitle = titleOfPoll.text
+            viewController.pollDescription = descriptionOfPoll.text
+        }
+    }
     
 }
 

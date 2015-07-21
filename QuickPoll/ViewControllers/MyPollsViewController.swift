@@ -58,7 +58,7 @@ extension MyPollsViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("myPollCell", forIndexPath: indexPath) as! MyPollsTableViewCell
         
         cell.title.text = polls[indexPath.row].title
-        cell.username.text = polls[indexPath.row].user?.username
+        cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //CHECK for nil
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))
         
         return cell

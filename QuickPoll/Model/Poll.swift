@@ -22,8 +22,6 @@ class Poll: PFObject, PFSubclassing {
     @NSManaged var options:[NSDictionary]
     var option:NSDictionary = Dictionary<String,Int>()
     
-
-    
     //MARK: - Section: Class Methods
  
     override init() {

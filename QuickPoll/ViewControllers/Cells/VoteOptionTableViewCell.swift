@@ -14,6 +14,7 @@ class VoteOptionTableViewCell: UITableViewCell {
   
     @IBOutlet weak var selectOption: UIButton!
 
+    @IBOutlet weak var optionDescription: UILabel!
   
   
     //MARK: - Section: Class Methods
