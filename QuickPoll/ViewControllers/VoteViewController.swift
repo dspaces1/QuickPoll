@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class VoteViewController: UIViewController {
   
@@ -15,18 +16,21 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var titleOfPoll: UILabel!
     @IBOutlet weak var descriptionOfPoll: UITextView!
     @IBOutlet weak var tableViewWithOptions: UITableView!
-
-    var option:[NSDictionary] = [Dictionary<String,Int>]()
-    var pollTitle:String = "This is the title of the following poll "
-    var pollDescription:String = "Him replenish evening night man kind firmament subdue sea there greater he make. There over i, him in image, sixth beast fruitful firmament itself. Our sixth. Given a. Creepeth is.It creature abundantly herb over them. Meat, void man night lesser seasons fourth form, seasons gathering. "
-    
+    var polls: Poll?
     
     // MARK: - Section: Class Methods
     
+    @IBAction func voteForPoll(sender: AnyObject) {
+        ParseHelper.voteForPoll(PFUser.currentUser()!, poll:polls! )
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        titleOfPoll.text = pollTitle
-        descriptionOfPoll.text = pollDescription
+        titleOfPoll.text = polls?.title
+        descriptionOfPoll.text = polls?.descriptionOfPoll
+        println(polls!.options)
+        //titleOfPoll.text = pollTitle
+        //descriptionOfPoll.text = pollDescription
     }
     
     override func viewDidLoad() {
@@ -44,13 +48,14 @@ extension VoteViewController:UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
 
-        return option.count
+        return polls!.options.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
-        cell.optionDescription.text = option[indexPath.row]["name"] as? String
+        println(polls!.options)
+        cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
         
         return cell
     }

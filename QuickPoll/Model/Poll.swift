@@ -21,9 +21,10 @@ class Poll: PFObject, PFSubclassing {
     @NSManaged var category:Int
     @NSManaged var options:[NSDictionary]
     var option:NSDictionary = Dictionary<String,Int>()
-    
+    var votedFor:Bool?
     //MARK: - Section: Class Methods
- 
+
+    
     override init() {
         super.init()
     }
@@ -65,7 +66,7 @@ class Poll: PFObject, PFSubclassing {
         
     }
     
-    func postPoll(#pollTitle:String, pollDescribtion:String, arrayWithOptions:[NSDictionary], categoryTypeIndex:Int) {
+    func postPoll(#pollTitle:String, pollDescribtion:String, arrayWithOptions:[NSDictionary], categoryTypeIndex:Int,completionBlock:PFBooleanResultBlock) {
         
         user = PFUser.currentUser()
         self.options = arrayWithOptions
@@ -73,23 +74,17 @@ class Poll: PFObject, PFSubclassing {
         self.descriptionOfPoll = pollDescribtion
         self.category = categoryTypeIndex
         
-        saveInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                println("saved to parse server")
-            } else {
-                println(error)
-            }
-            
-        }
+        saveInBackgroundWithBlock(completionBlock)
     }
     
     
-    func fetchTitle(){
+    func didVote()->Bool {
         
+        // check if current user is on list
+        
+        //get a list of polls current users votes
+        //if not return false
+        return false
     }
     
-    func fetchCategory(){
-        
-    }
-
 }

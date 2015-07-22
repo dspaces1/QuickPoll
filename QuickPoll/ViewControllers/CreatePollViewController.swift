@@ -19,12 +19,12 @@ class CreatePollViewController: UIViewController {
     @IBOutlet weak var descriptionOfPoll: UITextView!
     var optionArr:[NSDictionary]? = [NSDictionary]()
     var keboardHandler:KeboardHandling!
-    
+    var myPoll:Poll?
     
     //MARK: - Section: Class Methods
     
     /// This button press method checks for valid fields and pushes poll data to parse
-    @IBAction func createPoll(sender: AnyObject) {
+    @IBAction func createPoll(sender: AnyObject)  {
         
         if ErrorHandling.emptyStringOrNil(titleOfPoll.text) {
             println("nil or empty title")
@@ -35,11 +35,19 @@ class CreatePollViewController: UIViewController {
             return
         }
         
-        let myPoll = Poll()
+        myPoll = Poll()
         
-        if let optionArr = createOptionArray(myPoll) {
+        if let optionArr = createOptionArray(myPoll!)  {
             
-            myPoll.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex)  //Post to Parse
+            myPoll!.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex) { (sucess,error) -> Void in
+                
+                if sucess {
+                    self.performSegueWithIdentifier("createdPoll", sender: self)
+                }else{
+                    println("failled to segue")
+                }
+            }//Post to Parse
+            
         } else {
             println("nil values found in cells ")
             return
@@ -95,9 +103,11 @@ class CreatePollViewController: UIViewController {
         
         if segue.identifier == "createdPoll" {
             let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
-            viewController.option = optionArr!
-            viewController.pollTitle = titleOfPoll.text
-            viewController.pollDescription = descriptionOfPoll.text
+            //println(myPoll!.options)
+            viewController.polls = myPoll
+            //viewController.option = optionArr!
+            //viewController.pollTitle = titleOfPoll.text
+            //viewController.pollDescription = descriptionOfPoll.text
         }
     }
     

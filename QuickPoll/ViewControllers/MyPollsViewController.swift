@@ -21,16 +21,15 @@ class MyPollsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let pollsFromThisUser = Poll.query()
-        pollsFromThisUser?.whereKey("user", equalTo: PFUser.currentUser()!)
-        pollsFromThisUser?.includeKey("user")
-        pollsFromThisUser?.orderByDescending("createdAt")
-        
-        pollsFromThisUser?.findObjectsInBackgroundWithBlock({ (result, error) -> Void in
-            self.polls = result as? [Poll] ?? []
-            self.tableView.reloadData()
-            //println(self.polls)
-        })
+        ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
+            if error == nil {
+                self.polls = result as? [Poll] ?? []
+                self.tableView.reloadData()
+                
+            } else {
+                println("Error loading data from parse: \(error)")
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -60,7 +59,7 @@ extension MyPollsViewController:UITableViewDataSource {
         cell.title.text = polls[indexPath.row].title
         cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //CHECK for nil
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))
-        
+        //cell.imagevotes = true if poll = poll
         return cell
         
     }
