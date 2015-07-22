@@ -53,6 +53,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-QuickPoll/Bolts.framework'
+  install_framework 'Pods-QuickPoll/Bond.framework'
   install_framework 'Pods-QuickPoll/FBSDKCoreKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKLoginKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKShareKit.framework'
@@ -62,6 +63,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-QuickPoll/Bolts.framework'
+  install_framework 'Pods-QuickPoll/Bond.framework'
   install_framework 'Pods-QuickPoll/FBSDKCoreKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKLoginKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKShareKit.framework'

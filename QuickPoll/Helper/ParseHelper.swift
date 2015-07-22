@@ -22,11 +22,10 @@ class ParseHelper {
         pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func votedForRequestForCurrentUser (user:PFUser, poll:Poll,completionBlock:PFArrayResultBlock){
+    static func votedForRequestForCurrentUser (poll:Poll,completionBlock:PFArrayResultBlock){
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
-        pollsVotedFromThisUser.whereKey("fromUser", equalTo: user)
+        pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
         pollsVotedFromThisUser.whereKey("toPoll", equalTo: poll)
-        pollsVotedFromThisUser.includeKey("fromUser")
         
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
     }

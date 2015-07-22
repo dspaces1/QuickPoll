@@ -59,9 +59,38 @@ extension MyPollsViewController:UITableViewDataSource {
         cell.title.text = polls[indexPath.row].title
         cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //CHECK for nil
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))
+        
+        if let pollChecked = polls[indexPath.row].votedFor{
+            
+            if pollChecked {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
+            
+        } else {
+            polls[indexPath.row].fetchVotedPolls({ (success, error) -> Void in
+                if success {
+                    cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                } else {
+                    cell.accessoryType = UITableViewCellAccessoryType.None
+                }
+            })
+        }
+        cell.tintColor = UIColor(red: 82/255.0, green: 193/255.0, blue: 159/255.0, alpha: 0.80)
+//        if polls[indexPath.row].votedFor != nil {
+//            //set checkmark based on its value
+//            cell.accessoryType = UITableViewCellAccessoryType.None
+//        }
+//        else {
+//            //fetchwithcompletionBlock() {
+//                //you have the value of votedFor
+//                //use that to show checkmark or not
+//            }
+        
         //cell.imagevotes = true if poll = poll
         return cell
-        
     }
+    
     
 }

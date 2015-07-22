@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bond.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04B4A1D631F2C922FA98F56FD2F773AE</key>
+		<key>2DFF117CE20DF3EB9438436A974E612E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>553FEE6EB6E5717590073535E48F919B</key>
+		<key>4D69949534D12B3F9AB65C99601D8B28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>636AABC6D68DB36D3239C36C7C93BAD5</key>
+		<key>625818D8829F51C3D2C10EC6D2BE2A69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66B7C31064BCFF94EC90FD6B47704422</key>
+		<key>A64164FFF9C4C6A32893612F31B28E5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6951EEB04F3B2AEB16A64C94FE91C68F</key>
+		<key>BD92EA4A20348445D75FC17414629C0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79528374A74AD06A4B5B6551E75EC393</key>
+		<key>D848DC07DB156EAB135208F7D646E76E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EB4EDB4AFAEDD828539CE62AB7B2CC1</key>
+		<key>EFB5F67192D87C3CAACB826DC09C81E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D893DA42C1441DE0E001160CCB54DB93</key>
+		<key>F135B348B1E9F74776242397F26C1A7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF51004B6A42D02BE6B96C385482EF0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,7 +8,7 @@
 
 import Foundation
 import Parse
-
+import Bond
 
 class Poll: PFObject, PFSubclassing {
     
@@ -23,7 +23,7 @@ class Poll: PFObject, PFSubclassing {
     var option:NSDictionary = Dictionary<String,Int>()
     var votedFor:Bool?
     //MARK: - Section: Class Methods
-
+    
     
     override init() {
         super.init()
@@ -78,13 +78,28 @@ class Poll: PFObject, PFSubclassing {
     }
     
     
-    func didVote()->Bool {
+    func fetchVotedPolls(completionBlock:PFBooleanResultBlock) {
         
-        // check if current user is on list
+        if self.votedFor != nil {
+            return
+        }
         
-        //get a list of polls current users votes
-        //if not return false
-        return false
+        ParseHelper.votedForRequestForCurrentUser(self) { (var polls: [AnyObject]?, error: NSError?) -> Void in
+            if error != nil {
+                completionBlock(false, error)
+                println("Error fetching voted for")
+                return
+            }
+            
+            if polls?.count > 0 {
+                self.votedFor = true
+            }
+            else {
+                self.votedFor = false
+            }
+           
+            completionBlock(self.votedFor!, nil)
+        }
     }
     
 }
