@@ -75,7 +75,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="My Polls"/>
-                                <segment title="Second"/>
+                                <segment title="Polls Voted"/>
                             </segments>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3X-oh-DYk">
@@ -88,12 +88,12 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Pbi-H2-963" id="GqL-wa-BQW"/>
-                        <segue destination="JJc-IC-NZM" kind="show" identifier="viewVotePoll" id="udE-fI-vuM"/>
+                        <segue destination="JJc-IC-NZM" kind="show" identifier="showExistingPoll" id="CKP-ug-wyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE3-Jj-4UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="768"/>
+            <point key="canvasLocation" x="1334" y="728"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fPV-Ql-z8T">
@@ -209,7 +209,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
-                                                    <rect key="frame" x="61" y="17.5" width="539" height="17"/>
+                                                    <rect key="frame" x="61" y="17" width="539" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -220,10 +220,10 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="resultBar" translatesAutoresizingMaskIntoConstraints="NO" id="J5F-ui-Z48">
                                                             <rect key="frame" x="0.0" y="0.0" width="545" height="26"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-6d-94B">
-                                                            <rect key="frame" x="547" y="2" width="22" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9,999,999 (%100)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-6d-94B">
+                                                            <rect key="frame" x="414" y="2" width="131" height="21"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="1" green="0.98404326869842174" blue="0.98113339568915647" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -313,6 +313,7 @@
                         <outlet property="descriptionOfPoll" destination="VoT-uu-p5o" id="VnZ-OK-Y1V"/>
                         <outlet property="tableViewWithOptions" destination="Txr-zt-bM1" id="AJU-cp-sPx"/>
                         <outlet property="titleOfPoll" destination="zVv-H4-A32" id="FJD-Fw-qKH"/>
+                        <outlet property="vote_doneButton" destination="uqE-7j-RHz" id="ytf-ac-blr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8B-JF-vGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,6 +576,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SL7-07-aUm"/>
+        <segue reference="CKP-ug-wyg"/>
     </inferredMetricsTieBreakers>
 </document>

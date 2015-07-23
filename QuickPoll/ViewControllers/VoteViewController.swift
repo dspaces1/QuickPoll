@@ -17,6 +17,8 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var descriptionOfPoll: UITextView!
     @IBOutlet weak var tableViewWithOptions: UITableView!
     
+    @IBOutlet weak var vote_doneButton: UIButton!
+    
     var selectionOption:Int?
     var polls: Poll?
     
@@ -24,6 +26,19 @@ class VoteViewController: UIViewController {
     
     @IBAction func voteForPoll(sender: AnyObject) {
         
+        if let votedFor = polls?.votedFor{
+            if votedFor {
+                self.navigationController!.popToRootViewControllerAnimated(true)
+            } else {
+                sendRequestToParse()
+            }
+        } else {
+            sendRequestToParse()
+        }
+        
+    }
+    
+    func sendRequestToParse () {
         if let selectionOption = selectionOption {
             
             polls?.options[selectionOption]["votes"] = polls?.options[selectionOption]["votes"] as! Int + 1
@@ -34,15 +49,11 @@ class VoteViewController: UIViewController {
                     println("error pushing vote to parse \(error)")
                 } else {
                     println("success")
+                    self.polls?.votedFor = true
                 }
                 
             }
-            
             animateBarResults()
-            
-            //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            //Begin animation effects
-            
         }
     }
     
@@ -60,14 +71,26 @@ class VoteViewController: UIViewController {
             currentCell.selectOption.hidden = true
             
            
-            UIView.animateWithDuration(1, animations: { () -> Void in
+            UIView.animateWithDuration(0.75, animations: { () -> Void in
 
                 currentCell.alignYConstraintOfDescription.constant -= 17
                 //currentCell.selectOption.alpha = 0
-                currentCell.alignXConstraintOfBar.constant +=  CGFloat((voteCount * 100))
+                
+                let screenSize: CGRect = UIScreen.mainScreen().bounds
+                let maxResultBarWidth = screenSize.width * 0.9
+                let minResultBarWidth = maxResultBarWidth * 0.15
+                
+                let resultBarSize = (CGFloat(voteCount) * maxResultBarWidth)
+                
+                if resultBarSize < 1 {
+                    currentCell.alignXConstraintOfBar.constant += minResultBarWidth
+                }else {
+                    currentCell.alignXConstraintOfBar.constant +=  CGFloat(resultBarSize)
+                }
                 currentCell.layoutIfNeeded()
                 
             })
+            vote_doneButton.setTitle("Done", forState: UIControlState.Normal)
         }
     }
     
@@ -98,6 +121,14 @@ class VoteViewController: UIViewController {
         titleOfPoll.text = polls?.title
         descriptionOfPoll.text = polls?.descriptionOfPoll
         createNewBackButton()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if let votedFor = polls?.votedFor{
+            println("test")
+            if votedFor {animateBarResults()}
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

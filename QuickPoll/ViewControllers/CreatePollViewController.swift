@@ -103,11 +103,8 @@ class CreatePollViewController: UIViewController {
         
         if segue.identifier == "createdPoll" {
             let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
-            //println(myPoll!.options)
+
             viewController.polls = myPoll
-            //viewController.option = optionArr!
-            //viewController.pollTitle = titleOfPoll.text
-            //viewController.pollDescription = descriptionOfPoll.text
         }
     }
     

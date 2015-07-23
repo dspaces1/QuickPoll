@@ -15,6 +15,7 @@ class MyPollsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var polls: [Poll] = []
+    var poll:Poll?
     
     // MARK: - Section: Class Methods
     
@@ -35,9 +36,17 @@ class MyPollsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showExistingPoll" {
+            let voteViewController = segue.destinationViewController as! VoteViewController
+            voteViewController.polls = poll
+        }
     }
     
 }
@@ -82,5 +91,15 @@ extension MyPollsViewController:UITableViewDataSource {
         return cell
     }
     
+    
+}
+
+extension MyPollsViewController:UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        poll = polls[indexPath.row]
+        self.performSegueWithIdentifier("showExistingPoll", sender: self)
+    }
     
 }
