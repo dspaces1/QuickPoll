@@ -30,11 +30,11 @@ class ParseHelper {
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func voteForPoll (user:PFUser, poll:Poll) {
+    static func voteForPoll (user:PFUser, poll:Poll,completionBlock:PFBooleanResultBlock) {
         let vote = PFObject(className: "Voted")
         vote["fromUser"] = user
         vote["toPoll"] = poll
-        vote.saveInBackgroundWithBlock(nil)
+        vote.saveInBackgroundWithBlock(completionBlock)
     }
   
 }

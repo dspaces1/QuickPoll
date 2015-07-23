@@ -78,17 +78,7 @@ extension MyPollsViewController:UITableViewDataSource {
             })
         }
         cell.tintColor = UIColor(red: 82/255.0, green: 193/255.0, blue: 159/255.0, alpha: 0.80)
-//        if polls[indexPath.row].votedFor != nil {
-//            //set checkmark based on its value
-//            cell.accessoryType = UITableViewCellAccessoryType.None
-//        }
-//        else {
-//            //fetchwithcompletionBlock() {
-//                //you have the value of votedFor
-//                //use that to show checkmark or not
-//            }
-        
-        //cell.imagevotes = true if poll = poll
+
         return cell
     }
     

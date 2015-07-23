@@ -17,7 +17,7 @@ class CreatePollViewController: UIViewController {
     @IBOutlet weak var categoryPicker: UISegmentedControl!
     @IBOutlet weak var titleOfPoll: UITextField!
     @IBOutlet weak var descriptionOfPoll: UITextView!
-    var optionArr:[NSDictionary]? = [NSDictionary]()
+    var optionArr:[Dictionary<String,AnyObject>]? = [Dictionary<String,AnyObject>]()
     var keboardHandler:KeboardHandling!
     var myPoll:Poll?
     
@@ -62,7 +62,7 @@ class CreatePollViewController: UIViewController {
     :param: myPoll Parse subclass with Dictionary format.
     :returns: all poll options with 0 votes each, nil if empyty cell describtions.
     */
-    func createOptionArray (myPoll:Poll) -> [NSDictionary]?{
+    func createOptionArray (myPoll:Poll) -> [Dictionary<String,AnyObject>]?{
         
         for cell in optionsTableView.visibleCells() {
             

@@ -88,7 +88,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Pbi-H2-963" id="GqL-wa-BQW"/>
-                        <segue destination="n1K-VC-wOm" kind="show" identifier="viewVotedPoll" id="OGP-C8-TEz"/>
                         <segue destination="JJc-IC-NZM" kind="show" identifier="viewVotePoll" id="udE-fI-vuM"/>
                     </connections>
                 </viewController>
@@ -210,25 +209,58 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
-                                                    <rect key="frame" x="61" y="0.0" width="539" height="51.5"/>
+                                                    <rect key="frame" x="61" y="17.5" width="539" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEC-wf-QkL" userLabel="Results">
+                                                    <rect key="frame" x="0.0" y="8" width="569" height="26"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="resultBar" translatesAutoresizingMaskIntoConstraints="NO" id="J5F-ui-Z48">
+                                                            <rect key="frame" x="0.0" y="0.0" width="545" height="26"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-6d-94B">
+                                                            <rect key="frame" x="547" y="2" width="22" height="21"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="569" id="SMV-od-ouS"/>
+                                                        <constraint firstAttribute="height" constant="26" id="mHo-xe-wJd"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6NW-dK-c0W" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="top" id="0OL-2O-Gfb"/>
+                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" constant="4" id="6OE-Qh-W8D"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NlP-zj-tLl" secondAttribute="bottom" constant="-2.5" id="9ha-Vr-uUy"/>
+                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="top" constant="8" id="LSC-rB-l8x"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hEC-wf-QkL" secondAttribute="bottom" constant="4.5" id="Thk-92-rDf"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" constant="6" id="b3s-bv-WGH"/>
+                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leading" id="cwA-0h-TQO" userLabel="HorizSpaceBar"/>
+                                                <constraint firstAttribute="bottom" secondItem="hEC-wf-QkL" secondAttribute="bottom" constant="17.5" id="ddN-Uw-OQl"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="fMX-z3-hUb"/>
                                                 <constraint firstAttribute="trailing" secondItem="6NW-dK-c0W" secondAttribute="trailing" id="fje-gE-92P"/>
-                                                <constraint firstAttribute="bottom" secondItem="6NW-dK-c0W" secondAttribute="bottom" id="nWC-8l-wEC"/>
                                                 <constraint firstItem="6NW-dK-c0W" firstAttribute="leading" secondItem="NlP-zj-tLl" secondAttribute="trailing" constant="3" id="xOF-VR-aP2"/>
+                                                <constraint firstAttribute="centerY" secondItem="6NW-dK-c0W" secondAttribute="centerY" id="zdu-8n-uyx" userLabel="YAlignDesc"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="6OE-Qh-W8D"/>
+                                                    <exclude reference="Thk-92-rDf"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="alignXConstraintOfBar" destination="cwA-0h-TQO" id="Sef-2Y-q6y"/>
+                                            <outlet property="alignYConstraintOfDescription" destination="zdu-8n-uyx" id="cNU-AK-rGM"/>
                                             <outlet property="optionDescription" destination="6NW-dK-c0W" id="8rp-2m-7DD"/>
+                                            <outlet property="resultsBar" destination="hEC-wf-QkL" id="lRL-NL-Kcc"/>
                                             <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
+                                            <outlet property="voteCount" destination="620-6d-94B" id="Pc5-al-IJJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -247,7 +279,6 @@
                                 </state>
                                 <connections>
                                     <action selector="voteForPoll:" destination="JJc-IC-NZM" eventType="touchUpInside" id="pcE-Du-Bu5"/>
-                                    <segue destination="n1K-VC-wOm" kind="show" id="WyV-FM-wjV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -287,24 +318,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8B-JF-vGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2116" y="44"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="MkY-F8-8X1">
-            <objects>
-                <viewController id="n1K-VC-wOm" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fsf-dG-EYG"/>
-                        <viewControllerLayoutGuide type="bottom" id="tLJ-yc-xoB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="axc-pM-81g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bo5-Vi-3H5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2492" y="768"/>
         </scene>
         <!--Create Poll View Controller-->
         <scene sceneID="Sbz-bC-lO2">
@@ -559,9 +572,9 @@
         <image name="Health" width="28" height="19"/>
         <image name="News" width="20" height="20"/>
         <image name="edu" width="33" height="19"/>
+        <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OGP-C8-TEz"/>
-        <segue reference="udE-fI-vuM"/>
+        <segue reference="SL7-07-aUm"/>
     </inferredMetricsTieBreakers>
 </document>

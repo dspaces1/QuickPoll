@@ -19,8 +19,8 @@ class Poll: PFObject, PFSubclassing {
     @NSManaged var title:String?
     @NSManaged var descriptionOfPoll:String?
     @NSManaged var category:Int
-    @NSManaged var options:[NSDictionary]
-    var option:NSDictionary = Dictionary<String,Int>()
+    @NSManaged var options:[Dictionary<String,AnyObject>]
+    var option:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
     var votedFor:Bool?
     //MARK: - Section: Class Methods
     
@@ -66,7 +66,11 @@ class Poll: PFObject, PFSubclassing {
         
     }
     
-    func postPoll(#pollTitle:String, pollDescribtion:String, arrayWithOptions:[NSDictionary], categoryTypeIndex:Int,completionBlock:PFBooleanResultBlock) {
+    
+    //I can fetch poll with the same tag id and update it
+    
+    
+    func postPoll(#pollTitle:String, pollDescribtion:String, arrayWithOptions:[Dictionary<String,AnyObject>], categoryTypeIndex:Int,completionBlock:PFBooleanResultBlock) {
         
         user = PFUser.currentUser()
         self.options = arrayWithOptions
@@ -77,7 +81,11 @@ class Poll: PFObject, PFSubclassing {
         saveInBackgroundWithBlock(completionBlock)
     }
     
+    /**
+    Init bool flag that keeps track if the user voted for poll or not.
     
+    :param: completionBlock bool completion block
+    */
     func fetchVotedPolls(completionBlock:PFBooleanResultBlock) {
         
         if self.votedFor != nil {
@@ -85,6 +93,7 @@ class Poll: PFObject, PFSubclassing {
         }
         
         ParseHelper.votedForRequestForCurrentUser(self) { (var polls: [AnyObject]?, error: NSError?) -> Void in
+
             if error != nil {
                 completionBlock(false, error)
                 println("Error fetching voted for")

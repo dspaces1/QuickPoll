@@ -14,9 +14,12 @@ class VoteOptionTableViewCell: UITableViewCell {
   
     @IBOutlet weak var selectOption: UIButton!
 
+    @IBOutlet weak var voteCount: UILabel!
     @IBOutlet weak var optionDescription: UILabel!
-  
-  
+    @IBOutlet weak var resultsBar: UIView!
+    
+    @IBOutlet weak var alignYConstraintOfDescription: NSLayoutConstraint!
+    @IBOutlet weak var alignXConstraintOfBar: NSLayoutConstraint!
     //MARK: - Section: Class Methods
   
     override func awakeFromNib() {
