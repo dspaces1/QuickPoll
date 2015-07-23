@@ -77,12 +77,12 @@ class VoteViewController: UIViewController {
                 //currentCell.selectOption.alpha = 0
                 
                 let screenSize: CGRect = UIScreen.mainScreen().bounds
-                let maxResultBarWidth = screenSize.width * 0.9
-                let minResultBarWidth = maxResultBarWidth * 0.15
+                let maxResultBarWidth = screenSize.width
+                let minResultBarWidth = maxResultBarWidth * 0.10
                 
                 let resultBarSize = (CGFloat(voteCount) * maxResultBarWidth)
                 
-                if resultBarSize < 1 {
+                if voteCount < 1 {
                     currentCell.alignXConstraintOfBar.constant += minResultBarWidth
                 }else {
                     currentCell.alignXConstraintOfBar.constant +=  CGFloat(resultBarSize)
