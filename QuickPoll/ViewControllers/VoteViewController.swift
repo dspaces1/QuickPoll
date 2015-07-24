@@ -154,7 +154,7 @@ extension VoteViewController:UITableViewDataSource {
         println(polls!.options)
         cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
         //cell.resultsBar.hidden = true
-        cell.alignXConstraintOfBar.constant -= cell.resultsBar.bounds.width
+        cell.alignXConstraintOfBar.constant -= cell.resultsBar.bounds.width + 10
         return cell
     }
     
