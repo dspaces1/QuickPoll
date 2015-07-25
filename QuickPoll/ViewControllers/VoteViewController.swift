@@ -83,9 +83,9 @@ class VoteViewController: UIViewController {
                 let resultBarSize = (CGFloat(voteCount) * maxResultBarWidth)
                 
                 if voteCount < 1 {
-                    currentCell.alignXConstraintOfBar.constant += minResultBarWidth
+                    currentCell.alignXConstraintOfBar.constant -= minResultBarWidth
                 }else {
-                    currentCell.alignXConstraintOfBar.constant +=  CGFloat(resultBarSize)
+                    currentCell.alignXConstraintOfBar.constant -=  CGFloat(resultBarSize)
                 }
                 currentCell.layoutIfNeeded()
                 
@@ -154,7 +154,7 @@ extension VoteViewController:UITableViewDataSource {
         println(polls!.options)
         cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
         //cell.resultsBar.hidden = true
-        cell.alignXConstraintOfBar.constant -= cell.resultsBar.bounds.width + 10
+        cell.alignXConstraintOfBar.constant += cell.resultsBar.bounds.width + 10
         return cell
     }
     
