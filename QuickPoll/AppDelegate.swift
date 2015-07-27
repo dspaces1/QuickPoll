@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
-
+    //quick change
 
     //MARK: - Section: Class Methods
     

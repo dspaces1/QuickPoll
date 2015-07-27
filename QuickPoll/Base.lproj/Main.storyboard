@@ -74,9 +74,13 @@
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
+                                <segment title="Poll Feed"/>
                                 <segment title="My Polls"/>
-                                <segment title="Polls Voted"/>
+                                <segment title="Voted"/>
                             </segments>
+                            <connections>
+                                <action selector="changeFeedSource:" destination="h5o-Sr-H2g" eventType="valueChanged" id="87m-ev-Eg6"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3X-oh-DYk">
                             <connections>
@@ -527,12 +531,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PZw-mC-2Eo" kind="relationship" relationship="rootViewController" id="MOr-Iy-io6"/>
+                        <segue destination="h5o-Sr-H2g" kind="relationship" relationship="rootViewController" id="12b-qb-sWo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axu-um-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="44"/>
+            <point key="canvasLocation" x="462" y="-4"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="dxE-oo-Kkf">
@@ -546,7 +550,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h5o-Sr-H2g" kind="relationship" relationship="rootViewController" id="FNB-kr-REG"/>
+                        <segue destination="PZw-mC-2Eo" kind="relationship" relationship="rootViewController" id="SJm-to-xCO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTj-U4-PbO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,6 +22,22 @@ class ParseHelper {
         pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
+    static func timelineRequestForAllPolls (completionBlock:PFArrayResultBlock ) {
+        let pollsFromThisUser = Poll.query()
+        pollsFromThisUser?.includeKey("user")
+        pollsFromThisUser?.orderByDescending("createdAt")
+        pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    
+    //Get Polls
+    static func timelineRequestForVotedPolls (completionBlock:PFArrayResultBlock ) {
+        let pollsVotedFromThisUser = PFQuery(className: "Voted")
+        pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+        pollsVotedFromThisUser.includeKey("toPoll")
+        pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
     static func votedForRequestForCurrentUser (poll:Poll,completionBlock:PFArrayResultBlock){
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
         pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
@@ -29,6 +45,10 @@ class ParseHelper {
         
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
     }
+    
+
+    
+    
     
     static func voteForPoll (user:PFUser, poll:Poll,completionBlock:PFBooleanResultBlock) {
         let vote = PFObject(className: "Voted")

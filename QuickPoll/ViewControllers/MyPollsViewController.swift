@@ -14,30 +14,86 @@ class MyPollsViewController: UIViewController {
     // MARK: - Section: Class Properties
     
     @IBOutlet weak var tableView: UITableView!
+
     var polls: [Poll] = []
+    
+    var pollFeed: [Poll] = []
+    var myPolls: [Poll] = []
+    var votedPolls: [Poll] = []
+    
     var poll:Poll?
     
     // MARK: - Section: Class Methods
     
+    @IBAction func changeFeedSource(sender: UISegmentedControl) {
+    
+        switch sender.selectedSegmentIndex {
+            
+        case 0:
+            println("Poll Feed")
+            polls = pollFeed
+            tableView.reloadData()
+            
+        case 1:
+            println("My Polls")
+            polls = myPolls
+            tableView.reloadData()
+            
+        case 2:
+            println("Voted")
+            polls = votedPolls
+            tableView.reloadData()
+            
+        default:
+            println("error")
+        }
+        
+    }
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
+            }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ParseHelper.timelineRequestForAllPolls { (result, error) -> Void in
             if error == nil {
                 self.polls = result as? [Poll] ?? []
+                self.pollFeed = self.polls
                 self.tableView.reloadData()
                 
             } else {
                 println("Error loading data from parse: \(error)")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
+            if error == nil {
+                self.myPolls = result as? [Poll] ?? []
+                
+            } else {
+                println("Error loading data (myPoll) from parse: \(error)")
+            }
+        }
+        
+        
+        ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
+            if error == nil {
+                self.votedPolls = result as? [Poll] ?? []
+            } else {
+                println("Error loading data(votedPolls) from parse: \(error)")
+            }
+        }
+
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -103,3 +159,4 @@ extension MyPollsViewController:UITableViewDelegate {
     }
     
 }
+
