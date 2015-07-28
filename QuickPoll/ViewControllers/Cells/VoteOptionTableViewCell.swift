@@ -19,9 +19,18 @@ class VoteOptionTableViewCell: UITableViewCell {
     @IBOutlet weak var resultsBar: UIView!
     
     @IBOutlet weak var alignYConstraintOfDescription: NSLayoutConstraint!
-    @IBOutlet weak var alignXConstraintOfBar: NSLayoutConstraint!
+    @IBOutlet weak var barWidth: NSLayoutConstraint!
+    
+    
+    
+    
     //MARK: - Section: Class Methods
-  
+    
+    func getBarMaxHeight () -> CGFloat{
+        let maxBarWidth = CGRectGetWidth(resultsBar.frame)
+        return maxBarWidth
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

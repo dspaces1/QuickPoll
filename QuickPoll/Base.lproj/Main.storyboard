@@ -112,17 +112,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bO-jq-o1y">
-                                <rect key="frame" x="32" y="119" width="138" height="30"/>
-                                <state key="normal" title="Reset Sign Up page">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetSignUp:" destination="CYl-I5-PfV" eventType="touchUpInside" id="b4H-bl-JFr"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGV-cM-IGU">
+                                <rect key="frame" x="247" y="114" width="107" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2Ca-Hi-PVA"/>
+                                    <constraint firstAttribute="width" constant="107" id="sTq-Yo-cgY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zGV-cM-IGU" secondAttribute="centerX" id="Pau-cE-cOm"/>
+                            <constraint firstItem="zGV-cM-IGU" firstAttribute="top" secondItem="Ril-Xx-5Fj" secondAttribute="bottom" constant="50" id="cMV-kj-DnX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="4da-jg-eh3"/>
                 </viewController>
@@ -142,17 +147,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8M-KL-eM4">
-                                <rect key="frame" x="71" y="140" width="96" height="30"/>
-                                <state key="normal" title="Segue to vote">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="JJc-IC-NZM" kind="show" id="zFP-KQ-KBv"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Poll Feed View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnq-gp-BcX">
+                                <rect key="frame" x="220" y="123" width="160" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="TJV-VV-F9i"/>
+                                    <constraint firstAttribute="height" constant="21" id="okY-Dq-Xc9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nnq-gp-BcX" firstAttribute="top" secondItem="ace-os-GyO" secondAttribute="bottom" constant="59" id="bYP-Jo-yJY"/>
+                            <constraint firstAttribute="centerX" secondItem="Nnq-gp-BcX" secondAttribute="centerX" id="xt4-bq-gfl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Poll Feed" id="Eue-3K-0I6"/>
                 </viewController>
@@ -210,27 +220,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ydj-4M-vh1" id="Geu-G3-yfQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-zj-tLl">
-                                                    <rect key="frame" x="14" y="8" width="44" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="Elm-r3-6ii"/>
-                                                        <constraint firstAttribute="height" constant="38" id="nRV-Sa-rJJ"/>
-                                                    </constraints>
-                                                    <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="4" maxY="6"/>
-                                                    <state key="normal" image="Check Box">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="Checked Box"/>
-                                                    <connections>
-                                                        <action selector="selectOptionTapped:" destination="Ydj-4M-vh1" eventType="touchUpInside" id="86Q-Zz-dJ0"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
-                                                    <rect key="frame" x="61" y="17" width="539" height="17"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEC-wf-QkL" userLabel="Results">
                                                     <rect key="frame" x="8" y="8" width="584" height="26"/>
                                                     <subviews>
@@ -252,13 +241,34 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="J5F-ui-Z48" secondAttribute="width" id="6ae-MK-w9M" userLabel="BarWidth"/>
                                                         <constraint firstItem="J5F-ui-Z48" firstAttribute="leading" secondItem="hEC-wf-QkL" secondAttribute="leading" id="A25-2N-O2H" userLabel="BarXStart"/>
-                                                        <constraint firstAttribute="trailing" secondItem="620-6d-94B" secondAttribute="trailing" constant="8" id="Cpl-g9-o1Y"/>
+                                                        <constraint firstItem="J5F-ui-Z48" firstAttribute="trailing" secondItem="620-6d-94B" secondAttribute="trailing" constant="8" id="J2G-DX-Q2K"/>
                                                         <constraint firstItem="620-6d-94B" firstAttribute="top" secondItem="hEC-wf-QkL" secondAttribute="top" constant="1" id="Skw-La-6tF"/>
                                                         <constraint firstAttribute="bottom" secondItem="J5F-ui-Z48" secondAttribute="bottom" id="X9b-pP-JWn"/>
                                                         <constraint firstItem="J5F-ui-Z48" firstAttribute="top" secondItem="hEC-wf-QkL" secondAttribute="top" id="ptp-F4-mE8"/>
                                                         <constraint firstAttribute="bottom" secondItem="620-6d-94B" secondAttribute="bottom" constant="2" id="utr-k6-WoB"/>
                                                     </constraints>
                                                 </view>
+                                                <button autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-zj-tLl">
+                                                    <rect key="frame" x="14" y="8" width="44" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="Elm-r3-6ii"/>
+                                                        <constraint firstAttribute="height" constant="38" id="nRV-Sa-rJJ"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="4" maxY="6"/>
+                                                    <state key="normal" image="Check Box">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="Checked Box"/>
+                                                    <connections>
+                                                        <action selector="selectOptionTapped:" destination="Ydj-4M-vh1" eventType="touchUpInside" id="86Q-Zz-dJ0"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
+                                                    <rect key="frame" x="61" y="17" width="539" height="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hEC-wf-QkL" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="8Hr-a8-LKp"/>
@@ -280,8 +290,8 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="alignXConstraintOfBar" destination="6ae-MK-w9M" id="ACE-VF-p7k"/>
                                             <outlet property="alignYConstraintOfDescription" destination="Lq2-eT-Pfe" id="Cr2-44-Fmg"/>
+                                            <outlet property="barWidth" destination="6ae-MK-w9M" id="Kk2-qM-Qra"/>
                                             <outlet property="optionDescription" destination="6NW-dK-c0W" id="8rp-2m-7DD"/>
                                             <outlet property="resultsBar" destination="hEC-wf-QkL" id="lRL-NL-Kcc"/>
                                             <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
@@ -518,13 +528,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQv-Og-hLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-358" y="374"/>
+            <point key="canvasLocation" x="-366" y="344"/>
         </scene>
-        <!--Item 1-->
+        <!--Poll Feeds-->
         <scene sceneID="Xtg-Ht-Wut">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k6t-a8-Rlr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="lZN-Rv-gdf"/>
+                    <tabBarItem key="tabBarItem" title="Poll Feeds" id="lZN-Rv-gdf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPG-0S-oEU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -539,11 +549,11 @@
             </objects>
             <point key="canvasLocation" x="462" y="-4"/>
         </scene>
-        <!--Item 2-->
+        <!--Local Polls-->
         <scene sceneID="dxE-oo-Kkf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YpQ-6l-Bbb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8tG-VZ-xHZ"/>
+                    <tabBarItem key="tabBarItem" title="Local Polls" id="8tG-VZ-xHZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9mW-ks-9ab">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -558,11 +568,11 @@
             </objects>
             <point key="canvasLocation" x="462" y="707"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="Izk-47-Unj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hns-bP-83E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iOi-qo-aUi"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="iOi-qo-aUi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="teF-Ny-sDa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
