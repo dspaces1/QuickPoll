@@ -9,25 +9,37 @@
 import UIKit
 import Parse
 
+
+
+//Implementation of pollDelegate
 class MyPollsViewController: UIViewController {
     
     // MARK: - Section: Class Properties
     
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var segmentView: UISegmentedControl!
     var polls: [Poll] = []
     
     var pollFeed: [Poll] = []
     var myPolls: [Poll] = []
     var votedPolls: [Poll] = []
     
+    var delegate: pollDelegate?
+    
     var poll:Poll?
+    
     
     // MARK: - Section: Class Methods
     
     @IBAction func changeFeedSource(sender: UISegmentedControl) {
+        
+        updateFeedData(sender.selectedSegmentIndex)
+    }
     
-        switch sender.selectedSegmentIndex {
+    func updateFeedData (segmentIndex:Int) {
+        
+        switch segmentIndex {
             
         case 0:
             println("Poll Feed")
@@ -47,15 +59,15 @@ class MyPollsViewController: UIViewController {
         default:
             println("error")
         }
-        
     }
-    
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-            }
+        updateFeedData(segmentView.selectedSegmentIndex)
+        tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +86,7 @@ class MyPollsViewController: UIViewController {
         ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
             if error == nil {
                 self.myPolls = result as? [Poll] ?? []
-                
+                 //println(self.myPolls)
             } else {
                 println("Error loading data (myPoll) from parse: \(error)")
             }
@@ -83,7 +95,12 @@ class MyPollsViewController: UIViewController {
         
         ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
             if error == nil {
-                self.votedPolls = result as? [Poll] ?? []
+                let relations = result as? [PFObject] ?? []
+                
+                self.votedPolls = relations.map {
+                    $0.objectForKey("toPoll") as! Poll
+                }
+                
             } else {
                 println("Error loading data(votedPolls) from parse: \(error)")
             }
@@ -98,10 +115,19 @@ class MyPollsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showExistingPoll" {
             let voteViewController = segue.destinationViewController as! VoteViewController
+            voteViewController.voted4Delegate = self
             voteViewController.polls = poll
+           
+        }
+        
+        if segue.identifier == "createNewPoll"{
+            let createViewController = segue.destinationViewController as! CreatePollViewController
+            createViewController.addPollDelegate = self
         }
     }
     
@@ -158,5 +184,18 @@ extension MyPollsViewController:UITableViewDelegate {
         self.performSegueWithIdentifier("showExistingPoll", sender: self)
     }
     
+}
+
+extension MyPollsViewController:pollDelegate,votedForDelegate{
+    
+    func addPollItem(newPoll:Poll) {
+        pollFeed.insert(newPoll, atIndex: 0)
+        myPolls.insert(newPoll, atIndex: 0)
+    }
+    
+    func addVotedForItem(newPoll: Poll) {
+        votedPolls.insert(newPoll, atIndex: 0)
+    }
+
 }
 

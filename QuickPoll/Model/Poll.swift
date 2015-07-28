@@ -99,6 +99,7 @@ class Poll: PFObject, PFSubclassing {
                 println("Error fetching voted for")
                 return
             }
+            //println(polls)
             
             if polls?.count > 0 {
                 self.votedFor = true

@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+protocol votedForDelegate:NSObjectProtocol {
+    func addVotedForItem (newPoll:Poll)
+}
+
 class VoteViewController: UIViewController {
   
     // MARK: - Section: Class Properties
@@ -21,6 +25,7 @@ class VoteViewController: UIViewController {
     
     var selectionOption:Int?
     var polls: Poll?
+    weak var voted4Delegate:votedForDelegate?
     
     // MARK: - Section: Class Methods
     
@@ -50,6 +55,7 @@ class VoteViewController: UIViewController {
                 } else {
                     println("success")
                     self.polls?.votedFor = true
+                    self.voted4Delegate?.addVotedForItem(self.polls!)
                 }
                 
             }
@@ -118,20 +124,26 @@ class VoteViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        titleOfPoll.text = polls?.title
-        descriptionOfPoll.text = polls?.descriptionOfPoll
-        createNewBackButton()
+//        titleOfPoll.text = polls?.title
+//        descriptionOfPoll.text = polls?.descriptionOfPoll
+//        descriptionOfPoll.textAlignment = .Center
+//        createNewBackButton()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         if let votedFor = polls?.votedFor{
-            println("test")
             if votedFor {animateBarResults()}
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleOfPoll.text = polls?.title
+        descriptionOfPoll.text = polls?.descriptionOfPoll
+        descriptionOfPoll.textAlignment = .Center
+        createNewBackButton()
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -84,13 +84,14 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3X-oh-DYk">
                             <connections>
-                                <segue destination="r8I-9Y-aWl" kind="show" id="uBr-br-s9D"/>
+                                <segue destination="r8I-9Y-aWl" kind="show" identifier="createNewPoll" id="uBr-br-s9D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="segmentView" destination="hjJ-WT-Amy" id="rWB-FO-kGN"/>
                         <outlet property="tableView" destination="Pbi-H2-963" id="GqL-wa-BQW"/>
                         <segue destination="JJc-IC-NZM" kind="show" identifier="showExistingPoll" id="CKP-ug-wyg"/>
                     </connections>
@@ -171,7 +172,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-uu-p5o">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-uu-p5o">
                                 <rect key="frame" x="16" y="110" width="568" height="91"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -383,19 +384,6 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description of poll" translatesAutoresizingMaskIntoConstraints="NO" id="wjU-qH-d8j">
-                                        <rect key="frame" x="16" y="182" width="568" height="75"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="1C7-dP-4lm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.3"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-Tt-f8z">
                                         <rect key="frame" x="0.0" y="265" width="600" height="160"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -444,6 +432,19 @@
                                             <action selector="createPoll:" destination="r8I-9Y-aWl" eventType="touchUpInside" id="THl-26-JkL"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description of poll" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wjU-qH-d8j">
+                                        <rect key="frame" x="16" y="182" width="568" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="1C7-dP-4lm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.3"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="trailing" secondItem="wjU-qH-d8j" secondAttribute="trailing" id="Epi-ye-Wyw"/>
@@ -588,6 +589,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CKP-ug-wyg"/>
+        <segue reference="SL7-07-aUm"/>
     </inferredMetricsTieBreakers>
 </document>

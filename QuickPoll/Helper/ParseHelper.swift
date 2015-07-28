@@ -35,8 +35,12 @@ class ParseHelper {
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
         pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
         pollsVotedFromThisUser.includeKey("toPoll")
+        
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
+        
+
     }
+    
     
     static func votedForRequestForCurrentUser (poll:Poll,completionBlock:PFArrayResultBlock){
         let pollsVotedFromThisUser = PFQuery(className: "Voted")

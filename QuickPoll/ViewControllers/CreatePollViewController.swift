@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol pollDelegate:NSObjectProtocol {
+    
+    func addPollItem(newPoll:Poll)
+}
+
 class CreatePollViewController: UIViewController {
     
     // MARK: - Section: Class Properties
@@ -17,9 +22,12 @@ class CreatePollViewController: UIViewController {
     @IBOutlet weak var categoryPicker: UISegmentedControl!
     @IBOutlet weak var titleOfPoll: UITextField!
     @IBOutlet weak var descriptionOfPoll: UITextView!
+    
     var optionArr:[Dictionary<String,AnyObject>]? = [Dictionary<String,AnyObject>]()
     var keboardHandler:KeboardHandling!
     var myPoll:Poll?
+    
+    weak var addPollDelegate:pollDelegate?
     
     //MARK: - Section: Class Methods
     
@@ -39,10 +47,15 @@ class CreatePollViewController: UIViewController {
         
         if let optionArr = createOptionArray(myPoll!)  {
             
+            //Call function
+            addPollDelegate?.addPollItem(myPoll!)
             myPoll!.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex) { (sucess,error) -> Void in
                 
                 if sucess {
-                    self.performSegueWithIdentifier("createdPoll", sender: self)
+                    //MyPollsViewController.polls.append
+                    //self.performSegueWithIdentifier("createdPoll", sender: self)
+                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    
                 }else{
                     println("failled to segue")
                 }
@@ -99,14 +112,14 @@ class CreatePollViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "createdPoll" {
-            let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
-
-            viewController.polls = myPoll
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if segue.identifier == "createdPoll" {
+//            let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
+//
+//            viewController.polls = myPoll
+//        }
+//    }
     
 }
 
