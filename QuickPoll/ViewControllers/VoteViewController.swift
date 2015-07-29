@@ -28,9 +28,9 @@ class VoteViewController: UIViewController {
     weak var voted4Delegate:votedForDelegate?
     
     var animateFlag:Bool = false
-    var barMaxWidthForAnimation:CGFloat!
+    //var barMaxWidthForAnimation:CGFloat!
     var totalVotes:Int = 0
-    
+    var voteCount:Int = 0
     // MARK: - Section: Class Methods
     
     @IBAction func voteForPoll(sender: AnyObject) {
@@ -77,34 +77,43 @@ class VoteViewController: UIViewController {
             let cellIndex:NSIndexPath = tableViewWithOptions.indexPathForCell(cell as! UITableViewCell)!
             let currentCell = tableViewWithOptions.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
             //currentCell.selectOption.selected = false
-            let voteCount:Int = polls?.options[cellIndex.row]["votes"] as! Int
-            totalVotes += voteCount
+            voteCount = polls?.options[cellIndex.row]["votes"] as! Int
+            //totalVotes += voteCount
             
             let voteCountAsString:String = String(voteCount)
             currentCell.voteCount.text! = voteCountAsString
             currentCell.selectOption.hidden = true
             
+            
+            //currentCell.resultsBar.layoutIfNeeded()
+            //println(currentCell.getBarMaxWidth())
            
             UIView.animateWithDuration(0.75, animations: { () -> Void in
 
                 currentCell.alignYConstraintOfDescription.constant -= 17
                 //currentCell.selectOption.alpha = 0
                 
+                let maxResultBarWidth = currentCell.getBarMaxWidth()
                 
                 
-                let maxResultBarWidth = self.barMaxWidthForAnimation
-                //let minResultBarWidth = maxResultBarWidth * 0.10
-                
-                if voteCount < 1 {
-                    currentCell.barWidth.constant = maxResultBarWidth
+                if self.voteCount < 1 {
+                    currentCell.barWidth.constant = 0
                 }else {
-                    let percentageOfVotes = Float(voteCount) / Float(self.totalVotes)
+                    let percentageOfVotes = Float(self.voteCount) / Float(self.totalVotes)
+                    println("vote count: \(self.voteCount)\n total votes: \(self.totalVotes)")
+                    println("Percentage of Votes: \(percentageOfVotes)")
+                    
                     let newResultBarWidth:CGFloat = CGFloat(percentageOfVotes) * maxResultBarWidth
-                    currentCell.barWidth.constant =  maxResultBarWidth - newResultBarWidth
+                    println("New Result Bar Width: \(newResultBarWidth)")
+                    
+                    currentCell.barWidth.constant =  newResultBarWidth
+                    println("Current cell bar width \(currentCell.barWidth.constant)")
+                    
                 }
                 currentCell.layoutIfNeeded()
                 
             })
+            
             vote_doneButton.setTitle("Done", forState: UIControlState.Normal)
             animateFlag = true
         }
@@ -169,10 +178,14 @@ extension VoteViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
         println(polls!.options)
         cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
-        //cell.resultsBar.hidden = true
         
-        barMaxWidthForAnimation = cell.getBarMaxHeight()
-        cell.barWidth.constant = barMaxWidthForAnimation
+        
+        voteCount = polls?.options[indexPath.row]["votes"] as! Int
+        
+        totalVotes += voteCount
+        
+        let voteCountAsString:String = String(voteCount)
+        cell.voteCount.text! = voteCountAsString
         
         return cell
     }

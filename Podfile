@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'QuickPoll' do
 
+pod 'IQKeyboardManager'
 pod 'Bond', '~> 3.9'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'

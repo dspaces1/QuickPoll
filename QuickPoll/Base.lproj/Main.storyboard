@@ -224,10 +224,13 @@
                                                     <rect key="frame" x="8" y="8" width="584" height="26"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resultBar" translatesAutoresizingMaskIntoConstraints="NO" id="J5F-ui-Z48">
-                                                            <rect key="frame" x="0.0" y="0.0" width="584" height="26"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="26"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" id="QaC-V9-r4G" userLabel="BarWidth"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999 (%100)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-6d-94B">
-                                                            <rect key="frame" x="433" y="1" width="143" height="23"/>
+                                                            <rect key="frame" x="-151" y="1" width="143" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="143" id="jxm-7P-Dzh"/>
                                                             </constraints>
@@ -239,7 +242,6 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="J5F-ui-Z48" secondAttribute="width" id="6ae-MK-w9M" userLabel="BarWidth"/>
                                                         <constraint firstItem="J5F-ui-Z48" firstAttribute="leading" secondItem="hEC-wf-QkL" secondAttribute="leading" id="A25-2N-O2H" userLabel="BarXStart"/>
                                                         <constraint firstItem="J5F-ui-Z48" firstAttribute="trailing" secondItem="620-6d-94B" secondAttribute="trailing" constant="8" id="J2G-DX-Q2K"/>
                                                         <constraint firstItem="620-6d-94B" firstAttribute="top" secondItem="hEC-wf-QkL" secondAttribute="top" constant="1" id="Skw-La-6tF"/>
@@ -264,7 +266,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
-                                                    <rect key="frame" x="61" y="17" width="539" height="17"/>
+                                                    <rect key="frame" x="70" y="18" width="523" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -273,25 +275,19 @@
                                             <constraints>
                                                 <constraint firstItem="hEC-wf-QkL" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="8Hr-a8-LKp"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" constant="6" id="9l5-7Y-PGa"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="6NW-dK-c0W" secondAttribute="trailing" constant="-8" id="E3C-Rb-FTL"/>
-                                                <constraint firstAttribute="centerY" secondItem="6NW-dK-c0W" secondAttribute="centerY" id="Lq2-eT-Pfe" userLabel="textCenterY"/>
+                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" id="A88-9A-D4Z"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="OY8-If-aja"/>
-                                                <constraint firstItem="6NW-dK-c0W" firstAttribute="leading" secondItem="NlP-zj-tLl" secondAttribute="trailing" constant="3" id="Ot1-Mr-C6C"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hEC-wf-QkL" secondAttribute="bottom" constant="9.5" id="WoW-rL-LI9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hEC-wf-QkL" secondAttribute="trailing" id="bHj-dj-CYC"/>
-                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="trailing" secondItem="Geu-G3-yfQ" secondAttribute="trailingMargin" id="mkd-gE-Tif"/>
-                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" id="wD4-g7-Gy1"/>
+                                                <constraint firstAttribute="centerY" secondItem="6NW-dK-c0W" secondAttribute="centerY" id="YLM-RF-pEB" userLabel="TextAlignY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6NW-dK-c0W" secondAttribute="trailing" constant="-1" id="g2s-ob-19M"/>
+                                                <constraint firstItem="6NW-dK-c0W" firstAttribute="leading" secondItem="NlP-zj-tLl" secondAttribute="trailing" constant="12" id="mFQ-JS-wO2"/>
+                                                <constraint firstItem="hEC-wf-QkL" firstAttribute="trailing" secondItem="Geu-G3-yfQ" secondAttribute="trailingMargin" id="rUu-4Y-QsY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NlP-zj-tLl" secondAttribute="bottom" constant="-2.5" id="yvr-pd-LFz"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="bHj-dj-CYC"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="alignYConstraintOfDescription" destination="Lq2-eT-Pfe" id="Cr2-44-Fmg"/>
-                                            <outlet property="barWidth" destination="6ae-MK-w9M" id="Kk2-qM-Qra"/>
+                                            <outlet property="alignYConstraintOfDescription" destination="YLM-RF-pEB" id="dQ7-Pa-ZsS"/>
+                                            <outlet property="barWidth" destination="QaC-V9-r4G" id="zI0-pR-TWL"/>
                                             <outlet property="optionDescription" destination="6NW-dK-c0W" id="8rp-2m-7DD"/>
                                             <outlet property="resultsBar" destination="hEC-wf-QkL" id="lRL-NL-Kcc"/>
                                             <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
@@ -311,8 +307,6 @@
                             <constraint firstItem="zVv-H4-A32" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="1Yz-7g-Lp2"/>
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="4Cz-AO-SFm"/>
                             <constraint firstItem="zVv-H4-A32" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="Kag-nK-D8Z"/>
-                            <constraint firstItem="VoT-uu-p5o" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="LSK-vz-nW1"/>
-                            <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="THM-eA-znH"/>
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="TrP-WM-VU3"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="23" id="XBO-YK-VKQ"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="cCN-BS-ENO"/>
@@ -324,12 +318,6 @@
                             <constraint firstAttribute="trailing" secondItem="Txr-zt-bM1" secondAttribute="trailing" id="s0T-VG-0S2"/>
                             <constraint firstItem="zVv-H4-A32" firstAttribute="top" secondItem="WK7-Ae-SpK" secondAttribute="bottom" constant="16" id="wTb-Qv-TDy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="LSK-vz-nW1"/>
-                                <exclude reference="THM-eA-znH"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb"/>
                     <connections>
@@ -599,6 +587,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SL7-07-aUm"/>
+        <segue reference="CKP-ug-wyg"/>
     </inferredMetricsTieBreakers>
 </document>
