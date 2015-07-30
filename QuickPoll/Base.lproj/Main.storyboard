@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-uu-p5o">
-                                <rect key="frame" x="16" y="110" width="568" height="88"/>
+                                <rect key="frame" x="16" y="110" width="568" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="d3D-X6-3XS"/>
@@ -191,6 +191,11 @@
                                 <string key="text">Him replenish evening night man kind firmament subdue sea there greater he make. There over i, him in image, sixth beast fruitful firmament itself. Our sixth. Given a. Creepeth is.It creature abundantly herb over them. Meat, void man night lesser seasons fourth form, seasons gathering. </string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="d3D-X6-3XS"/>
+                                    </mask>
+                                </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the title of the following poll " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVv-H4-A32">
                                 <rect key="frame" x="16" y="80" width="568" height="22.5"/>
@@ -199,7 +204,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-7j-RHz">
-                                <rect key="frame" x="16" y="488" width="568" height="33"/>
+                                <rect key="frame" x="16" y="458" width="568" height="33"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.75686274509803919" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="axs-et-sUE"/>
@@ -213,11 +218,12 @@
                                     <action selector="voteForPoll:" destination="JJc-IC-NZM" eventType="touchUpInside" id="pcE-Du-Bu5"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
-                                <rect key="frame" x="0.0" y="213" width="600" height="252"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
+                                <rect key="frame" x="0.0" y="198" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="252" id="JvK-tG-ycO"/>
+                                    <constraint firstAttribute="height" priority="999" constant="250" id="fPv-Nb-qiX"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="60" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
@@ -311,6 +317,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JvK-tG-ycO"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="JJc-IC-NZM" id="sVC-r8-6lm"/>
                                     <outlet property="delegate" destination="JJc-IC-NZM" id="7EA-uZ-Wjm"/>
@@ -324,16 +335,22 @@
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="4Cz-AO-SFm"/>
                             <constraint firstItem="zVv-H4-A32" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="Kag-nK-D8Z"/>
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="TrP-WM-VU3"/>
-                            <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="23" id="XBO-YK-VKQ"/>
+                            <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" priority="999" constant="10" id="XBO-YK-VKQ"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="cCN-BS-ENO"/>
-                            <constraint firstItem="Txr-zt-bM1" firstAttribute="top" secondItem="VoT-uu-p5o" secondAttribute="bottom" constant="15" id="en6-cH-ETa"/>
+                            <constraint firstItem="Txr-zt-bM1" firstAttribute="top" secondItem="VoT-uu-p5o" secondAttribute="bottom" constant="5" id="en6-cH-ETa"/>
                             <constraint firstItem="c4Z-00-Zan" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uqE-7j-RHz" secondAttribute="bottom" constant="35" id="hBt-83-uDw"/>
                             <constraint firstItem="Txr-zt-bM1" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leading" id="hU3-nK-V3p"/>
+                            <constraint firstItem="c4Z-00-Zan" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uqE-7j-RHz" secondAttribute="bottom" priority="999" constant="20" id="kXW-ro-adJ"/>
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="top" secondItem="zVv-H4-A32" secondAttribute="bottom" constant="8" id="mBx-aI-9Jh"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="qzB-dg-4gM"/>
                             <constraint firstAttribute="trailing" secondItem="Txr-zt-bM1" secondAttribute="trailing" id="s0T-VG-0S2"/>
                             <constraint firstItem="zVv-H4-A32" firstAttribute="top" secondItem="WK7-Ae-SpK" secondAttribute="bottom" constant="16" id="wTb-Qv-TDy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hBt-83-uDw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb"/>
                     <connections>
