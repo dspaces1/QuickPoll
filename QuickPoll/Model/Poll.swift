@@ -14,14 +14,19 @@ class Poll: PFObject, PFSubclassing {
     
     // MARK: - Section: Instance Properties
     
+    
     // MARK: - Sub-section: Computed
+    
     @NSManaged var user: PFUser?
     @NSManaged var title:String?
     @NSManaged var descriptionOfPoll:String?
     @NSManaged var category:Int
     @NSManaged var options:[Dictionary<String,AnyObject>]
+    
     var option:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
     var votedFor:Bool?
+    
+    
     //MARK: - Section: Class Methods
     
     
@@ -44,7 +49,7 @@ class Poll: PFObject, PFSubclassing {
     
     // MARK: - Section: Instance Methods
 
-    static func getCategoryImageString (categoryNumber:Int) ->String {
+    static func getCategoryImageString (categoryNumber:Int) -> String {
         var imageName:String
         
         switch categoryNumber {
@@ -99,7 +104,6 @@ class Poll: PFObject, PFSubclassing {
                 println("Error fetching voted for")
                 return
             }
-            //println(polls)
             
             if polls?.count > 0 {
                 self.votedFor = true

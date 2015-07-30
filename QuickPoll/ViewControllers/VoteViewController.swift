@@ -50,7 +50,11 @@ class VoteViewController: UIViewController {
     func sendRequestToParse () {
         if let selectionOption = selectionOption {
             
+            
+            
             polls?.options[selectionOption]["votes"] = polls?.options[selectionOption]["votes"] as! Int + 1
+            
+            totalVotes++
             
             ParseHelper.voteForPoll(PFUser.currentUser()!, poll:polls!){ (success, error) -> Void in
                 
@@ -70,7 +74,7 @@ class VoteViewController: UIViewController {
     
     ///Animate voting results bar based on vote count
     func animateBarResults () {
-        
+        if totalVotes == 0 { totalVotes = 1}
         
         for cell in tableViewWithOptions.visibleCells(){
             
@@ -78,16 +82,10 @@ class VoteViewController: UIViewController {
             let currentCell = tableViewWithOptions.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
             //currentCell.selectOption.selected = false
             voteCount = polls?.options[cellIndex.row]["votes"] as! Int
-            //totalVotes += voteCount
             
-            let voteCountAsString:String = String(voteCount)
-            currentCell.voteCount.text! = voteCountAsString
+            
             currentCell.selectOption.hidden = true
             
-            
-            //currentCell.resultsBar.layoutIfNeeded()
-            //println(currentCell.getBarMaxWidth())
-           
             UIView.animateWithDuration(0.75, animations: { () -> Void in
 
                 currentCell.alignYConstraintOfDescription.constant -= 17
@@ -102,6 +100,11 @@ class VoteViewController: UIViewController {
                     let percentageOfVotes = Float(self.voteCount) / Float(self.totalVotes)
                     println("vote count: \(self.voteCount)\n total votes: \(self.totalVotes)")
                     println("Percentage of Votes: \(percentageOfVotes)")
+                    
+                    currentCell.voteCount.hidden = false
+                    let voteCountAsString:String = "\(Int(percentageOfVotes * 100))% ( \( String(self.voteCount) ) )" //String(format: "%1.2f", arguments: [percentageOfVotes])
+                    currentCell.voteCount.text! = voteCountAsString
+                    
                     
                     let newResultBarWidth:CGFloat = CGFloat(percentageOfVotes) * maxResultBarWidth
                     println("New Result Bar Width: \(newResultBarWidth)")
@@ -178,14 +181,15 @@ extension VoteViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
         println(polls!.options)
         cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
-        
+        cell.resultsBarImage.image = UIImage(named: cell.imageArray[indexPath.row])
         
         voteCount = polls?.options[indexPath.row]["votes"] as! Int
         
         totalVotes += voteCount
         
-        let voteCountAsString:String = String(voteCount)
-        cell.voteCount.text! = voteCountAsString
+        //let voteCountAsString:String = String(voteCount)
+        //cell.voteCount.text! = voteCountAsString
+        cell.voteCount.hidden = true
         
         return cell
     }

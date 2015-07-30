@@ -183,10 +183,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-uu-p5o">
-                                <rect key="frame" x="16" y="110" width="568" height="91"/>
+                                <rect key="frame" x="16" y="110" width="568" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="91" id="d3D-X6-3XS"/>
+                                    <constraint firstAttribute="height" constant="88" id="d3D-X6-3XS"/>
                                 </constraints>
                                 <string key="text">Him replenish evening night man kind firmament subdue sea there greater he make. There over i, him in image, sixth beast fruitful firmament itself. Our sixth. Given a. Creepeth is.It creature abundantly herb over them. Meat, void man night lesser seasons fourth form, seasons gathering. </string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -201,6 +201,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-7j-RHz">
                                 <rect key="frame" x="16" y="488" width="568" height="33"/>
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.75686274509803919" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="axs-et-sUE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Vote">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,26 +214,29 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
-                                <rect key="frame" x="0.0" y="221" width="600" height="244"/>
+                                <rect key="frame" x="0.0" y="213" width="600" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="JvK-tG-ycO"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="52" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="60" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ydj-4M-vh1" id="Geu-G3-yfQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEC-wf-QkL" userLabel="Results">
-                                                    <rect key="frame" x="8" y="8" width="584" height="26"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="34"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resultBar" translatesAutoresizingMaskIntoConstraints="NO" id="J5F-ui-Z48">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="26"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" id="QaC-V9-r4G" userLabel="BarWidth"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,999,999 (%100)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-6d-94B">
-                                                            <rect key="frame" x="-151" y="1" width="143" height="23"/>
+                                                            <rect key="frame" x="-151" y="1" width="143" height="31"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="143" id="jxm-7P-Dzh"/>
                                                             </constraints>
@@ -266,7 +272,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-dK-c0W">
-                                                    <rect key="frame" x="70" y="18" width="523" height="17"/>
+                                                    <rect key="frame" x="70" y="21" width="523" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -276,7 +282,9 @@
                                                 <constraint firstItem="hEC-wf-QkL" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="8Hr-a8-LKp"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" constant="6" id="9l5-7Y-PGa"/>
                                                 <constraint firstItem="hEC-wf-QkL" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" id="A88-9A-D4Z"/>
+                                                <constraint firstItem="NlP-zj-tLl" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="DWp-W5-6uS"/>
                                                 <constraint firstItem="NlP-zj-tLl" firstAttribute="top" secondItem="Geu-G3-yfQ" secondAttribute="topMargin" id="OY8-If-aja"/>
+                                                <constraint firstItem="NlP-zj-tLl" firstAttribute="leading" secondItem="Geu-G3-yfQ" secondAttribute="leadingMargin" constant="6" id="SQk-uE-Y8A"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hEC-wf-QkL" secondAttribute="bottom" constant="9.5" id="WoW-rL-LI9"/>
                                                 <constraint firstAttribute="centerY" secondItem="6NW-dK-c0W" secondAttribute="centerY" id="YLM-RF-pEB" userLabel="TextAlignY"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6NW-dK-c0W" secondAttribute="trailing" constant="-1" id="g2s-ob-19M"/>
@@ -284,12 +292,20 @@
                                                 <constraint firstItem="hEC-wf-QkL" firstAttribute="trailing" secondItem="Geu-G3-yfQ" secondAttribute="trailingMargin" id="rUu-4Y-QsY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NlP-zj-tLl" secondAttribute="bottom" constant="-2.5" id="yvr-pd-LFz"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="9l5-7Y-PGa"/>
+                                                    <exclude reference="OY8-If-aja"/>
+                                                    <exclude reference="yvr-pd-LFz"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="alignYConstraintOfDescription" destination="YLM-RF-pEB" id="dQ7-Pa-ZsS"/>
                                             <outlet property="barWidth" destination="QaC-V9-r4G" id="zI0-pR-TWL"/>
                                             <outlet property="optionDescription" destination="6NW-dK-c0W" id="8rp-2m-7DD"/>
                                             <outlet property="resultsBar" destination="hEC-wf-QkL" id="lRL-NL-Kcc"/>
+                                            <outlet property="resultsBarImage" destination="J5F-ui-Z48" id="b8J-M0-a9m"/>
                                             <outlet property="selectOption" destination="NlP-zj-tLl" id="MB4-dd-XAh"/>
                                             <outlet property="voteCount" destination="620-6d-94B" id="Pc5-al-IJJ"/>
                                         </connections>
@@ -310,8 +326,8 @@
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="TrP-WM-VU3"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="23" id="XBO-YK-VKQ"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="trailing" secondItem="Jeg-GG-tsU" secondAttribute="trailingMargin" id="cCN-BS-ENO"/>
-                            <constraint firstItem="Txr-zt-bM1" firstAttribute="top" secondItem="VoT-uu-p5o" secondAttribute="bottom" constant="20" id="en6-cH-ETa"/>
-                            <constraint firstItem="c4Z-00-Zan" firstAttribute="top" secondItem="uqE-7j-RHz" secondAttribute="bottom" constant="35" id="hBt-83-uDw"/>
+                            <constraint firstItem="Txr-zt-bM1" firstAttribute="top" secondItem="VoT-uu-p5o" secondAttribute="bottom" constant="15" id="en6-cH-ETa"/>
+                            <constraint firstItem="c4Z-00-Zan" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uqE-7j-RHz" secondAttribute="bottom" constant="35" id="hBt-83-uDw"/>
                             <constraint firstItem="Txr-zt-bM1" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leading" id="hU3-nK-V3p"/>
                             <constraint firstItem="VoT-uu-p5o" firstAttribute="top" secondItem="zVv-H4-A32" secondAttribute="bottom" constant="8" id="mBx-aI-9Jh"/>
                             <constraint firstItem="uqE-7j-RHz" firstAttribute="leading" secondItem="Jeg-GG-tsU" secondAttribute="leadingMargin" id="qzB-dg-4gM"/>
@@ -535,7 +551,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axu-um-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="-4"/>
+            <point key="canvasLocation" x="513" y="-31"/>
         </scene>
         <!--Local Polls-->
         <scene sceneID="dxE-oo-Kkf">
@@ -587,6 +603,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CKP-ug-wyg"/>
+        <segue reference="SL7-07-aUm"/>
     </inferredMetricsTieBreakers>
 </document>

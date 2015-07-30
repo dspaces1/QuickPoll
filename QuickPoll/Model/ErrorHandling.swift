@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class ErrorHandling {
+class ErrorHandling: NSObject {
     
     // MARK: - Section: Declared Types
     
@@ -21,6 +21,17 @@ class ErrorHandling {
     }
     
     // MARK: - Section: Class Methods
+    
+    
+    func showAlertWithString(message:String) {
+        UIAlertView(title: "Error", message: message, delegate: nil, cancelButtonTitle: "Cancel").show()
+        
+        
+//        var alert = UIAlertController(title: "Alert", message: "Error", preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     
     /**
     Checks to see if a string is valid

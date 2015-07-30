@@ -148,6 +148,8 @@ extension CreatePollViewController:UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("createOption") as! CreatePollTableViewCell
+        
+        cell.optionDescription.placeholder = cell.placeHolderText[indexPath.row]
         return cell
     }
 }

@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
                 
-                self.window?.rootViewController!.presentViewController(tabBarController, animated:true, completion:nil)
+                self.window?.rootViewController!.dismissViewControllerAnimated(true, completion: nil)
+                self.window?.rootViewController!.presentViewController(tabBarController, animated:false, completion:nil)
             }
         }
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class CreatePollTableViewCell: UITableViewCell {
 
+    let placeHolderText:[String] = ["Option 1","Option 2", "Option 3", "Option 4"]
+    
     //MARK - Section: Class Properties
     
     @IBOutlet weak var optionDescription: UITextField!

@@ -43,6 +43,7 @@ class MyPollsViewController: UIViewController {
             
         case 0:
             println("Poll Feed")
+            //removeVotedForPolls()
             polls = pollFeed
             tableView.reloadData()
             
@@ -61,6 +62,22 @@ class MyPollsViewController: UIViewController {
         }
     }
     
+
+    
+    func updateVotedForPoll(polls:[Poll]) {
+        for poll in polls {
+            
+            if poll.votedFor == nil{
+                poll.fetchVotedPolls({ (success, error) -> Void in
+                    if let error = error {
+                        println("Error getting voted for: \(error)")
+                    }
+                    self.tableView.reloadData()
+                })
+            }
+        }
+        
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,44 +85,68 @@ class MyPollsViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ParseHelper.timelineRequestForAllPolls { (result, error) -> Void in
+        ParseHelper.timelineRequestForAllPolls { (resultFromAllPolls, error) -> Void in
             if error == nil {
-                self.polls = result as? [Poll] ?? []
-                self.pollFeed = self.polls
-                self.tableView.reloadData()
+                
+                ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
+                    if error == nil {
+                        
+                        self.polls = resultFromAllPolls as? [Poll] ?? []
+  
+                        let relations = result as? [PFObject] ?? []
+                        
+                        self.votedPolls = relations.map {
+                            $0.objectForKey("toPoll") as! Poll
+                        }
+                        
+                        let allPollsNotVotedFor = self.polls.filter{(!contains(self.votedPolls,$0))}
+                        
+                        for poll in self.polls {
+                            //Check if polls are voted for
+                            if contains(allPollsNotVotedFor, poll){
+                                poll.votedFor = false
+                            }else {
+                                poll.votedFor = true
+                            }
+                            
+                            // add poll to myPolls if current user
+                            
+                            if poll.user == PFUser.currentUser()!{
+                                self.myPolls.append(poll)
+                            }
+                        }
+                        
+                        self.pollFeed = allPollsNotVotedFor
+                        self.polls = self.pollFeed
+                        
+                        self.tableView.reloadData()
+                        
+                    } else {
+                        println("Error loading data(votedPolls) from parse: \(error)")
+                    }
+                }
                 
             } else {
                 println("Error loading data from parse: \(error)")
             }
         }
         
-        ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
-            if error == nil {
-                self.myPolls = result as? [Poll] ?? []
-                 //println(self.myPolls)
-            } else {
-                println("Error loading data (myPoll) from parse: \(error)")
-            }
-        }
         
+//        
+//        ParseHelper.timelineRequestForCurrentUser { (result, error) -> Void in
+//            if error == nil {
+//                self.myPolls = result as? [Poll] ?? []
+//                 //println(self.myPolls)
+//            } else {
+//                println("Error loading data (myPoll) from parse: \(error)")
+//            }
+//        }
         
-        ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
-            if error == nil {
-                let relations = result as? [PFObject] ?? []
-                
-                self.votedPolls = relations.map {
-                    $0.objectForKey("toPoll") as! Poll
-                }
-                
-            } else {
-                println("Error loading data(votedPolls) from parse: \(error)")
-            }
-        }
-
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -144,6 +185,7 @@ extension MyPollsViewController:UITableViewDataSource {
         return polls.count
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myPollCell", forIndexPath: indexPath) as! MyPollsTableViewCell
         
@@ -155,6 +197,7 @@ extension MyPollsViewController:UITableViewDataSource {
             
             if pollChecked {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                
             } else {
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
@@ -162,7 +205,9 @@ extension MyPollsViewController:UITableViewDataSource {
         } else {
             polls[indexPath.row].fetchVotedPolls({ (success, error) -> Void in
                 if success {
+
                     cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                    
                 } else {
                     cell.accessoryType = UITableViewCellAccessoryType.None
                 }
