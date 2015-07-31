@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var parseLoginHelper: ParseLoginHelper!
-    //quick change
+    
 
     //MARK: - Section: Class Methods
     
@@ -68,6 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Facebook
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
+        logInScreen()
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    
+    func logInScreen () {
+        
         // check if we have logged in user
         let user = PFUser.currentUser()
         
@@ -92,8 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = startViewController
         self.window?.makeKeyAndVisible()
-        
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func applicationWillResignActive(application: UIApplication) {

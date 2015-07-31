@@ -71,7 +71,7 @@ class CreatePollViewController: UIViewController {
     :param: myPoll Parse subclass with Dictionary format.
     :returns: all poll options with 0 votes each, nil if empyty cell describtions.
     */
-    func createOptionArray (myPoll:Poll) -> [Dictionary<String,AnyObject>]?{
+    func createOptionArray (myPoll:Poll) -> [[String: AnyObject]]?{
         
         for cell in optionsTableView.visibleCells() {
             
@@ -101,18 +101,13 @@ class CreatePollViewController: UIViewController {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         titleOfPoll.delegate = self
+        
         keboardHandler = KeboardHandling(view: view!)
         
         descriptionOfPoll.delegate = self 
         descriptionOfPoll.text = "Description"
         descriptionOfPoll.textColor = UIColor.lightGrayColor()
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }
 
 // MARK: - Protocols
@@ -129,6 +124,15 @@ extension CreatePollViewController:UITextFieldDelegate {
 
 extension CreatePollViewController:UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView){
+        
+        println("Works" )
+        
+         UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.view.frame.origin.y -= 80
+         })
+        
+        
+        
         if textView.textColor == UIColor.lightGrayColor() {
             textView.text = nil
             textView.textColor = UIColor.blackColor()
@@ -137,6 +141,11 @@ extension CreatePollViewController:UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.view.frame.origin.y += 80
+        })
+        
         if (textView.text.isEmpty || ErrorHandling.emptyStringOrNil(textView.text)){
             isPlaceHolderText = true 
             textView.text = "Description"
@@ -164,5 +173,6 @@ extension CreatePollViewController:UITableViewDataSource {
         return cell
     }
 }
+
 
 

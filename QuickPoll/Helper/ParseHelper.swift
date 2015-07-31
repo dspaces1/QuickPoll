@@ -9,8 +9,14 @@
 import Foundation
 import Parse
 
-
 class ParseHelper {
+    var user: PFUser!
+    
+    static var sharedHelper = ParseHelper()
+    private init()
+    {
+    
+    }
   
     // MARK: - Section: Class Methods
     

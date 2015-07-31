@@ -16,7 +16,9 @@ class MyPollsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var segmentView: UISegmentedControl!
-    var polls: [Poll] = []
+    var polls: [Poll] = [] {
+        didSet { tableView.reloadData() }
+    }
     
     var pollFeed: [Poll] = []
     var myPolls: [Poll] = []
@@ -40,15 +42,12 @@ class MyPollsViewController: UIViewController {
             
         case 0:
             polls = pollFeed
-            tableView.reloadData()
             
         case 1:
             polls = myPolls
-            tableView.reloadData()
             
         case 2:
             polls = votedPolls
-            tableView.reloadData()
             
         default:
             ErrorHandling.showAlertWithString("Error", messageText: "Failed to load feed. Please try restarting app.", currentViewController: self)
@@ -95,18 +94,12 @@ class MyPollsViewController: UIViewController {
         
         let allPollsNotVotedFor = self.polls.filter{(!contains(self.votedPolls,$0))}
         
-        for poll in self.polls {
-            //Check if polls are voted for
-            if contains(allPollsNotVotedFor, poll){
-                poll.votedFor = false
-            }else {
-                poll.votedFor = true
-            }
-            // add poll to myPolls if current user
-            if poll.user == PFUser.currentUser()!{
-                self.myPolls.append(poll)
-            }
-        }
+        myPolls =   polls.filter({ poll in poll.user == PFUser.currentUser() })
+        polls = polls.map({ (poll) -> Poll in
+            poll.votedFor = !contains(allPollsNotVotedFor, poll)
+            return poll
+        })
+
         
         self.pollFeed = allPollsNotVotedFor
     }
@@ -116,7 +109,6 @@ class MyPollsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         updateFeedData(segmentView.selectedSegmentIndex)
-        tableView.reloadData()
     }
     
 
@@ -142,7 +134,7 @@ class MyPollsViewController: UIViewController {
             voteViewController.polls = poll
            
         }
-        if segue.identifier == "createNewPoll"{
+        else if segue.identifier == "createNewPoll"{
             let createViewController = segue.destinationViewController as! CreatePollViewController
             createViewController.addPollDelegate = self
         }
@@ -165,6 +157,8 @@ extension MyPollsViewController:UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myPollCell", forIndexPath: indexPath) as! MyPollsTableViewCell
         
+        // add poll property on MyPollsTableViewCell to turn this into
+        // cell.poll = polls[indexPath.row]
         cell.title.text = polls[indexPath.row].title
         cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //Can user be nil at this point?
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))

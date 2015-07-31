@@ -122,11 +122,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5b9-9N-AYm">
+                                <rect key="frame" x="275.5" y="179" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="CYl-I5-PfV" eventType="touchUpInside" id="spZ-do-Nai"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="5b9-9N-AYm" secondAttribute="centerX" id="C4p-0G-u5u"/>
                             <constraint firstAttribute="centerX" secondItem="zGV-cM-IGU" secondAttribute="centerX" id="Pau-cE-cOm"/>
                             <constraint firstItem="zGV-cM-IGU" firstAttribute="top" secondItem="Ril-Xx-5Fj" secondAttribute="bottom" constant="50" id="cMV-kj-DnX"/>
+                            <constraint firstItem="5b9-9N-AYm" firstAttribute="top" secondItem="zGV-cM-IGU" secondAttribute="bottom" constant="44" id="iBc-tp-09H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="4da-jg-eh3"/>
@@ -536,6 +547,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.96170691287878785" green="0.96170691287878785" blue="0.96170691287878785" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="k6t-a8-Rlr" kind="relationship" relationship="viewControllers" id="yqr-Ea-AZP"/>
@@ -564,7 +576,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axu-um-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="-31"/>
+            <point key="canvasLocation" x="519" y="-25"/>
         </scene>
         <!--Local Polls-->
         <scene sceneID="dxE-oo-Kkf">

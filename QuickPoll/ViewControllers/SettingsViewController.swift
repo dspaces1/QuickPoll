@@ -7,13 +7,31 @@
 //
 
 import UIKit
+import Parse
 
 class SettingsViewController: UIViewController {
 
     // MARK: - Section: Class Properties
     
-    @IBAction func resetSignUp(sender: AnyObject) {
-        //implement log out
+ 
+    @IBAction func signOut(sender: AnyObject) {
+        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
+            if let error = error {
+                println("error: \(error)")
+            } else {
+                println("User Loged out")
+                
+                var appDel:AppDelegate = AppDelegate()
+                appDel.logInScreen()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                        println("Woot")
+                    })
+                })
+            }
+        }
+        
     }
 
     // MARK: - Section: Class Methods
