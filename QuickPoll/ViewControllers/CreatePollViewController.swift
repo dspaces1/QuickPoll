@@ -9,7 +9,6 @@
 import UIKit
 
 protocol pollDelegate:NSObjectProtocol {
-    
     func addPollItem(newPoll:Poll)
 }
 
@@ -25,6 +24,7 @@ class CreatePollViewController: UIViewController {
     
     var optionArr:[Dictionary<String,AnyObject>]? = [Dictionary<String,AnyObject>]()
     var keboardHandler:KeboardHandling!
+    var isPlaceHolderText:Bool = true
     var myPoll:Poll?
     
     weak var addPollDelegate:pollDelegate?
@@ -34,39 +34,35 @@ class CreatePollViewController: UIViewController {
     /// This button press method checks for valid fields and pushes poll data to parse
     @IBAction func createPoll(sender: AnyObject)  {
         
-        if ErrorHandling.emptyStringOrNil(titleOfPoll.text) {
-            println("nil or empty title")
+        if ErrorHandling.emptyStringOrNil(titleOfPoll.text)   {
+            ErrorHandling.showAlertWithString("Missing Field", messageText: "Poll is missing a title.", currentViewController: self)
             return
         }
-        if ErrorHandling.emptyStringOrNil(descriptionOfPoll.text) {
-            println("nil or empty description")
+        if ErrorHandling.emptyStringOrNil(descriptionOfPoll.text) || isPlaceHolderText {
+            ErrorHandling.showAlertWithString("Missing Field", messageText: "Poll is missing a description", currentViewController: self)
             return
         }
-        
+     
+        sendPollToParse()
+    }
+    
+    /// Send poll data to parse
+    func sendPollToParse () {
         myPoll = Poll()
         
         if let optionArr = createOptionArray(myPoll!)  {
             
-            //Call function
             addPollDelegate?.addPollItem(myPoll!)
+            
             myPoll!.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex) { (sucess,error) -> Void in
                 
                 if sucess {
-                    //MyPollsViewController.polls.append
-                    //self.performSegueWithIdentifier("createdPoll", sender: self)
                     self.navigationController!.popToRootViewControllerAnimated(true)
-                    
                 }else{
-                    println("failled to segue")
+                    ErrorHandling.showAlertWithString("Error", messageText: "Could not send poll to the server. Please try again.", currentViewController: self)
                 }
-            }//Post to Parse
-            
-        } else {
-            println("nil values found in cells ")
-            return
+            }
         }
-        
-        
     }
     
     /**
@@ -87,7 +83,8 @@ class CreatePollViewController: UIViewController {
                 let isEmpty:Bool = ErrorHandling.emptyStringOrNil(cellTextFieldString)
                 
                 if cellIndex.row <= 1 && isEmpty  {
-                    println("nil cell at cellindex: \(cellIndex.row)")
+                    //println("nil cell at cellindex: \(cellIndex.row)")
+                    ErrorHandling.showAlertWithString("Missing Field", messageText: "Need at least 2 options for poll", currentViewController: self)
                     return nil
                 }
                 if !isEmpty {
@@ -97,7 +94,6 @@ class CreatePollViewController: UIViewController {
             }
         }
         
-        
         return optionArr
     }
     
@@ -106,20 +102,16 @@ class CreatePollViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         titleOfPoll.delegate = self
         keboardHandler = KeboardHandling(view: view!)
+        
+        descriptionOfPoll.delegate = self 
+        descriptionOfPoll.text = "Description"
+        descriptionOfPoll.textColor = UIColor.lightGrayColor()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        if segue.identifier == "createdPoll" {
-//            let viewController:VoteViewController = segue.destinationViewController as! VoteViewController
-//
-//            viewController.polls = myPoll
-//        }
-//    }
     
 }
 
@@ -134,6 +126,25 @@ extension CreatePollViewController:UITextFieldDelegate {
         return true
     }
 }
+
+extension CreatePollViewController:UITextViewDelegate {
+    func textViewDidBeginEditing(textView: UITextView){
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+            isPlaceHolderText = false
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if (textView.text.isEmpty || ErrorHandling.emptyStringOrNil(textView.text)){
+            isPlaceHolderText = true 
+            textView.text = "Description"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
+}
+
 
 //MARK: UITableViewDataSource
 

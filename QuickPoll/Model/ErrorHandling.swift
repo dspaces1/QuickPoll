@@ -23,13 +23,11 @@ class ErrorHandling: NSObject {
     // MARK: - Section: Class Methods
     
     
-    func showAlertWithString(message:String) {
-        UIAlertView(title: "Error", message: message, delegate: nil, cancelButtonTitle: "Cancel").show()
-        
-        
-//        var alert = UIAlertController(title: "Alert", message: "Error", preferredStyle: UIAlertControllerStyle.Alert)
-//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-//        self.presentViewController(alert, animated: true, completion: nil)
+    static func showAlertWithString(titleText:String, messageText:String, currentViewController:UIViewController) {
+ 
+        var alert = UIAlertController(title: titleText, message: messageText, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler:nil))
+        currentViewController.presentViewController(alert, animated: true, completion: nil)
     }
     
     

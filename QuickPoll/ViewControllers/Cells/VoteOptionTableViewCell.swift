@@ -19,8 +19,12 @@ class VoteOptionTableViewCell: UITableViewCell {
     @IBOutlet weak var resultsBar: UIView!
     @IBOutlet weak var resultsBarImage: UIImageView!
     
+    @IBOutlet weak var alignXConstraintOfDescription: NSLayoutConstraint!
     @IBOutlet weak var alignYConstraintOfDescription: NSLayoutConstraint!
     @IBOutlet weak var barWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var buttonWidth: NSLayoutConstraint!
+    
     
     let imageArray:[String] = ["FirstBar","SecondBar","ThirdBar","FourthBar"]
     

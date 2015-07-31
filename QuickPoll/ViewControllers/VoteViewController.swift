@@ -26,11 +26,11 @@ class VoteViewController: UIViewController {
     var selectionOption:Int?
     var polls: Poll?
     weak var voted4Delegate:votedForDelegate?
-    
     var animateFlag:Bool = false
-    //var barMaxWidthForAnimation:CGFloat!
+    
     var totalVotes:Int = 0
     var voteCount:Int = 0
+    
     // MARK: - Section: Class Methods
     
     @IBAction func voteForPoll(sender: AnyObject) {
@@ -39,19 +39,18 @@ class VoteViewController: UIViewController {
             if votedFor {
                 self.navigationController!.popToRootViewControllerAnimated(true)
             } else {
-                sendRequestToParse()
+                sendVoteRequestToParse()
             }
         } else {
-            sendRequestToParse()
+            sendVoteRequestToParse()
         }
         
     }
     
-    func sendRequestToParse () {
+    /// Send voted for option to parse.
+    func sendVoteRequestToParse () {
         if let selectionOption = selectionOption {
-            
-            
-            
+
             polls?.options[selectionOption]["votes"] = polls?.options[selectionOption]["votes"] as! Int + 1
             
             totalVotes++
@@ -59,11 +58,13 @@ class VoteViewController: UIViewController {
             ParseHelper.voteForPoll(PFUser.currentUser()!, poll:polls!){ (success, error) -> Void in
                 
                 if let error = error {
-                    println("error pushing vote to parse \(error)")
+                    ErrorHandling.showAlertWithString("Error", messageText: "Could not send vote to server. Please try again.", currentViewController: self)
+                  
                 } else {
-                    println("success")
+                    //ErrorHandling.showAlertWithString("Success", messageText: "Submitted Vote.", currentViewController: self)
                     self.polls?.votedFor = true
                     self.voted4Delegate?.addVotedForItem(self.polls!)
+         
                 }
                 
             }
@@ -72,53 +73,50 @@ class VoteViewController: UIViewController {
     }
     
     
-    ///Animate voting results bar based on vote count
+    /// Animate voting results bar based on vote count
     func animateBarResults () {
+        
+        vote_doneButton.setTitle("Done", forState: UIControlState.Normal)
+        animateFlag = true
+        
         if totalVotes == 0 { totalVotes = 1}
         
         for cell in tableViewWithOptions.visibleCells(){
             
             let cellIndex:NSIndexPath = tableViewWithOptions.indexPathForCell(cell as! UITableViewCell)!
             let currentCell = tableViewWithOptions.cellForRowAtIndexPath(cellIndex) as! VoteOptionTableViewCell
-            //currentCell.selectOption.selected = false
+
             voteCount = polls?.options[cellIndex.row]["votes"] as! Int
             
-            
             currentCell.selectOption.hidden = true
+            
+            
+            let maxResultBarWidth = currentCell.getBarMaxWidth()
+            var percentageOfVotes:Float = 0
+            var voteCountAsString:String = "0"
+            var newResultBarWidth:CGFloat = 0
+            
+            if voteCount > 0 {
+                percentageOfVotes = Float(self.voteCount) / Float(self.totalVotes)
+                voteCountAsString = "\(String(self.voteCount))"
+                newResultBarWidth = CGFloat(percentageOfVotes) * maxResultBarWidth
+            }
             
             UIView.animateWithDuration(0.75, animations: { () -> Void in
 
                 currentCell.alignYConstraintOfDescription.constant -= 17
-                //currentCell.selectOption.alpha = 0
+                currentCell.alignXConstraintOfDescription.constant -= 12 + currentCell.buttonWidth.constant
                 
-                let maxResultBarWidth = currentCell.getBarMaxWidth()
+                currentCell.voteCount.hidden = false
+                currentCell.voteCount.text! = voteCountAsString
+                currentCell.optionDescription.text! += " (\(Int(percentageOfVotes * 100))%)"
+                currentCell.barWidth.constant =  newResultBarWidth
                 
-                
-                if self.voteCount < 1 {
-                    currentCell.barWidth.constant = 0
-                }else {
-                    let percentageOfVotes = Float(self.voteCount) / Float(self.totalVotes)
-                    println("vote count: \(self.voteCount)\n total votes: \(self.totalVotes)")
-                    println("Percentage of Votes: \(percentageOfVotes)")
-                    
-                    currentCell.voteCount.hidden = false
-                    let voteCountAsString:String = "\(Int(percentageOfVotes * 100))% ( \( String(self.voteCount) ) )" //String(format: "%1.2f", arguments: [percentageOfVotes])
-                    currentCell.voteCount.text! = voteCountAsString
-                    
-                    
-                    let newResultBarWidth:CGFloat = CGFloat(percentageOfVotes) * maxResultBarWidth
-                    println("New Result Bar Width: \(newResultBarWidth)")
-                    
-                    currentCell.barWidth.constant =  newResultBarWidth
-                    println("Current cell bar width \(currentCell.barWidth.constant)")
-                    
-                }
                 currentCell.layoutIfNeeded()
                 
             })
             
-            vote_doneButton.setTitle("Done", forState: UIControlState.Normal)
-            animateFlag = true
+            
         }
         
     }
@@ -179,16 +177,14 @@ extension VoteViewController:UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell") as! VoteOptionTableViewCell
-        println(polls!.options)
+        
         cell.optionDescription.text = polls!.options[indexPath.row]["name"] as? String
         cell.resultsBarImage.image = UIImage(named: cell.imageArray[indexPath.row])
         
         voteCount = polls?.options[indexPath.row]["votes"] as! Int
         
         totalVotes += voteCount
-        
-        //let voteCountAsString:String = String(voteCount)
-        //cell.voteCount.text! = voteCountAsString
+ 
         cell.voteCount.hidden = true
         
         return cell
