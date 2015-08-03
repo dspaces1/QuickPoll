@@ -27,6 +27,8 @@ class MyPollsViewController: UIViewController {
     var delegate: pollDelegate?
     var poll:Poll?
     
+    var refreshController:UIRefreshControl!
+    
     
     // MARK: - Section: Class Methods
     
@@ -56,8 +58,8 @@ class MyPollsViewController: UIViewController {
     
     
     /// Fetch all Poll Data From Parse
-    func fetchAllPolls() {
-        
+    func fetchAllPollsAndRefresh() {
+    
         ParseHelper.timelineRequestForAllPolls { (resultFromAllPolls, error) -> Void in
             if error == nil {
                 
@@ -74,7 +76,8 @@ class MyPollsViewController: UIViewController {
                         self.setMyPolls()
                         
                         self.polls = self.pollFeed //update set current polls to pollFeed
-                        self.tableView.reloadData()
+                        //self.tableView.reloadData()
+                        self.refreshController.endRefreshing()
                         
                     } else {
                         
@@ -104,10 +107,23 @@ class MyPollsViewController: UIViewController {
         self.pollFeed = allPollsNotVotedFor
     }
 
+    func setUpTableRefreshing () {
+        
+        refreshController = UIRefreshControl()
+        refreshController.attributedTitle = NSAttributedString(string: "")
+        refreshController.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshController)
+    }
+    
+    func refresh() {
+
+        fetchAllPollsAndRefresh()
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
+        super.viewWillAppear(animated)
         updateFeedData(segmentView.selectedSegmentIndex)
     }
     
@@ -116,10 +132,16 @@ class MyPollsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchAllPolls()
+        fetchAllPollsAndRefresh()
+        
+        setUpTableRefreshing()
+        
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    
     
     
     override func didReceiveMemoryWarning() {

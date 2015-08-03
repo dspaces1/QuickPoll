@@ -27,7 +27,7 @@ class KeboardHandling: NSObject {
     
     /// Finish editing and dismiss the keyboard
     func DismissKeyboard(){
-        view.endEditing(true)
+      view.endEditing(true)
     }
     
     
