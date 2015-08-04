@@ -8,14 +8,15 @@
 
 import UIKit
 import Parse
+import ConvenienceKit
 
 class MyPollsViewController: UIViewController {
     
     // MARK: - Section: Class Properties
     
     @IBOutlet weak var tableView: UITableView!
-
     @IBOutlet weak var segmentView: UISegmentedControl!
+    
     var polls: [Poll] = [] {
         didSet { tableView.reloadData() }
     }
@@ -29,7 +30,9 @@ class MyPollsViewController: UIViewController {
     
     var refreshController:UIRefreshControl!
     
-    
+    var loadedAllData = false
+    var latestPollDate:NSDate = NSDate()
+
     // MARK: - Section: Class Methods
     
     @IBAction func changeFeedSource(sender: UISegmentedControl) {
@@ -58,27 +61,36 @@ class MyPollsViewController: UIViewController {
     
     
     /// Fetch all Poll Data From Parse
-    func fetchAllPollsAndRefresh() {
+    func fetchAllPollsAndRefresh(date:NSDate) {
     
-        ParseHelper.timelineRequestForAllPolls { (resultFromAllPolls, error) -> Void in
+        ParseHelper.timelineRequestForAllPolls(date) { (resultFromAllPolls, error) -> Void in
             if error == nil {
+
                 
                 ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
                     if error == nil {
+
+                        if resultFromAllPolls!.isEmpty {
+                            self.loadedAllData = true
+                            println("Looaded all data")
+                        }
                         
-                        self.polls = resultFromAllPolls as? [Poll] ?? []
+                        self.polls += resultFromAllPolls as? [Poll] ?? [] //Set +=
                         let relations = result as? [PFObject] ?? []
                         
                         self.votedPolls = relations.map {
                             $0.objectForKey("toPoll") as! Poll
                         }
                         
+                        self.latestPollDate = self.polls[self.polls.count - 1].createdAt!
+                        
                         self.setMyPolls()
                         
-                        self.polls = self.pollFeed //update set current polls to pollFeed
-                        //self.tableView.reloadData()
+                        self.updateFeedData(self.segmentView.selectedSegmentIndex)
+                        
                         self.refreshController.endRefreshing()
                         
+
                     } else {
                         
                         ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from server.", currentViewController: self)
@@ -91,6 +103,11 @@ class MyPollsViewController: UIViewController {
         }
 
     }
+    
+    
+    
+    
+    
     
     /// Filter poll array to get all polls created by the current user. Also, sets voted for flags on all polls user voted for.
     func setMyPolls () {
@@ -116,8 +133,9 @@ class MyPollsViewController: UIViewController {
     }
     
     func refresh() {
-
-        fetchAllPollsAndRefresh()
+        polls = []
+        fetchAllPollsAndRefresh(NSDate())
+        loadedAllData = false 
     }
     
     
@@ -127,15 +145,19 @@ class MyPollsViewController: UIViewController {
         updateFeedData(segmentView.selectedSegmentIndex)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchAllPollsAndRefresh()
-        
+        fetchAllPollsAndRefresh(NSDate())
+   
         setUpTableRefreshing()
-        
+     
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -220,6 +242,19 @@ extension MyPollsViewController:UITableViewDataSource {
 // MARK: UITableViewDataDelegate
 
 extension MyPollsViewController:UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        if (indexPath.row == (tableView.numberOfRowsInSection(0) - 1)) && !loadedAllData {
+            
+            fetchAllPollsAndRefresh(latestPollDate)
+           
+            println("fetching")
+        }
+
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

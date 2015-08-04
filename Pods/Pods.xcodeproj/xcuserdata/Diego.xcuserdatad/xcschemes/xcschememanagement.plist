@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ConvenienceKit-ConvenienceKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ConvenienceKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BB4C20593B2FC93D3BEA23B436C565A</key>
+		<key>0B14C15940871D543FB89EE7243CF54A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1DDE58E0700AD736BB2D11FB3A040E19</key>
+		<key>512E44D27F08A4EEBFA126B9CA7FB0DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>336A78A96844EBD65243169B8C1185AF</key>
+		<key>55BFEC9876E76DF243059DC7B46B6B0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6188B00CB5A0746200117DCD00E21924</key>
+		<key>665B4CEA04E71C0446BBC406EA0D3BB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6284CFDFF3E1CC4FB7986AA6821C84E2</key>
+		<key>82A82103A16025ED1149AB707F7FFD44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEF49547FBEF33380E4BCE0E8E02CC54</key>
+		<key>877FDDD7530FD8936DBB41F0D740C587</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4A7173FCDAB506D9082A788B17C97FD</key>
+		<key>A1683C1ABE34459F60735FECB7332A03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D41DB7B7770A3E41E72D4202330A95A0</key>
+		<key>B87F70D5F725EAEF7C70FFCBFEEA200B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE5B55E562AD1D3C0424DED4E5D8EA4C</key>
+		<key>DAE3FE4AC982A9A8CAD02B2B8225E145</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE5ACE707D8DCEB0C1AB5B69695D8DB7</key>
+		<key>DC71054FBD6CCEDD85EB123AE6CC5EBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F23BFDDF58A353AC4CA6851D0526D032</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC39EA3326F2D924A7032FAA816E1EFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

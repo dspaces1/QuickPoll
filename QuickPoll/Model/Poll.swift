@@ -22,6 +22,9 @@ class Poll: PFObject, PFSubclassing {
     @NSManaged var descriptionOfPoll:String?
     @NSManaged var category:Int
     @NSManaged var options:[Dictionary<String,AnyObject>]
+    //@NSManaged var createdAt:NSDate
+    
+    
     
     var option:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
     var votedFor:Bool?
@@ -32,6 +35,7 @@ class Poll: PFObject, PFSubclassing {
     
     override init() {
         super.init()
+        
     }
     
     static func parseClassName() -> String{

@@ -13,8 +13,8 @@ class ParseHelper {
     var user: PFUser!
     
     static var sharedHelper = ParseHelper()
-    private init()
-    {
+    
+    private init(){
     
     }
   
@@ -28,15 +28,22 @@ class ParseHelper {
         pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-    static func timelineRequestForAllPolls (completionBlock:PFArrayResultBlock ) {
-        let pollsFromThisUser = Poll.query()
-        pollsFromThisUser?.includeKey("user")
-        pollsFromThisUser?.orderByDescending("createdAt")
-        pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
+    
+    /// Get all polls
+    static func timelineRequestForAllPolls (sinceDate:NSDate, completionBlock:PFArrayResultBlock ) {
+        
+        let allPollsQuery = Poll.query()
+        allPollsQuery?.includeKey("user")
+        allPollsQuery?.whereKey("createdAt", lessThan: sinceDate)
+        
+        allPollsQuery?.limit = 2
+        
+        allPollsQuery?.orderByDescending("createdAt")
+        allPollsQuery?.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
     
-    //Get Polls
+    /// Get Voted Polls
     static func timelineRequestForVotedPolls (completionBlock:PFArrayResultBlock ) {
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
         pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
