@@ -421,7 +421,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-Tt-f8z">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-Tt-f8z">
                                         <rect key="frame" x="0.0" y="279" width="600" height="160"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -628,6 +628,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CKP-ug-wyg"/>
+        <segue reference="SL7-07-aUm"/>
     </inferredMetricsTieBreakers>
 </document>

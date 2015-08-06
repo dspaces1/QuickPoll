@@ -12,18 +12,19 @@ import Parse
 class ParseHelper {
     var user: PFUser!
     
-    static var sharedHelper = ParseHelper()
+
     
-    private init(){
-    
-    }
   
     // MARK: - Section: Class Methods
     
-    static func timelineRequestForCurrentUser (completionBlock:PFArrayResultBlock ) {
+    static func timelineRequestForCurrentUser (sinceDate:NSDate, completionBlock:PFArrayResultBlock ) {
         let pollsFromThisUser = Poll.query()
         pollsFromThisUser?.whereKey("user", equalTo: PFUser.currentUser()!)
         pollsFromThisUser?.includeKey("user")
+        pollsFromThisUser?.whereKey("createdAt", lessThan: sinceDate)
+        
+        pollsFromThisUser?.limit = 20
+        
         pollsFromThisUser?.orderByDescending("createdAt")
         pollsFromThisUser?.findObjectsInBackgroundWithBlock(completionBlock)
     }
@@ -36,7 +37,7 @@ class ParseHelper {
         allPollsQuery?.includeKey("user")
         allPollsQuery?.whereKey("createdAt", lessThan: sinceDate)
         
-        allPollsQuery?.limit = 2
+        allPollsQuery?.limit = 20
         
         allPollsQuery?.orderByDescending("createdAt")
         allPollsQuery?.findObjectsInBackgroundWithBlock(completionBlock)

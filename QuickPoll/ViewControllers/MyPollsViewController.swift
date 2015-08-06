@@ -18,20 +18,31 @@ class MyPollsViewController: UIViewController {
     @IBOutlet weak var segmentView: UISegmentedControl!
     
     var polls: [Poll] = [] {
-        didSet { tableView.reloadData() }
+        didSet {
+            tableView.reloadData()
+            refreshController.endRefreshing()
+        }
     }
     
-    var pollFeed: [Poll] = []
-    var myPolls: [Poll] = []
-    var votedPolls: [Poll] = []
+
+     struct pollArrays {
+        var polls: [Poll] = []
+        var loadedData:Bool = false
+        var latestPollDate:NSDate = NSDate()
+    }
+    
+    
+    var pollFeed = pollArrays()
+    var myPolls = pollArrays()
+    var votedPolls = pollArrays()
+    
+    var feedArray:[pollArrays]!
     
     var delegate: pollDelegate?
     var poll:Poll?
     
     var refreshController:UIRefreshControl!
-    
-    var loadedAllData = false
-    var latestPollDate:NSDate = NSDate()
+
 
     // MARK: - Section: Class Methods
     
@@ -46,82 +57,17 @@ class MyPollsViewController: UIViewController {
         switch segmentIndex {
             
         case 0:
-            polls = pollFeed
+            polls = pollFeed.polls
             
         case 1:
-            polls = myPolls
+            polls = myPolls.polls
             
         case 2:
-            polls = votedPolls
+            polls = votedPolls.polls
             
         default:
             ErrorHandling.showAlertWithString("Error", messageText: "Failed to load feed. Please try restarting app.", currentViewController: self)
         }
-    }
-    
-    
-    /// Fetch all Poll Data From Parse
-    func fetchAllPollsAndRefresh(date:NSDate) {
-    
-        ParseHelper.timelineRequestForAllPolls(date) { (resultFromAllPolls, error) -> Void in
-            if error == nil {
-
-                
-                ParseHelper.timelineRequestForVotedPolls { (result, error) -> Void in
-                    if error == nil {
-
-                        if resultFromAllPolls!.isEmpty {
-                            self.loadedAllData = true
-                            println("Looaded all data")
-                        }
-                        
-                        self.polls += resultFromAllPolls as? [Poll] ?? [] //Set +=
-                        let relations = result as? [PFObject] ?? []
-                        
-                        self.votedPolls = relations.map {
-                            $0.objectForKey("toPoll") as! Poll
-                        }
-                        
-                        self.latestPollDate = self.polls[self.polls.count - 1].createdAt!
-                        
-                        self.setMyPolls()
-                        
-                        self.updateFeedData(self.segmentView.selectedSegmentIndex)
-                        
-                        self.refreshController.endRefreshing()
-                        
-
-                    } else {
-                        
-                        ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from server.", currentViewController: self)
-                    }
-                }
-                
-            } else {
-                ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from server.", currentViewController: self)
-            }
-        }
-
-    }
-    
-    
-    
-    
-    
-    
-    /// Filter poll array to get all polls created by the current user. Also, sets voted for flags on all polls user voted for.
-    func setMyPolls () {
-        
-        let allPollsNotVotedFor = self.polls.filter{(!contains(self.votedPolls,$0))}
-        
-        myPolls =   polls.filter({ poll in poll.user == PFUser.currentUser() })
-        polls = polls.map({ (poll) -> Poll in
-            poll.votedFor = !contains(allPollsNotVotedFor, poll)
-            return poll
-        })
-
-        
-        self.pollFeed = allPollsNotVotedFor
     }
 
     func setUpTableRefreshing () {
@@ -132,10 +78,89 @@ class MyPollsViewController: UIViewController {
         tableView.addSubview(refreshController)
     }
     
+    
+    func getPollFeed(){
+        
+        TimelineFeed.fetchPollFeed(pollFeed, date: pollFeed.latestPollDate) { (success, pollStruct) -> Void in
+            
+            if success {
+                self.pollFeed = pollStruct
+            } else {
+                ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
+            }
+        }
+    }
+    
+    func getMyPollFeed() {
+        
+        TimelineFeed.fetchMyPolls(votedPolls, date: myPolls.latestPollDate) { (success, pollStruct) -> Void in
+            
+            if success {
+                self.myPolls = pollStruct
+                println(self.segmentView.selectedSegmentIndex)
+                self.updateFeedData(self.segmentView.selectedSegmentIndex)
+            } else {
+              ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
+            }
+        }
+    }
+    
+    func getVotedFeed () {
+        
+        TimelineFeed.fetchVotedForPolls(votedPolls, date: votedPolls.latestPollDate) { (success, pollStruct) -> Void in
+            
+            if success {
+                self.votedPolls = pollStruct
+            } else {
+                ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
+            }
+        }
+    }
+    
+    
+    func fetchPollsAccordingToSegment (currentSegment:Int){
+        
+        switch currentSegment {
+            
+        case 0:
+            getPollFeed()
+            
+        case 1:
+            getMyPollFeed()
+            
+        case 2:
+            getVotedFeed()
+            
+        default:
+            println("error")
+            
+        }
+        println("fetching")
+    }
+    
+    
     func refresh() {
-        polls = []
-        fetchAllPollsAndRefresh(NSDate())
-        loadedAllData = false 
+        
+        //polls = []
+        
+        switch segmentView.selectedSegmentIndex {
+            
+        case 0:
+            pollFeed = pollArrays()
+            
+        case 1:
+            myPolls = pollArrays()
+            
+        case 2:
+            votedPolls = pollArrays()
+            
+        default:
+            println("error")
+        }
+        
+        fetchPollsAccordingToSegment(segmentView.selectedSegmentIndex)
+        
+  
     }
     
     
@@ -153,11 +178,15 @@ class MyPollsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        feedArray = [pollFeed,myPolls,votedPolls]
         
-        fetchAllPollsAndRefresh(NSDate())
-   
         setUpTableRefreshing()
-     
+        
+        getPollFeed()
+        getMyPollFeed()
+        getVotedFeed()
+        updateFeedData(segmentView.selectedSegmentIndex)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -166,9 +195,9 @@ class MyPollsViewController: UIViewController {
     
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -185,7 +214,6 @@ class MyPollsViewController: UIViewController {
     }
     
 }
-
 
 // MARK: - Protocols
 // MARK: UITableViewDataSource
@@ -207,6 +235,8 @@ extension MyPollsViewController:UITableViewDataSource {
         cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //Can user be nil at this point?
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))
         
+        cell.accessoryType = UITableViewCellAccessoryType.None
+        
         checkMarkVotedPolls(indexPath, cell: cell)
         
         cell.tintColor = UIColor(red: 82/255.0, green: 193/255.0, blue: 159/255.0, alpha: 0.80)
@@ -221,16 +251,12 @@ extension MyPollsViewController:UITableViewDataSource {
             
             if pollChecked {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            } else {
-                cell.accessoryType = UITableViewCellAccessoryType.None
             }
             
         } else {
             polls[indexPath.row].fetchVotedPolls({ (success, error) -> Void in
                 if success {
                     cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-                } else {
-                    cell.accessoryType = UITableViewCellAccessoryType.None
                 }
             })
         }
@@ -239,21 +265,18 @@ extension MyPollsViewController:UITableViewDataSource {
     
 }
 
+
 // MARK: UITableViewDataDelegate
 
 extension MyPollsViewController:UITableViewDelegate {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        
-        if (indexPath.row == (tableView.numberOfRowsInSection(0) - 1)) && !loadedAllData {
-            
-            fetchAllPollsAndRefresh(latestPollDate)
-           
-            println("fetching")
-        }
 
+        if (indexPath.row == (tableView.numberOfRowsInSection(0) - 1)) && !feedArray[segmentView.selectedSegmentIndex].loadedData {
+            
+            fetchPollsAccordingToSegment(segmentView.selectedSegmentIndex)
+        }
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -270,15 +293,15 @@ extension MyPollsViewController:pollDelegate,votedForDelegate{
     
     func addPollItem(newPoll:Poll) {
     
-        pollFeed.insert(newPoll, atIndex: 0)
-        myPolls.insert(newPoll, atIndex: 0)
+        pollFeed.polls.insert(newPoll, atIndex: 0)
+        myPolls.polls.insert(newPoll, atIndex: 0)
     }
     
     func addVotedForItem(newPoll: Poll) {
-        votedPolls.insert(newPoll, atIndex: 0)
+        votedPolls.polls.insert(newPoll, atIndex: 0)
         
         if newPoll.votedFor! {
-            pollFeed = pollFeed.filter({$0 != newPoll})
+            pollFeed.polls = pollFeed.polls.filter({$0 != newPoll})
         }
     }
 

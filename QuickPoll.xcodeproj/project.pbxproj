@@ -15,6 +15,7 @@
 		F13C146B1B45BFE3008BF9A7 /* QuickPollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C146A1B45BFE3008BF9A7 /* QuickPollTests.swift */; };
 		F13C14961B45C505008BF9A7 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14951B45C505008BF9A7 /* Poll.swift */; };
 		F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */; };
+		F1477C971B7279D5007EFC3B /* TimelineFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1477C961B7279D5007EFC3B /* TimelineFeed.swift */; };
 		F14D973F1B5985D000BFB15A /* MyPollsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */; };
 		F14D97451B5D8E1200BFB15A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */; };
 		F1CA4B161B57F1DD00A89054 /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */; };
@@ -53,6 +54,7 @@
 		F13C146A1B45BFE3008BF9A7 /* QuickPollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPollTests.swift; sourceTree = "<group>"; };
 		F13C14951B45C505008BF9A7 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		F13C14981B45CAF0008BF9A7 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		F1477C961B7279D5007EFC3B /* TimelineFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineFeed.swift; sourceTree = "<group>"; };
 		F14D973E1B5985D000BFB15A /* MyPollsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsTableViewCell.swift; sourceTree = "<group>"; };
 		F14D97441B5D8E1200BFB15A /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseLoginHelper.swift; path = ../Model/ParseLoginHelper.swift; sourceTree = "<group>"; };
 		F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */,
 				F1CA4B1A1B5804BF00A89054 /* KeyboardHandling.swift */,
 				F1CA4B211B584C2C00A89054 /* ErrorHandling.swift */,
+				F1477C961B7279D5007EFC3B /* TimelineFeed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				F14D97451B5D8E1200BFB15A /* ParseLoginHelper.swift in Sources */,
 				F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */,
 				F14D973F1B5985D000BFB15A /* MyPollsTableViewCell.swift in Sources */,
+				F1477C971B7279D5007EFC3B /* TimelineFeed.swift in Sources */,
 				F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */,
 				F1CA4B201B58420F00A89054 /* CreatePollTableViewCell.swift in Sources */,
 				F1FD1A091B4AC995008D9835 /* VoteOptionTableViewCell.swift in Sources */,

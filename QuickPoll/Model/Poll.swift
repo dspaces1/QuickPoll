@@ -28,8 +28,7 @@ class Poll: PFObject, PFSubclassing {
     
     var option:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
     var votedFor:Bool?
-    
-    
+       
     //MARK: - Section: Class Methods
     
     
