@@ -85,6 +85,7 @@ class MyPollsViewController: UIViewController {
             
             if success {
                 self.pollFeed = pollStruct
+                self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
                 ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
             }
@@ -93,11 +94,11 @@ class MyPollsViewController: UIViewController {
     
     func getMyPollFeed() {
         
-        TimelineFeed.fetchMyPolls(votedPolls, date: myPolls.latestPollDate) { (success, pollStruct) -> Void in
+        TimelineFeed.fetchMyPolls(myPolls, date: myPolls.latestPollDate) { (success, pollStruct) -> Void in
             
             if success {
                 self.myPolls = pollStruct
-                println(self.segmentView.selectedSegmentIndex)
+                
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
               ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
@@ -111,6 +112,7 @@ class MyPollsViewController: UIViewController {
             
             if success {
                 self.votedPolls = pollStruct
+                self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
                 ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
             }
@@ -150,6 +152,7 @@ class MyPollsViewController: UIViewController {
             
         case 1:
             myPolls = pollArrays()
+            println(myPolls.polls)
             
         case 2:
             votedPolls = pollArrays()

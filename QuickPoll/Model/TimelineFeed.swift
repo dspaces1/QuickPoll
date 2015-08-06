@@ -136,6 +136,8 @@ class TimelineFeed:NSObject {
                             return poll
                         })
                         
+                        //println(newPollResults)
+                        
                         currentPolls.polls += newPollResults
                         
                         currentPolls.latestPollDate = newPollResults[newPollResults.count - 1].createdAt!
