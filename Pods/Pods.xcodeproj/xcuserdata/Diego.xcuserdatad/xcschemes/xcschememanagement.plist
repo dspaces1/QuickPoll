@@ -9,21 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Bond.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ConvenienceKit-ConvenienceKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ConvenienceKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -40,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,62 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B14C15940871D543FB89EE7243CF54A</key>
+		<key>14CEDC5C8271F7DF4767DCC413233460</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>512E44D27F08A4EEBFA126B9CA7FB0DC</key>
+		<key>1D9CDA053483DC4ABF6B9292FED2DD5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55BFEC9876E76DF243059DC7B46B6B0A</key>
+		<key>1E944B5A471CBACDD9E656B7C362CEF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>665B4CEA04E71C0446BBC406EA0D3BB8</key>
+		<key>2AD2F33BBA339F142E7129EC0B3F401C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82A82103A16025ED1149AB707F7FFD44</key>
+		<key>7F9E8BE0577721E13F4BDD3FC820D6A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>877FDDD7530FD8936DBB41F0D740C587</key>
+		<key>82E588687BDCD0F4871A03CB3DAE5F06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1683C1ABE34459F60735FECB7332A03</key>
+		<key>8AE8D953A24046D6BC88EF46AD17BFE9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B87F70D5F725EAEF7C70FFCBFEEA200B</key>
+		<key>B9FD21ABD162895ABA97BA80A60068B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DAE3FE4AC982A9A8CAD02B2B8225E145</key>
+		<key>CCEBCCB49F4CEFA7AE7C6587CACFEEEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC71054FBD6CCEDD85EB123AE6CC5EBA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F23BFDDF58A353AC4CA6851D0526D032</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC39EA3326F2D924A7032FAA816E1EFA</key>
+		<key>D9A7B17F8088526F00F47D1782EC815B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

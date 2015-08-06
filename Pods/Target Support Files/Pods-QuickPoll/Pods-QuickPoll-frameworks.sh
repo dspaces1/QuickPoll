@@ -53,24 +53,22 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-QuickPoll/Bolts.framework'
-  install_framework 'Pods-QuickPoll/Bond.framework'
-  install_framework 'Pods-QuickPoll/ConvenienceKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKCoreKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKLoginKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKShareKit.framework'
   install_framework 'Pods-QuickPoll/IQKeyboardManager.framework'
+  install_framework 'Pods-QuickPoll/MBProgressHUD.framework'
   install_framework 'Pods-QuickPoll/Parse.framework'
   install_framework 'Pods-QuickPoll/ParseFacebookUtilsV4.framework'
   install_framework 'Pods-QuickPoll/ParseUI.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-QuickPoll/Bolts.framework'
-  install_framework 'Pods-QuickPoll/Bond.framework'
-  install_framework 'Pods-QuickPoll/ConvenienceKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKCoreKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKLoginKit.framework'
   install_framework 'Pods-QuickPoll/FBSDKShareKit.framework'
   install_framework 'Pods-QuickPoll/IQKeyboardManager.framework'
+  install_framework 'Pods-QuickPoll/MBProgressHUD.framework'
   install_framework 'Pods-QuickPoll/Parse.framework'
   install_framework 'Pods-QuickPoll/ParseFacebookUtilsV4.framework'
   install_framework 'Pods-QuickPoll/ParseUI.framework'

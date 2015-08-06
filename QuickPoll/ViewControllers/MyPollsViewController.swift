@@ -8,7 +8,8 @@
 
 import UIKit
 import Parse
-import ConvenienceKit
+import NVActivityIndicatorView
+import MBProgressHUD
 
 class MyPollsViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class MyPollsViewController: UIViewController {
         didSet {
             tableView.reloadData()
             refreshController.endRefreshing()
+            self.view.userInteractionEnabled = true
+            self.navigationController?.view.userInteractionEnabled = true
         }
     }
     
@@ -98,7 +101,6 @@ class MyPollsViewController: UIViewController {
             
             if success {
                 self.myPolls = pollStruct
-                
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
               ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
@@ -121,6 +123,8 @@ class MyPollsViewController: UIViewController {
     
     
     func fetchPollsAccordingToSegment (currentSegment:Int){
+        
+        //startLoadAnimationAndDisableUI()
         
         switch currentSegment {
             
@@ -152,7 +156,6 @@ class MyPollsViewController: UIViewController {
             
         case 1:
             myPolls = pollArrays()
-            println(myPolls.polls)
             
         case 2:
             votedPolls = pollArrays()
@@ -179,12 +182,33 @@ class MyPollsViewController: UIViewController {
     }
 
 
+    
+    
+    func startLoadAnimationAndDisableUI () {
+        
+        self.view.userInteractionEnabled = false
+        self.navigationController?.view.userInteractionEnabled = false
+
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+        
+//        
+//        let screenSize = UIScreen.mainScreen().bounds.size
+//        let frame = CGRect(x: (screenSize.width - 20 ) / 2  , y: (screenSize.height ) , width: 40, height: 40)
+//        let indicatorView = NVActivityIndicatorView(frame: frame, type: .LineScale, color: UIColor(red: 82/255.0, green: 193/255.0, blue: 159/255.0, alpha: 0.80))
+//        self.navigationController?.view.addSubview(indicatorView)
+//        indicatorView.startAnimation()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         feedArray = [pollFeed,myPolls,votedPolls]
         
         setUpTableRefreshing()
+        
+        startLoadAnimationAndDisableUI()
         
         getPollFeed()
         getMyPollFeed()
