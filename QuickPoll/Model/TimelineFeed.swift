@@ -8,12 +8,23 @@
 
 import Foundation
 import Parse
+import MBProgressHUD
+
 
 typealias PollFetchResultBlock = (Bool, MyPollsViewController.pollArrays) -> Void
 
-class TimelineFeed:NSObject {
-    
+class TimelineFeed {
 
+    static func startLoadAnimationAndDisableUI (currentView:UIViewController) {
+
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(currentView.navigationController?.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+    }
+    
+    static func reEnableUI(currentView:UIViewController) {
+
+        MBProgressHUD.hideAllHUDsForView(currentView.navigationController?.view, animated: true)
+    }
     
     static func fetchVotedForPolls (var currentPolls: MyPollsViewController.pollArrays ,date:NSDate, completionBlock: PollFetchResultBlock) {
         

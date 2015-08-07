@@ -30,8 +30,20 @@ class VoteViewController: UIViewController {
     
     var totalVotes:Int = 0
     var voteCount:Int = 0
+    var emailComposer:email?
     
     // MARK: - Section: Class Methods
+    
+    
+    @IBAction func reportPoll(sender: AnyObject) {
+        
+        emailComposer = email(currentController: self, pollTitleAndUser: ["\(polls!.title!)" , "\(polls!.user!.username!)"])
+        
+        
+        //emailComposer.emailDelegate = self
+    
+    }
+    
     
     @IBAction func voteForPoll(sender: AnyObject) {
         
@@ -55,6 +67,8 @@ class VoteViewController: UIViewController {
             
             totalVotes++
             
+            TimelineFeed.startLoadAnimationAndDisableUI(self)
+            
             ParseHelper.voteForPoll(PFUser.currentUser()!, poll:polls!){ (success, error) -> Void in
                 
                 if let error = error {
@@ -66,6 +80,7 @@ class VoteViewController: UIViewController {
                     self.voted4Delegate?.addVotedForItem(self.polls!)
          
                 }
+                TimelineFeed.reEnableUI(self)
                 
             }
             animateBarResults()
@@ -215,6 +230,7 @@ extension VoteViewController:UITableViewDelegate {
     }
   
 }
+
 
 
 

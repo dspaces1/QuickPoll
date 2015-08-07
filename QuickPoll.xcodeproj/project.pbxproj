@@ -40,6 +40,7 @@
 		F10D0F8B1B73AF43002272BC /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F6B1B73AF43002272BC /* NVActivityIndicatorAnimationDelegate.swift */; };
 		F10D0F8C1B73AF43002272BC /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F6C1B73AF43002272BC /* NVActivityIndicatorShape.swift */; };
 		F10D0F8D1B73AF43002272BC /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F6D1B73AF43002272BC /* NVActivityIndicatorView.swift */; };
+		F10D0F8F1B73EDA8002272BC /* email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F8E1B73EDA8002272BC /* email.swift */; };
 		F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */; };
 		F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C14581B45BFE3008BF9A7 /* Main.storyboard */; };
 		F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13C145B1B45BFE3008BF9A7 /* Images.xcassets */; };
@@ -107,6 +108,7 @@
 		F10D0F6B1B73AF43002272BC /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		F10D0F6C1B73AF43002272BC /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		F10D0F6D1B73AF43002272BC /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
+		F10D0F8E1B73EDA8002272BC /* email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = email.swift; sourceTree = "<group>"; };
 		F13C144F1B45BFE3008BF9A7 /* QuickPoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C14531B45BFE3008BF9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				F1CA4B1A1B5804BF00A89054 /* KeyboardHandling.swift */,
 				F1CA4B211B584C2C00A89054 /* ErrorHandling.swift */,
 				F1477C961B7279D5007EFC3B /* TimelineFeed.swift */,
+				F10D0F8E1B73EDA8002272BC /* email.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				F10D0F831B73AF43002272BC /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
 				F10D0F7E1B73AF43002272BC /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
+				F10D0F8F1B73EDA8002272BC /* email.swift in Sources */,
 				F10D0F6F1B73AF43002272BC /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				F10D0F7D1B73AF43002272BC /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				F10D0F711B73AF43002272BC /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,

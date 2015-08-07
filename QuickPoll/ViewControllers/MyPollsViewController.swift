@@ -22,8 +22,6 @@ class MyPollsViewController: UIViewController {
         didSet {
             tableView.reloadData()
             refreshController.endRefreshing()
-            self.view.userInteractionEnabled = true
-            self.navigationController?.view.userInteractionEnabled = true
         }
     }
     
@@ -84,6 +82,7 @@ class MyPollsViewController: UIViewController {
     
     func getPollFeed(){
         
+        
         TimelineFeed.fetchPollFeed(pollFeed, date: pollFeed.latestPollDate) { (success, pollStruct) -> Void in
             
             if success {
@@ -92,6 +91,8 @@ class MyPollsViewController: UIViewController {
             } else {
                 ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
             }
+            
+            TimelineFeed.reEnableUI(self)
         }
     }
     
@@ -103,7 +104,8 @@ class MyPollsViewController: UIViewController {
                 self.myPolls = pollStruct
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
-              ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
             }
         }
     }
@@ -116,6 +118,7 @@ class MyPollsViewController: UIViewController {
                 self.votedPolls = pollStruct
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
             }
         }
@@ -123,8 +126,6 @@ class MyPollsViewController: UIViewController {
     
     
     func fetchPollsAccordingToSegment (currentSegment:Int){
-        
-        //startLoadAnimationAndDisableUI()
         
         switch currentSegment {
             
@@ -146,8 +147,6 @@ class MyPollsViewController: UIViewController {
     
     
     func refresh() {
-        
-        //polls = []
         
         switch segmentView.selectedSegmentIndex {
             
@@ -182,25 +181,6 @@ class MyPollsViewController: UIViewController {
     }
 
 
-    
-    
-    func startLoadAnimationAndDisableUI () {
-        
-        self.view.userInteractionEnabled = false
-        self.navigationController?.view.userInteractionEnabled = false
-
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.Indeterminate
-        loadingNotification.labelText = "Loading"
-        
-//        
-//        let screenSize = UIScreen.mainScreen().bounds.size
-//        let frame = CGRect(x: (screenSize.width - 20 ) / 2  , y: (screenSize.height ) , width: 40, height: 40)
-//        let indicatorView = NVActivityIndicatorView(frame: frame, type: .LineScale, color: UIColor(red: 82/255.0, green: 193/255.0, blue: 159/255.0, alpha: 0.80))
-//        self.navigationController?.view.addSubview(indicatorView)
-//        indicatorView.startAnimation()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -208,7 +188,8 @@ class MyPollsViewController: UIViewController {
         
         setUpTableRefreshing()
         
-        startLoadAnimationAndDisableUI()
+        TimelineFeed.startLoadAnimationAndDisableUI(self)
+
         
         getPollFeed()
         getMyPollFeed()
@@ -218,13 +199,6 @@ class MyPollsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    
-    
-    
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

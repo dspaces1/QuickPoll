@@ -43,6 +43,7 @@ class CreatePollViewController: UIViewController {
             return
         }
      
+        
         sendPollToParse()
     }
     
@@ -54,11 +55,17 @@ class CreatePollViewController: UIViewController {
             
             addPollDelegate?.addPollItem(myPoll!)
             
+            TimelineFeed.startLoadAnimationAndDisableUI(self)
+            
             myPoll!.postPoll(pollTitle: titleOfPoll.text, pollDescribtion: descriptionOfPoll.text, arrayWithOptions: optionArr, categoryTypeIndex: categoryPicker.selectedSegmentIndex) { (sucess,error) -> Void in
                 
+                    TimelineFeed.reEnableUI(self)
+                
                 if sucess {
+                    
                     self.navigationController!.popToRootViewControllerAnimated(true)
                 }else{
+                    
                     ErrorHandling.showAlertWithString("Error", messageText: "Could not send poll to the server. Please try again.", currentViewController: self)
                 }
             }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pbi-H2-963">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="myPollCell" textLabel="hZp-Bv-bGJ" detailTextLabel="1qd-BW-mVu" imageView="AKd-p4-Ont" rowHeight="66" style="IBUITableViewCellStyleSubtitle" id="7tP-PB-4by" customClass="MyPollsTableViewCell" customModule="QuickPoll" customModuleProvider="target">
@@ -61,11 +61,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Pbi-H2-963" secondAttribute="bottom" id="60g-OX-vI2"/>
+                            <constraint firstAttribute="bottom" secondItem="Pbi-H2-963" secondAttribute="bottom" constant="47" id="60g-OX-vI2"/>
                             <constraint firstItem="Pbi-H2-963" firstAttribute="leading" secondItem="tGU-gh-Vbo" secondAttribute="leading" id="R5g-ea-I8w"/>
                             <constraint firstItem="Pbi-H2-963" firstAttribute="top" secondItem="MVC-mC-4Bi" secondAttribute="bottom" id="ekX-uw-4QE"/>
                             <constraint firstAttribute="trailing" secondItem="Pbi-H2-963" secondAttribute="trailing" id="pJm-F8-tdG"/>
+                            <constraint firstItem="ri8-cd-9xa" firstAttribute="top" secondItem="Pbi-H2-963" secondAttribute="bottom" id="v5T-Jo-t27"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="60g-OX-vI2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="EX3-PN-tp6">
@@ -358,7 +364,13 @@
                             <constraint firstItem="8tE-P7-VwQ" firstAttribute="top" secondItem="Jeg-GG-tsU" secondAttribute="top" id="zHW-CY-7PB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb"/>
+                    <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb">
+                        <barButtonItem key="rightBarButtonItem" title="Report" id="bse-fv-App">
+                            <connections>
+                                <action selector="reportPoll:" destination="JJc-IC-NZM" id="bcN-wr-oEd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionOfPoll" destination="VoT-uu-p5o" id="VnZ-OK-Y1V"/>
                         <outlet property="tableViewWithOptions" destination="Txr-zt-bM1" id="AJU-cp-sPx"/>
@@ -628,6 +640,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SL7-07-aUm"/>
+        <segue reference="CKP-ug-wyg"/>
     </inferredMetricsTieBreakers>
 </document>
