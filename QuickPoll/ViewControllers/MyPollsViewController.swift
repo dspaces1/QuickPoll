@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-import NVActivityIndicatorView
+
 import MBProgressHUD
 
 class MyPollsViewController: UIViewController {
@@ -81,7 +81,6 @@ class MyPollsViewController: UIViewController {
     
     
     func getPollFeed(){
-        
         
         TimelineFeed.fetchPollFeed(pollFeed, date: pollFeed.latestPollDate) { (success, pollStruct) -> Void in
             
@@ -164,8 +163,6 @@ class MyPollsViewController: UIViewController {
         }
         
         fetchPollsAccordingToSegment(segmentView.selectedSegmentIndex)
-        
-  
     }
     
     
@@ -198,6 +195,8 @@ class MyPollsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        self.tabBarController?.delegate = self
     }
     
     
@@ -209,8 +208,8 @@ class MyPollsViewController: UIViewController {
            
         }
         else if segue.identifier == "createNewPoll"{
-            let createViewController = segue.destinationViewController as! CreatePollViewController
-            createViewController.addPollDelegate = self
+//            let createViewController = segue.destinationViewController as! CreatePollViewController
+//            createViewController.addPollDelegate = self
         }
     }
     
@@ -288,6 +287,26 @@ extension MyPollsViewController:UITableViewDelegate {
     
 }
 
+extension MyPollsViewController:UITabBarControllerDelegate {
+    
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+        
+        if viewController is PollFeedViewController {
+            
+            let createPollController:CreatePollViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Create Poll") as! CreatePollViewController
+            createPollController.addPollDelegate = self
+            self.presentViewController(createPollController, animated: true, completion: nil)
+            
+            
+            
+            return false
+        } else{
+            return true
+        }
+    }
+}
+
+
 // MARK: pollDelegate and votedForDelegate
 
 extension MyPollsViewController:pollDelegate,votedForDelegate{
@@ -307,4 +326,5 @@ extension MyPollsViewController:pollDelegate,votedForDelegate{
     }
 
 }
+
 

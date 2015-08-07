@@ -165,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Poll Feed View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnq-gp-BcX">
-                                <rect key="frame" x="220" y="123" width="160" height="21"/>
+                                <rect key="frame" x="220" y="79" width="160" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="TJV-VV-F9i"/>
                                     <constraint firstAttribute="height" constant="21" id="okY-Dq-Xc9"/>
@@ -181,11 +181,12 @@
                             <constraint firstAttribute="centerX" secondItem="Nnq-gp-BcX" secondAttribute="centerX" id="xt4-bq-gfl"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="v1G-Dv-OcM"/>
                     <navigationItem key="navigationItem" title="Poll Feed" id="Eue-3K-0I6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3I-oy-nRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="44"/>
+            <point key="canvasLocation" x="458" y="756"/>
         </scene>
         <!--Vote-->
         <scene sceneID="eNi-Dj-6Th">
@@ -385,7 +386,7 @@
         <!--Create Poll View Controller-->
         <scene sceneID="Sbz-bC-lO2">
             <objects>
-                <viewController id="r8I-9Y-aWl" customClass="CreatePollViewController" customModule="QuickPoll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Create Poll" id="r8I-9Y-aWl" customClass="CreatePollViewController" customModule="QuickPoll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TlD-uZ-YAO"/>
                         <viewControllerLayoutGuide type="bottom" id="Nkz-d2-fML"/>
@@ -548,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qga-ou-QeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="1532"/>
+            <point key="canvasLocation" x="1911" y="1486"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ydA-M5-nnR">
@@ -563,7 +564,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="k6t-a8-Rlr" kind="relationship" relationship="viewControllers" id="yqr-Ea-AZP"/>
-                        <segue destination="YpQ-6l-Bbb" kind="relationship" relationship="viewControllers" id="Rso-mc-dKO"/>
+                        <segue destination="PZw-mC-2Eo" kind="relationship" relationship="viewControllers" id="Blw-BY-QJO"/>
                         <segue destination="hns-bP-83E" kind="relationship" relationship="viewControllers" id="h9J-Xd-Aql"/>
                     </connections>
                 </tabBarController>
@@ -589,25 +590,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axu-um-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="519" y="-25"/>
-        </scene>
-        <!--Local Polls-->
-        <scene sceneID="dxE-oo-Kkf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YpQ-6l-Bbb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Local Polls" id="8tG-VZ-xHZ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9mW-ks-9ab">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PZw-mC-2Eo" kind="relationship" relationship="rootViewController" id="SJm-to-xCO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sTj-U4-PbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="462" y="707"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Izk-47-Unj">
@@ -640,6 +622,6 @@
         <image name="resultBar" width="729" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CKP-ug-wyg"/>
+        <segue reference="SL7-07-aUm"/>
     </inferredMetricsTieBreakers>
 </document>
