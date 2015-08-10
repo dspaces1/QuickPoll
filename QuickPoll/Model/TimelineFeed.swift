@@ -16,14 +16,14 @@ typealias PollFetchResultBlock = (Bool, MyPollsViewController.pollArrays) -> Voi
 class TimelineFeed {
 
     static func startLoadAnimationAndDisableUI (currentView:UIViewController) {
-
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(currentView.navigationController?.view, animated: true)
+        
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(currentView./*navigationController?.*/view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
     }
     
     static func reEnableUI(currentView:UIViewController) {
 
-        MBProgressHUD.hideAllHUDsForView(currentView.navigationController?.view, animated: true)
+        MBProgressHUD.hideAllHUDsForView(currentView./*navigationController?.*/view, animated: true)
     }
     
     static func fetchVotedForPolls (var currentPolls: MyPollsViewController.pollArrays ,date:NSDate, completionBlock: PollFetchResultBlock) {

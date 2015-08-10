@@ -5,7 +5,6 @@ use_frameworks!
 target 'QuickPoll' do
 
 pod 'MBProgressHUD', '~> 0.9.1'
-pod 'IQKeyboardManager'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'

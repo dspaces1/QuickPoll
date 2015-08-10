@@ -33,9 +33,9 @@ class CreatePollTableViewCell: UITableViewCell {
 
 extension CreatePollTableViewCell:UITextFieldDelegate{
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
 }
 

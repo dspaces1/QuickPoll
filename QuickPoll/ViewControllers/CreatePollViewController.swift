@@ -22,6 +22,8 @@ class CreatePollViewController: UIViewController {
     @IBOutlet weak var titleOfPoll: UITextField!
     @IBOutlet weak var descriptionOfPoll: UITextView!
     
+    var scrollViewHeight:CGFloat!
+    
     var optionArr:[Dictionary<String,AnyObject>]? = [Dictionary<String,AnyObject>]()
     var keboardHandler:KeboardHandling!
     var isPlaceHolderText:Bool = true
@@ -47,6 +49,10 @@ class CreatePollViewController: UIViewController {
         sendPollToParse()
     }
     
+    @IBAction func cancelCreatePoll(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /// Send poll data to parse
     func sendPollToParse () {
         myPoll = Poll()
@@ -62,8 +68,8 @@ class CreatePollViewController: UIViewController {
                     TimelineFeed.reEnableUI(self)
                 
                 if sucess {
-                    
-                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    //self.navigationController!.popToRootViewControllerAnimated(true)
                 }else{
                     
                     ErrorHandling.showAlertWithString("Error", messageText: "Could not send poll to the server. Please try again.", currentViewController: self)
@@ -114,31 +120,127 @@ class CreatePollViewController: UIViewController {
         descriptionOfPoll.delegate = self 
         descriptionOfPoll.text = "Description"
         descriptionOfPoll.textColor = UIColor.lightGrayColor()
+        
+        //scrollViewHeight = contentScrollView.contentSize.height
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil)
+        
     }
+
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        scrollViewHeight = contentScrollView.contentSize.height
+
+        contentScrollView.contentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, scrollViewHeight + keyboardFrame.height)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        contentScrollView.contentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, scrollViewHeight)
+    }
+
+
+}
+
+func keyboardHandling () {
+    
+    
+//    let keyboardToolbar = UIToolbar()
+//    keyboardToolbar.sizeToFit()
+//    
+//    
+//    
+//    let back = UIBarButtonItem(title: "<", style: .Done, target: view, action: nil)
+//    back.tintColor = UIColor.blackColor()
+//    
+//    let foward = UIBarButtonItem(title: ">", style: .Done, target: view, action: nil)
+//    
+//    foward.enabled = false
+//    
+//    foward.title = "blah Blah"
+//    
+//    let flexBarButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace,
+//        target: view, action: nil)
+//    
+//    
+//    let doneBarButton = UIBarButtonItem(barButtonSystemItem: .Done,
+//        target: view, action: Selector("endEditing:"))
+//    
+//    
+//    keyboardToolbar.items = [back ,flexBarButton, foward, flexBarButton, doneBarButton]
+//    textView.autocorrectionType = UITextAutocorrectionType.No
+//    textView.inputAccessoryView = keyboardToolbar
+
+    
 }
 
 // MARK: - Protocols
 // MARK: UITextFieldDelegate
 
+extension CreatePollTableViewCell:UITextFieldDelegate{
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        var textFieldTag = textField.tag + 1
+        var nextResponder = textField.superview!.superview!.superview!.viewWithTag(textFieldTag)
+        
+        if let nextResponder = nextResponder {
+            
+            nextResponder.becomeFirstResponder()
+            
+        } else {
+            
+            textField.resignFirstResponder()
+            
+        }
+        
+        return false
+    }
+}
+
 extension CreatePollViewController:UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
-        return true
+            descriptionOfPoll.becomeFirstResponder()
+        
+        return false
     }
+    
+    
 }
 
+
+//pod 'IQKeyboardManager'
 extension CreatePollViewController:UITextViewDelegate {
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        if (text == "\n"){
+            
+            let descriptionViewFrameY = textView.frame.origin.y * 0.75
+            contentScrollView.setContentOffset(CGPoint(x: 0, y: descriptionViewFrameY), animated: true)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            let cell = self.optionsTableView.cellForRowAtIndexPath(indexPath) as! CreatePollTableViewCell
+            cell.optionDescription.becomeFirstResponder()
+            
+            return false
+        }
+        
+        return true
+    
+    }
+    
     func textViewDidBeginEditing(textView: UITextView){
-        
-        println("Works" )
-        
-         UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.view.frame.origin.y -= 80
-         })
-        
-        
         
         if textView.textColor == UIColor.lightGrayColor() {
             textView.text = nil
@@ -149,9 +251,6 @@ extension CreatePollViewController:UITextViewDelegate {
     
     func textViewDidEndEditing(textView: UITextView) {
         
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.view.frame.origin.y += 80
-        })
         
         if (textView.text.isEmpty || ErrorHandling.emptyStringOrNil(textView.text)){
             isPlaceHolderText = true 
@@ -177,6 +276,9 @@ extension CreatePollViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("createOption") as! CreatePollTableViewCell
         
         cell.optionDescription.placeholder = cell.placeHolderText[indexPath.row]
+        
+        cell.optionDescription.tag = 1 + indexPath.row
+        
         return cell
     }
 }
