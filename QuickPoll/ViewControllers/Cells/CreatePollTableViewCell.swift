@@ -8,13 +8,21 @@
 
 import UIKit
 
+protocol MoveTableViewCellsDelegate:NSObjectProtocol {
+    func getTableCellPosition(cell:CreatePollTableViewCell)
+}
+
 class CreatePollTableViewCell: UITableViewCell {
 
+    
+    weak var moveCellDelegate:MoveTableViewCellsDelegate?
+    
     let placeHolderText:[String] = ["Option 1","Option 2", "Option 3", "Option 4"]
     
     //MARK - Section: Class Properties
     
     @IBOutlet weak var optionDescription: UITextField!
+    @IBOutlet weak var characterLimit: UILabel!
   
     //MARK - Section: Class Methods
     

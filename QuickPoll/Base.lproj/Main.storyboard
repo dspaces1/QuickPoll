@@ -172,7 +172,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqE-7j-RHz">
-                                        <rect key="frame" x="16" y="487" width="568" height="33"/>
+                                        <rect key="frame" x="16" y="443" width="568" height="33"/>
                                         <color key="backgroundColor" red="0.34553050870000002" green="0.8113529598" blue="0.66585067399999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="Vote">
@@ -184,10 +184,10 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Txr-zt-bM1">
-                                        <rect key="frame" x="0.0" y="208" width="600" height="250"/>
+                                        <rect key="frame" x="0.0" y="208" width="600" height="225"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="YFV-m4-5cr"/>
+                                            <constraint firstAttribute="height" constant="225" id="YFV-m4-5cr"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" rowHeight="60" id="Ydj-4M-vh1" customClass="VoteOptionTableViewCell" customModule="QuickPoll" customModuleProvider="target">
@@ -303,7 +303,7 @@
                                     <constraint firstItem="zVv-H4-A32" firstAttribute="trailing" secondItem="VoT-uu-p5o" secondAttribute="trailing" id="Egj-In-tHG"/>
                                     <constraint firstItem="Txr-zt-bM1" firstAttribute="leading" secondItem="8tE-P7-VwQ" secondAttribute="leading" id="KdH-XZ-eeV"/>
                                     <constraint firstAttribute="bottom" secondItem="uqE-7j-RHz" secondAttribute="bottom" constant="80" id="Qmb-6w-RWt"/>
-                                    <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="29" id="RAT-NO-fST"/>
+                                    <constraint firstItem="uqE-7j-RHz" firstAttribute="top" secondItem="Txr-zt-bM1" secondAttribute="bottom" constant="10" id="RAT-NO-fST"/>
                                     <constraint firstItem="VoT-uu-p5o" firstAttribute="top" secondItem="zVv-H4-A32" secondAttribute="bottom" constant="8" symbolic="YES" id="SGj-dM-bIm"/>
                                     <constraint firstItem="VoT-uu-p5o" firstAttribute="centerX" secondItem="8tE-P7-VwQ" secondAttribute="centerX" id="X2z-XL-vJI"/>
                                     <constraint firstItem="zVv-H4-A32" firstAttribute="leading" secondItem="8tE-P7-VwQ" secondAttribute="leading" constant="16" id="YhC-ag-ePx"/>
@@ -427,14 +427,33 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Cp-er-eKN" id="E6n-VQ-xP1">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWB-g8-MeQ">
-                                                            <rect key="frame" x="25" y="12" width="567" height="19"/>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWB-g8-MeQ">
+                                                            <rect key="frame" x="25" y="10" width="567" height="19"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbQ-pN-nG1">
+                                                            <rect key="frame" x="572" y="21" width="15" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="15" id="xtH-E8-7wc"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="pWB-g8-MeQ" firstAttribute="leading" secondItem="E6n-VQ-xP1" secondAttribute="leadingMargin" constant="17" id="1v2-z5-Yri"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="pWB-g8-MeQ" secondAttribute="bottom" constant="0.5" id="6JB-Gr-ngg"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="XbQ-pN-nG1" secondAttribute="trailing" constant="5" id="6u8-UA-0ar"/>
+                                                        <constraint firstItem="pWB-g8-MeQ" firstAttribute="trailing" secondItem="E6n-VQ-xP1" secondAttribute="trailingMargin" id="B2f-Sv-4bZ"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="XbQ-pN-nG1" secondAttribute="bottom" constant="-7.5" id="Heo-DA-o2H"/>
+                                                        <constraint firstItem="pWB-g8-MeQ" firstAttribute="top" secondItem="E6n-VQ-xP1" secondAttribute="topMargin" constant="2" id="fBR-bh-Jbr"/>
+                                                        <constraint firstItem="XbQ-pN-nG1" firstAttribute="top" secondItem="E6n-VQ-xP1" secondAttribute="topMargin" constant="13" id="hjk-Ix-2if"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="characterLimit" destination="XbQ-pN-nG1" id="BUD-HB-3CR"/>
                                                     <outlet property="optionDescription" destination="pWB-g8-MeQ" id="U5L-Ie-Cyg"/>
                                                 </connections>
                                             </tableViewCell>
@@ -446,7 +465,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-kt-DaA">
-                                        <rect key="frame" x="16" y="487" width="568" height="30"/>
+                                        <rect key="frame" x="16" y="477" width="568" height="30"/>
                                         <color key="backgroundColor" red="0.34553050870000002" green="0.8113529598" blue="0.66585067399999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Jbo-O7-rLB"/>
@@ -476,6 +495,15 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4r-L9-3Ea">
+                                        <rect key="frame" x="568" y="176" width="15" height="16.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="S89-9Q-RVW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="trailing" secondItem="wjU-qH-d8j" secondAttribute="trailing" id="Epi-ye-Wyw"/>
@@ -487,10 +515,12 @@
                                     <constraint firstItem="Zva-cS-mcv" firstAttribute="top" secondItem="gN5-2B-JLq" secondAttribute="top" constant="76" id="QZd-0k-5Rx"/>
                                     <constraint firstItem="sMB-kt-DaA" firstAttribute="centerX" secondItem="DRM-Tt-f8z" secondAttribute="centerX" id="SFh-im-uZa"/>
                                     <constraint firstItem="DRM-Tt-f8z" firstAttribute="top" secondItem="wjU-qH-d8j" secondAttribute="bottom" constant="8" id="Sez-bb-O6s"/>
-                                    <constraint firstItem="sMB-kt-DaA" firstAttribute="top" secondItem="DRM-Tt-f8z" secondAttribute="bottom" constant="35" id="T6S-RR-7jD"/>
+                                    <constraint firstItem="sMB-kt-DaA" firstAttribute="top" secondItem="DRM-Tt-f8z" secondAttribute="bottom" constant="25" id="T6S-RR-7jD"/>
+                                    <constraint firstItem="wjU-qH-d8j" firstAttribute="top" secondItem="l4r-L9-3Ea" secondAttribute="bottom" constant="11.5" id="Udr-Ft-1pO"/>
                                     <constraint firstAttribute="bottom" secondItem="sMB-kt-DaA" secondAttribute="bottom" constant="17" id="XTS-jJ-hRF"/>
                                     <constraint firstItem="Zva-cS-mcv" firstAttribute="centerX" secondItem="6IO-iP-JE2" secondAttribute="centerX" id="Yzi-Dj-6T4"/>
                                     <constraint firstItem="6IO-iP-JE2" firstAttribute="leading" secondItem="gN5-2B-JLq" secondAttribute="leading" constant="16" id="aTl-NJ-VIB"/>
+                                    <constraint firstAttribute="trailing" secondItem="l4r-L9-3Ea" secondAttribute="trailing" constant="17" id="h28-ZP-hhB"/>
                                     <constraint firstItem="6IO-iP-JE2" firstAttribute="top" secondItem="Zva-cS-mcv" secondAttribute="bottom" constant="11" id="k8S-Oi-kxc"/>
                                     <constraint firstAttribute="height" constant="487" id="lMb-ih-O6C"/>
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="trailing" secondItem="6IO-iP-JE2" secondAttribute="trailing" id="ojI-d5-9JO"/>
@@ -498,6 +528,7 @@
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="top" secondItem="6IO-iP-JE2" secondAttribute="bottom" constant="13" id="rpG-WE-UfM"/>
                                     <constraint firstAttribute="trailing" secondItem="DRM-Tt-f8z" secondAttribute="trailing" id="tgb-FD-qtt"/>
                                     <constraint firstItem="wjU-qH-d8j" firstAttribute="leading" secondItem="sMB-kt-DaA" secondAttribute="leading" id="xdH-yd-ozA"/>
+                                    <constraint firstItem="l4r-L9-3Ea" firstAttribute="top" secondItem="6IO-iP-JE2" secondAttribute="bottom" constant="40" id="y4I-MR-PXk"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -545,6 +576,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="categoryPicker" destination="6IO-iP-JE2" id="FoL-NH-pp3"/>
+                        <outlet property="characterLimit" destination="l4r-L9-3Ea" id="fPs-8C-iQo"/>
                         <outlet property="contentScrollView" destination="gN5-2B-JLq" id="wGa-Lt-99V"/>
                         <outlet property="descriptionOfPoll" destination="wjU-qH-d8j" id="w7V-tE-g6a"/>
                         <outlet property="optionsTableView" destination="DRM-Tt-f8z" id="mb1-5A-YtW"/>
