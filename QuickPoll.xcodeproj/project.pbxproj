@@ -41,6 +41,8 @@
 		F10D0F8C1B73AF43002272BC /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F6C1B73AF43002272BC /* NVActivityIndicatorShape.swift */; };
 		F10D0F8D1B73AF43002272BC /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F6D1B73AF43002272BC /* NVActivityIndicatorView.swift */; };
 		F10D0F8F1B73EDA8002272BC /* email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D0F8E1B73EDA8002272BC /* email.swift */; };
+		F12E97B21B7B05DC00665479 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12E97B11B7B05DC00665479 /* SettingsTableViewController.swift */; };
+		F12E97B61B7B200600665479 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12E97B51B7B200600665479 /* CreditsViewController.swift */; };
 		F13C14551B45BFE3008BF9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */; };
 		F13C145A1B45BFE3008BF9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13C14581B45BFE3008BF9A7 /* Main.storyboard */; };
 		F13C145C1B45BFE3008BF9A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13C145B1B45BFE3008BF9A7 /* Images.xcassets */; };
@@ -60,7 +62,6 @@
 		F1FD1A0B1B4ACD9A008D9835 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */; };
 		F1FD1A311B4EDCDD008D9835 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */; };
 		F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */; };
-		F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		F10D0F6C1B73AF43002272BC /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		F10D0F6D1B73AF43002272BC /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		F10D0F8E1B73EDA8002272BC /* email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = email.swift; sourceTree = "<group>"; };
+		F12E97B11B7B05DC00665479 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F12E97B51B7B200600665479 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		F13C144F1B45BFE3008BF9A7 /* QuickPoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C14531B45BFE3008BF9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13C14541B45BFE3008BF9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +135,6 @@
 		F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		F1FD1A301B4EDCDD008D9835 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollFeedViewController.swift; sourceTree = "<group>"; };
-		F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FBCB702B8FFA2B690E80944E /* Pods-QuickPoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickPoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickPoll/Pods-QuickPoll.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,9 +300,10 @@
 				F1FD1A071B4AC907008D9835 /* Cells */,
 				F1FD1A0A1B4ACD9A008D9835 /* VoteViewController.swift */,
 				F1FD1A321B4EF3A5008D9835 /* PollFeedViewController.swift */,
-				F1FD1A341B4F0061008D9835 /* SettingsViewController.swift */,
 				F1CA4B151B57F1DD00A89054 /* MyPollsViewController.swift */,
 				F1CA4B171B57F25E00A89054 /* CreatePollViewController.swift */,
+				F12E97B11B7B05DC00665479 /* SettingsTableViewController.swift */,
+				F12E97B51B7B200600665479 /* CreditsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				F10D0F871B73AF43002272BC /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				F1FD1A331B4EF3A5008D9835 /* PollFeedViewController.swift in Sources */,
 				F10D0F6E1B73AF43002272BC /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
+				F12E97B61B7B200600665479 /* CreditsViewController.swift in Sources */,
 				F10D0F781B73AF43002272BC /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				F1CA4B1B1B5804BF00A89054 /* KeyboardHandling.swift in Sources */,
 				F10D0F761B73AF43002272BC /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
@@ -513,6 +517,7 @@
 				F10D0F701B73AF43002272BC /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				F10D0F841B73AF43002272BC /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				F1CA4B221B584C2C00A89054 /* ErrorHandling.swift in Sources */,
+				F12E97B21B7B05DC00665479 /* SettingsTableViewController.swift in Sources */,
 				F10D0F831B73AF43002272BC /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				F13C14991B45CAF0008BF9A7 /* ParseHelper.swift in Sources */,
 				F10D0F7E1B73AF43002272BC /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
@@ -521,7 +526,6 @@
 				F10D0F7D1B73AF43002272BC /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				F10D0F711B73AF43002272BC /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				F10D0F861B73AF43002272BC /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
-				F1FD1A351B4F0061008D9835 /* SettingsViewController.swift in Sources */,
 				F1CA4B161B57F1DD00A89054 /* MyPollsViewController.swift in Sources */,
 				F10D0F751B73AF43002272BC /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				F10D0F7C1B73AF43002272BC /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,

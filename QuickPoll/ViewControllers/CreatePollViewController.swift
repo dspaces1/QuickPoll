@@ -116,7 +116,7 @@ class CreatePollViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         titleOfPoll.delegate = self
         
-        //keboardHandler = KeboardHandling(view: view!)
+        keboardHandler = KeboardHandling(view: view!)
         
         scrollViewHeight = contentScrollView.contentSize.height
         
@@ -126,8 +126,9 @@ class CreatePollViewController: UIViewController {
         
         characterLimit.hidden  = true
         
+        titleOfPoll.returnKeyType = .Next
+        descriptionOfPoll.returnKeyType = .Next
         
-        scrollViewHeight = contentScrollView.contentSize.height
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil)
 
@@ -149,7 +150,7 @@ class CreatePollViewController: UIViewController {
         var info = notification.userInfo!
         keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
-//        scrollViewHeight = contentScrollView.contentSize.height
+        scrollViewHeight = contentScrollView.contentSize.height
 
         contentScrollView.contentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, scrollViewHeight + keyboardFrame!.height)
         
@@ -180,7 +181,7 @@ class CreatePollViewController: UIViewController {
             
             if frameToShow.origin.y > keyboardHeight {
                 
-                let scrollOffset = frameToShow.origin.y - (UIScreen.mainScreen().bounds.height - keyboardHeight - frameToShow.height )
+                let scrollOffset = frameToShow.origin.y - (UIScreen.mainScreen().bounds.height - (keyboardHeight ) - frameToShow.height )
                 contentScrollView.setContentOffset(CGPoint(x: 0, y:  scrollOffset ), animated: true)
                 
             } else {
@@ -217,7 +218,6 @@ extension CreatePollTableViewCell:UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
         moveCellDelegate?.getTableCellPosition(self)
         characterLimit.hidden = false
     }
@@ -231,9 +231,9 @@ extension CreatePollTableViewCell:UITextFieldDelegate{
         
         let newLength = count(textField.text.utf16) + count(string.utf16) - range.length
         
-        characterLimit.text =  String(45 - newLength)
+        characterLimit.text =  String(30 - newLength)
         
-        return newLength < 45
+        return newLength < 30
         
     }
     
@@ -297,6 +297,7 @@ extension CreatePollViewController:UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(textView: UITextView){
+
         currentTextFieldFrame = textView.frame
         scrollIfNeed()
         
@@ -348,33 +349,14 @@ extension CreatePollViewController:UITableViewDataSource {
 }
 
 
-
 extension CreatePollViewController:MoveTableViewCellsDelegate {
     
     func getTableCellPosition(cell:CreatePollTableViewCell){
-        //find the top of keyboard
-    
-        //println("cell frame: \(cell.frame) and keyboard frame: \(keyboardFrame)")
-        
-        //let tableViewFrame:CGRect = cell.convertRect(cell.frame, toView: self.optionsTableView)
+
         let tableViewCellFrameInView:CGRect = optionsTableView.convertRect(cell.frame, toView: self.contentScrollView)
         currentTextFieldFrame = tableViewCellFrameInView
         scrollIfNeed()
-        
-//        println(keyboardFrame.origin.y)
-//        println("cell frame: \(tableViewCellFrameInView.origin.y)")
-//        println("cell frame with respect view: \(tableViewCellFrameInView.origin.y)")
-//        
-//        let heightOfScreen = UIScreen.mainScreen().bounds.origin.y
-//        println(tableViewCellFrameInView.origin.y)
-//        
-//
-//        
-//        contentScrollView.setContentOffset(CGPoint(x: 0, y:  tableViewCellFrameInView.origin.y - 153 ), animated: true)
-        
-        
-        
-        
+  
     }
 }
 

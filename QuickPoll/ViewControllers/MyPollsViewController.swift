@@ -8,7 +8,6 @@
 
 import UIKit
 import Parse
-
 import MBProgressHUD
 
 class MyPollsViewController: UIViewController {

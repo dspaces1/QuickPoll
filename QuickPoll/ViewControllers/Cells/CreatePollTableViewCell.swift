@@ -27,7 +27,9 @@ class CreatePollTableViewCell: UITableViewCell {
     //MARK - Section: Class Methods
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        optionDescription.returnKeyType = .Next
         optionDescription.delegate = self
     }
     override func setSelected(selected: Bool, animated: Bool) {

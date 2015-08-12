@@ -16,7 +16,7 @@ import MessageUI
 class email:NSObject {
     
     let emailTo:[String] = ["dspaces1@gmail.com"]
-    let reportPoll:String = "Report Poll"
+    let reportPoll:String = "Report Concern"
     var pollToReport:String!
     
     let mailController:MFMailComposeViewController = MFMailComposeViewController()
@@ -32,6 +32,14 @@ class email:NSObject {
         displayMailComposer()
     }
     
+    init(currentController:UIViewController, user:String){
+        pollToReport = ""
+        viewController = currentController
+        
+        super.init()
+        
+        displayMailComposer()
+    }
 
     
     
