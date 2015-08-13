@@ -362,7 +362,7 @@
                                             <constraint firstAttribute="height" constant="42" id="T1s-i6-s7d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.3"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
@@ -384,7 +384,7 @@
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWB-g8-MeQ">
                                                             <rect key="frame" x="25" y="10" width="567" height="19"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbQ-pN-nG1">
                                                             <rect key="frame" x="572" y="21" width="15" height="16"/>
@@ -436,6 +436,15 @@
                                             <action selector="createPoll:" destination="r8I-9Y-aWl" eventType="touchUpInside" id="THl-26-JkL"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4r-L9-3Ea">
+                                        <rect key="frame" x="568" y="176" width="15" height="16.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="S89-9Q-RVW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description of poll" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wjU-qH-d8j">
                                         <rect key="frame" x="16" y="204" width="568" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -449,15 +458,6 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4r-L9-3Ea">
-                                        <rect key="frame" x="568" y="176" width="15" height="16.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="S89-9Q-RVW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QJL-tX-RhU" firstAttribute="trailing" secondItem="wjU-qH-d8j" secondAttribute="trailing" id="Epi-ye-Wyw"/>
@@ -606,57 +606,31 @@
         <scene sceneID="a64-Xw-cRE">
             <objects>
                 <tableViewController id="4fs-ZE-IVN" customClass="SettingsTableViewController" customModule="QuickPoll" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dJE-nG-kAw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dJE-nG-kAw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="" id="bBg-1v-WHM">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="177" id="s7t-dg-KkT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="117" id="s7t-dg-KkT">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7t-dg-KkT" id="OJ0-Yq-39x">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rk-gi-bVt">
-                                                    <rect key="frame" x="8" y="51" width="584" height="22.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-g1-b46">
-                                                    <rect key="frame" x="8" y="21" width="584" height="24"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaM-i6-aez">
-                                                    <rect key="frame" x="8" y="100" width="584" height="24"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test@test@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-Tf-p8h">
-                                                    <rect key="frame" x="8" y="130" width="584" height="22.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <rect key="frame" x="0.0" y="9" width="600" height="99.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="38"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.98056739267676774" green="0.98056739267676774" blue="0.98056739267676774" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.53515892583058033" green="0.94383007461919188" blue="0.80996422702096005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="bhk-g1-b46" firstAttribute="top" secondItem="OJ0-Yq-39x" secondAttribute="topMargin" constant="13" id="1NW-ra-cO5"/>
-                                                <constraint firstItem="ecM-Tf-p8h" firstAttribute="leading" secondItem="OJ0-Yq-39x" secondAttribute="leadingMargin" id="9jz-tI-KQu"/>
-                                                <constraint firstItem="0Rk-gi-bVt" firstAttribute="top" secondItem="bhk-g1-b46" secondAttribute="bottom" constant="6" id="FFZ-Ka-Sah"/>
-                                                <constraint firstItem="ecM-Tf-p8h" firstAttribute="top" secondItem="iaM-i6-aez" secondAttribute="bottom" constant="6" id="Hp0-n0-IJn"/>
-                                                <constraint firstItem="bhk-g1-b46" firstAttribute="leading" secondItem="OJ0-Yq-39x" secondAttribute="leadingMargin" id="JOb-d5-CV2"/>
-                                                <constraint firstItem="iaM-i6-aez" firstAttribute="top" secondItem="0Rk-gi-bVt" secondAttribute="bottom" constant="26.5" id="K9O-ct-aSr"/>
-                                                <constraint firstItem="iaM-i6-aez" firstAttribute="trailing" secondItem="OJ0-Yq-39x" secondAttribute="trailingMargin" id="fig-bK-Rbm"/>
-                                                <constraint firstItem="0Rk-gi-bVt" firstAttribute="trailing" secondItem="OJ0-Yq-39x" secondAttribute="trailingMargin" id="gRj-NJ-dT1"/>
-                                                <constraint firstItem="ecM-Tf-p8h" firstAttribute="trailing" secondItem="OJ0-Yq-39x" secondAttribute="trailingMargin" id="jir-rg-NT7"/>
-                                                <constraint firstItem="0Rk-gi-bVt" firstAttribute="leading" secondItem="OJ0-Yq-39x" secondAttribute="leadingMargin" id="oYR-yu-LHl"/>
-                                                <constraint firstItem="iaM-i6-aez" firstAttribute="leading" secondItem="OJ0-Yq-39x" secondAttribute="leadingMargin" id="sYo-dD-bRx"/>
-                                                <constraint firstItem="bhk-g1-b46" firstAttribute="trailing" secondItem="OJ0-Yq-39x" secondAttribute="trailingMargin" id="yet-D7-bQO"/>
+                                                <constraint firstItem="0Rk-gi-bVt" firstAttribute="top" secondItem="OJ0-Yq-39x" secondAttribute="top" constant="9" id="aAz-Rx-9P1"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Rk-gi-bVt" secondAttribute="bottom" constant="8" id="aQC-IV-4jx"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Rk-gi-bVt" secondAttribute="trailing" id="au2-L1-NzI"/>
+                                                <constraint firstItem="0Rk-gi-bVt" firstAttribute="leading" secondItem="OJ0-Yq-39x" secondAttribute="leading" id="vfC-A7-SnK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -715,7 +689,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="iRi-fI-9wN"/>
                     <connections>
-                        <outlet property="emailLabel" destination="ecM-Tf-p8h" id="HCc-85-1eh"/>
                         <outlet property="usernameLabel" destination="0Rk-gi-bVt" id="xrL-Fg-iIq"/>
                     </connections>
                 </tableViewController>
@@ -858,7 +831,7 @@
                                             <constraint firstAttribute="width" priority="250" constant="582" id="0s5-cp-ehN"/>
                                             <constraint firstAttribute="height" constant="523" id="gd0-M6-utC"/>
                                         </constraints>
-                                        <mutableString key="text">Copyright (c) 2009-2015 Matej Bukovinski
+                                        <string key="text">Copyright (c) 2009-2015 Matej Bukovinski
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -869,7 +842,7 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
                                                                                                                                            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <variation key="default">

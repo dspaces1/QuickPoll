@@ -16,7 +16,7 @@ class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
-    @IBOutlet weak var emailLabel: UILabel!
+
     
     var emailComposer:email?
     var parseLoginHelper: ParseLoginHelper!
@@ -24,8 +24,9 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         usernameLabel.text = PFUser.currentUser()?.username
-        emailLabel.text = PFUser.currentUser()?.email
+
     }
 
     

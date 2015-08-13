@@ -85,6 +85,11 @@ class MyPollsViewController: UIViewController {
             
             if success {
                 self.pollFeed = pollStruct
+                
+                for polls in self.pollFeed.polls {
+                    polls.votedFor = false
+                }
+                
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
                 ErrorHandling.showAlertWithString("Error", messageText: "Failed to load data from the server. Please try refreshing page.", currentViewController: self)
@@ -99,7 +104,9 @@ class MyPollsViewController: UIViewController {
         TimelineFeed.fetchMyPolls(myPolls, date: myPolls.latestPollDate) { (success, pollStruct) -> Void in
             
             if success {
+                
                 self.myPolls = pollStruct
+   
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -300,11 +307,11 @@ extension MyPollsViewController:UITabBarControllerDelegate {
             let createPollController:CreatePollViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Create Poll") as! CreatePollViewController
             createPollController.addPollDelegate = self
             self.presentViewController(createPollController, animated: true, completion: nil)
-            
-            
-            
+
             return false
+            
         } else{
+            
             return true
         }
     }
