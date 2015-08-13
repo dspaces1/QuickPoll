@@ -73,6 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
+    func createLogoLabel() -> UILabel {
+        var logInLogoTitle = UILabel()
+        logInLogoTitle.text = "Quick Poll"
+        logInLogoTitle.font = UIFont (name: "HelveticaNeue", size: 45)
+        logInLogoTitle.textColor = UIColor.whiteColor()
+        return logInLogoTitle
+    }
     
     func logInScreen () {
         
@@ -89,7 +96,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 4
             // Otherwise set the LoginViewController to be the first
             let loginViewController = PFLogInViewController()
+            
+            let signIn_signUpBackgroundColor = UIColor(red: 80/255.0, green: 227/255.0, blue: 194/255.0, alpha: 1)
+            
             loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+            
+            loginViewController.logInView?.logo = createLogoLabel()
+            
+            loginViewController.logInView?.backgroundColor = signIn_signUpBackgroundColor
+            
+            loginViewController.signUpController?.signUpView?.logo = createLogoLabel()
+            
+            loginViewController.signUpController?.signUpView?.backgroundColor = signIn_signUpBackgroundColor
+            
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
             

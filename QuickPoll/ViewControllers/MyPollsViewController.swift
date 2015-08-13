@@ -114,6 +114,11 @@ class MyPollsViewController: UIViewController {
             
             if success {
                 self.votedPolls = pollStruct
+                
+                for polls in self.votedPolls.polls {
+                    polls.votedFor = true
+                }
+                
                 self.updateFeedData(self.segmentView.selectedSegmentIndex)
             } else {
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)

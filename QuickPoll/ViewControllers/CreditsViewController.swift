@@ -20,7 +20,7 @@ class CreditsViewController: UIViewController {
         
         
         let scrollSize = CGSizeMake(950, UIScreen.mainScreen().bounds.width)
-        scrollView.contentSize = scrollSize
+        //scrollView.contentSize = scrollSize
         
         
     }

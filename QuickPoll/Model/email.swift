@@ -15,7 +15,7 @@ import MessageUI
 
 class email:NSObject {
     
-    let emailTo:[String] = ["dspaces1@gmail.com"]
+    let emailTo:[String] = ["quickpollapp1@gmail.com"]
     let reportPoll:String = "Report Concern"
     var pollToReport:String!
     

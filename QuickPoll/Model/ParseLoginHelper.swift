@@ -41,14 +41,14 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
       self.callback(user, nil)
     } else {
       // if this is a Facebook login, fetch the username from Facebook
-      FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler {
+    FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler {
         (connection: FBSDKGraphRequestConnection!, result: AnyObject?, error: NSError?) -> Void in
           if let error = error {
             // Facebook Error? -> hand error to callback
             self.callback(nil, error)
           }
         
-          if let fbUsername = result?["name"] as? String {
+          if let fbUsername = result?["name"] as? String{
             // assign Facebook name to PFUser
             user.username = fbUsername
             // store PFUser
@@ -80,7 +80,11 @@ extension ParseLoginHelper : PFLogInViewControllerDelegate {
 extension ParseLoginHelper : PFSignUpViewControllerDelegate {
   
   func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+    
+    
     self.callback(user, nil)
+    
+    
   }
   
 }

@@ -8,33 +8,78 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class SettingsTableViewController: UITableViewController {
 
+    
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
     var emailComposer:email?
+    var parseLoginHelper: ParseLoginHelper!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        usernameLabel.text = PFUser.currentUser()?.username
+        emailLabel.text = PFUser.currentUser()?.email
     }
 
-
+    
+    
+    func createLogoLabel() -> UILabel {
+        var logInLogoTitle = UILabel()
+        logInLogoTitle.text = "Quick Poll"
+        logInLogoTitle.font = UIFont (name: "HelveticaNeue", size: 45)
+        logInLogoTitle.textColor = UIColor.whiteColor()
+        return logInLogoTitle
+    }
 
     func logout () {
+        
+        
+        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
+            // Initialize the ParseLoginHelper with a callback
+            if let error = error {
+                println("Error with login: \(error)")
+            } else  if let user = user {
+                // if login was successful, display the TabBarController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UIViewController
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.presentViewController(tabBarController, animated:false, completion:nil)
+            }
+        }
+        
+        
+        
+        
         PFUser.logOutInBackgroundWithBlock { (error) -> Void in
             if let error = error {
-                println("error: \(error)")
+                ErrorHandling.showAlertWithString("Error", messageText: "Could not log out. Please restart app", currentViewController: self)
             } else {
-                println("User Loged out")
                 
-                var appDel:AppDelegate = AppDelegate()
-                appDel.logInScreen()
+                let loginViewController = PFLogInViewController()
+                loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        println("Woot")
-                    })
-                })
+                let signIn_signUpBackgroundColor = UIColor(red: 80/255.0, green: 227/255.0, blue: 194/255.0, alpha: 1)
+                
+                loginViewController.logInView?.logo = self.createLogoLabel()
+                
+                loginViewController.logInView?.backgroundColor = signIn_signUpBackgroundColor
+                
+                loginViewController.signUpController?.signUpView!.logo = self.createLogoLabel()
+                loginViewController.signUpController?.signUpView!.backgroundColor = signIn_signUpBackgroundColor
+                
+                loginViewController.delegate = self.parseLoginHelper
+                loginViewController.signUpController?.delegate = self.parseLoginHelper
+                
+                self.presentViewController(loginViewController, animated: true, completion: nil)
+ 
             }
         }
     }
