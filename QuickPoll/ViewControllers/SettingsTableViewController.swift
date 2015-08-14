@@ -45,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
             // Initialize the ParseLoginHelper with a callback
             if let error = error {
-                println("Error with login: \(error)")
+               ErrorHandling.showAlertWithString("Error", messageText: "Please try restarting app", currentViewController: self)
             } else  if let user = user {
                 // if login was successful, display the TabBarController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

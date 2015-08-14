@@ -23,7 +23,6 @@ class MyPollsViewController: UIViewController {
             refreshController.endRefreshing()
         }
     }
-    
 
      struct pollArrays {
         var polls: [Poll] = []
@@ -149,10 +148,10 @@ class MyPollsViewController: UIViewController {
             getVotedFeed()
             
         default:
-            println("error")
+            ErrorHandling.showAlertWithString("Error", messageText: "Please try restarting app", currentViewController: self)
             
         }
-        println("fetching")
+
     }
     
     
@@ -170,7 +169,7 @@ class MyPollsViewController: UIViewController {
             votedPolls = pollArrays()
             
         default:
-            println("error")
+            ErrorHandling.showAlertWithString("Error", messageText: "Please try restarting app", currentViewController: self)
         }
         
         fetchPollsAccordingToSegment(segmentView.selectedSegmentIndex)
@@ -218,10 +217,7 @@ class MyPollsViewController: UIViewController {
             voteViewController.polls = poll
            
         }
-        else if segue.identifier == "createNewPoll"{
-//            let createViewController = segue.destinationViewController as! CreatePollViewController
-//            createViewController.addPollDelegate = self
-        }
+
     }
     
 }
@@ -238,12 +234,11 @@ extension MyPollsViewController:UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("myPollCell", forIndexPath: indexPath) as! MyPollsTableViewCell
         
-        // add poll property on MyPollsTableViewCell to turn this into
-        // cell.poll = polls[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("myPollCell", forIndexPath: indexPath) as! MyPollsTableViewCell
+
         cell.title.text = polls[indexPath.row].title
-        cell.username.text = "By: \(polls[indexPath.row].user!.username!) " //Can user be nil at this point?
+        cell.username.text = "By: \(polls[indexPath.row].user!.username!) "
         cell.categoryImage.image = UIImage(named:Poll.getCategoryImageString(polls[indexPath.row].category))
         
         cell.accessoryType = UITableViewCellAccessoryType.None

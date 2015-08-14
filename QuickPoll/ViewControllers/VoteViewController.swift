@@ -38,9 +38,7 @@ class VoteViewController: UIViewController {
     @IBAction func reportPoll(sender: AnyObject) {
         
         emailComposer = email(currentController: self, pollTitleAndUser: ["\(polls!.title!)" , "\(polls!.user!.username!)"])
-        
-        
-        //emailComposer.emailDelegate = self
+
     
     }
     

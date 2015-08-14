@@ -31,7 +31,7 @@ class VoteOptionTableViewCell: UITableViewCell {
     //MARK: - Section: Class Methods
     
     func getBarMaxWidth () -> CGFloat{
-        let maxBarWidth = resultsBar.frame.width//UIScreen.mainScreen().bounds.width - 40 //CGRectGetWidth(resultsBar.frame)
+        let maxBarWidth = resultsBar.frame.width
         return maxBarWidth
     }
     

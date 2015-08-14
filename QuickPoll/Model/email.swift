@@ -65,26 +65,7 @@ class email:NSObject {
 extension email:MFMailComposeViewControllerDelegate {
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        
-        switch result.value {
-            
-        case MFMailComposeResultCancelled.value:
-            println("Canceled")
-            
-        case MFMailComposeResultSaved.value:
-            println("Mail Saved")
-            
-        case MFMailComposeResultSent.value:
-            println("Mail Sent")
-            
-        case MFMailComposeResultFailed.value:
-            println("Mail Failed")
-            
-        default:
-            println("Nothing worked")
-            break
-        }
-        
+                
         viewController.dismissViewControllerAnimated(true, completion: nil)
         
     }

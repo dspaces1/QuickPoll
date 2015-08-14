@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
             // Initialize the ParseLoginHelper with a callback
             if let error = error {
-                println("Error with login: \(error)")
+                //println("Error with login: \(error)")
             } else  if let user = user {
                 // if login was successful, display the TabBarController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

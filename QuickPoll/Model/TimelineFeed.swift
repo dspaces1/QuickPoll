@@ -82,7 +82,6 @@ class TimelineFeed {
                 ParseHelper.timelineRequestForVotedPolls({ (result, error) -> Void in
                     
                     if error == nil {
-                        //println(resultsFromAllPolls)
                         if resultsFromAllPolls!.isEmpty {
                             currentPolls.loadedData = true
                             return 
@@ -147,7 +146,6 @@ class TimelineFeed {
                             return poll
                         })
                         
-                        //println(newPollResults)
                         
                         currentPolls.polls += newPollResults
                         

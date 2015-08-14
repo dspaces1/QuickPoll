@@ -104,7 +104,6 @@ class Poll: PFObject, PFSubclassing {
 
             if error != nil {
                 completionBlock(false, error)
-                println("Error fetching voted for")
                 return
             }
             

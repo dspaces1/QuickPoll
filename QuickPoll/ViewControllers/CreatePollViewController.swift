@@ -97,7 +97,6 @@ class CreatePollViewController: UIViewController {
                 let isEmpty:Bool = ErrorHandling.emptyStringOrNil(cellTextFieldString)
                 
                 if cellIndex.row <= 1 && isEmpty  {
-                    //println("nil cell at cellindex: \(cellIndex.row)")
                     ErrorHandling.showAlertWithString("Missing Field", messageText: "Need at least 2 options for poll", currentViewController: self)
                     return nil
                 }

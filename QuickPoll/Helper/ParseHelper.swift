@@ -10,13 +10,12 @@ import Foundation
 import Parse
 
 class ParseHelper {
+    
     var user: PFUser!
-    
-
-    
   
     // MARK: - Section: Class Methods
     
+    /// Get all polls from the current earlier than the specified date from Parse
     static func timelineRequestForCurrentUser (sinceDate:NSDate, completionBlock:PFArrayResultBlock ) {
         let pollsFromThisUser = Poll.query()
         pollsFromThisUser?.whereKey("user", equalTo: PFUser.currentUser()!)
@@ -30,7 +29,7 @@ class ParseHelper {
     }
     
     
-    /// Get all polls
+    /// Get all polls earlier than the specified date from Parse
     static func timelineRequestForAllPolls (sinceDate:NSDate, completionBlock:PFArrayResultBlock ) {
         
         let allPollsQuery = Poll.query()
@@ -44,18 +43,17 @@ class ParseHelper {
     }
     
     
-    /// Get Voted Polls
+    /// Get Voted Polls from Parse
     static func timelineRequestForVotedPolls (completionBlock:PFArrayResultBlock ) {
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
         pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
         pollsVotedFromThisUser.includeKey("toPoll")
         
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
-        
 
     }
     
-    
+    /// Get all polls the that the user voted on from Parse
     static func votedForRequestForCurrentUser (poll:Poll,completionBlock:PFArrayResultBlock){
         let pollsVotedFromThisUser = PFQuery(className: "Voted")
         pollsVotedFromThisUser.whereKey("fromUser", equalTo: PFUser.currentUser()!)
@@ -64,10 +62,7 @@ class ParseHelper {
         pollsVotedFromThisUser.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
-
-    
-    
-    
+    /// check if the user voted for the current poll
     static func voteForPoll (user:PFUser, poll:Poll,completionBlock:PFBooleanResultBlock) {
         let vote = PFObject(className: "Voted")
         vote["fromUser"] = user
