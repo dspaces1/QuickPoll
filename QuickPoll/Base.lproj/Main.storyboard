@@ -280,7 +280,7 @@
                             <constraint firstItem="8tE-P7-VwQ" firstAttribute="top" secondItem="Jeg-GG-tsU" secondAttribute="top" id="zHW-CY-7PB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="V7J-FD-Bqb">
+                    <navigationItem key="navigationItem" id="V7J-FD-Bqb">
                         <barButtonItem key="rightBarButtonItem" title="Report" id="bse-fv-App">
                             <connections>
                                 <action selector="reportPoll:" destination="JJc-IC-NZM" id="bcN-wr-oEd"/>
